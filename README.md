@@ -1,0 +1,84 @@
+# Jim Zaslaw Consulting — jimzaslaw.com
+
+Marketing site for Jim Zaslaw Consulting, a sister practice to ZINC.
+
+## Stack
+
+- Next.js 15 (App Router) + React 19
+- Tailwind CSS v4 + `@tailwindcss/typography`
+- Geist Sans + Geist Mono (self-hosted via the `geist` package)
+- Framer Motion + Embla Carousel
+- MDX blog (file-based, `content/blog/*.mdx`)
+- Resend (contact form)
+- Calendly (inline scheduling on `/contact`)
+- Deploy: Netlify (`@netlify/plugin-nextjs`)
+
+## Getting started
+
+```bash
+npm install
+cp .env.example .env.local
+# fill in NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_CALENDLY_URL,
+# NEXT_PUBLIC_GA_ID, RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
+npm run dev
+```
+
+## Routes
+
+| Path | Purpose |
+| --- | --- |
+| `/` | Conversion-focused home page (13 sections) |
+| `/about` | Long-form bio + ZINC tie-in |
+| `/pillars` | Overview of the three pillar engagements |
+| `/pillars/[slug]` | Individual pillar page (3 of these) |
+| `/engagement` | How engagements work — Snapshot / Implementation / Retainer + FAQ |
+| `/blog` | Blog index, topic filter, featured slot |
+| `/blog/[slug]` | MDX post template with JSON-LD Article + FAQPage + BreadcrumbList |
+| `/contact` | Calendly inline + contact form (Resend handler) |
+| `/api/contact` | POST endpoint, Resend integration with Zod validation + honeypot |
+| `/sitemap.xml` | Auto-generated from MDX + static routes |
+| `/feed.xml` | RSS feed |
+| `/robots.txt` | Robots policy |
+| `/og` | Dynamic OG image (accepts `?title=&eyebrow=`) |
+
+## Adding a blog post
+
+Drop a new `.mdx` file in `content/blog/`:
+
+```mdx
+---
+title: 'How does X work in 2026?'
+description: 'A 1–2 sentence answer suitable as the AEO direct answer.'
+datePublished: '2026-04-29'
+dateModified: '2026-04-29'
+author: 'Jim Zaslaw'
+topics: ['AEO', 'Strategy']
+featured: true
+faq:
+  - question: 'Q here'
+    answer: 'A here'
+---
+
+**TL;DR.** Lead with the answer.
+
+## Heading framed as a question
+
+…
+```
+
+The site picks it up automatically — sitemap, RSS, and JSON-LD schema all populate from the frontmatter.
+
+## Design system
+
+See `app/globals.css` for tokens (colors, spacing, motion, radius, shadows). Primitives live in `components/ui/`. Sections live in `components/sections/`. The pillar mockups (SVG-based illustrations) are in `components/mockups/`.
+
+Brand: ink `#231F20`, off-white `#FDFDFD`, accent chips for the three pillars (mint / sky / blush). Geist as the type system. Pill CTA buttons. Hairline borders. Minimal shadows.
+
+## Deploying to Netlify
+
+The repo includes `netlify.toml` and uses `@netlify/plugin-nextjs` to handle the Next.js runtime.
+
+1. Connect the repo on Netlify.
+2. Set the env vars from `.env.example`.
+3. Point `jimzaslaw.com` at the Netlify site.
+4. Push `main`. Netlify builds and deploys automatically.
