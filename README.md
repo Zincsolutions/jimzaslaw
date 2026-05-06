@@ -29,10 +29,10 @@ npm run dev
 | --- | --- |
 | `/` | Conversion-focused home page (13 sections) |
 | `/about` | Long-form bio + ZINC tie-in |
-| `/pillars` | Overview of the three pillar engagements |
-| `/pillars/[slug]` | Individual pillar page (3 of these) |
-| `/engagement` | How engagements work — Snapshot / Implementation / Retainer + FAQ |
-| `/blog` | Blog index, topic filter, featured slot |
+| `/services` | Overview of the three service engagements |
+| `/services/[slug]` | Individual service page (3 of these) |
+| `/how-it-works` | How engagements work — Assessment / Implementation / Retainer + FAQ |
+| `/blog` | Blog index (rendered as "Field Notes"), topic filter, featured slot |
 | `/blog/[slug]` | MDX post template with JSON-LD Article + FAQPage + BreadcrumbList |
 | `/contact` | Calendly inline + contact form (Resend handler) |
 | `/api/contact` | POST endpoint, Resend integration with Zod validation + honeypot |
