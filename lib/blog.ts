@@ -19,6 +19,8 @@ export type BlogFrontmatter = {
   featured?: boolean;
   author?: string;
   faq?: { question: string; answer: string }[];
+  coverImage?: string;
+  coverImageAlt?: string;
 };
 
 export type BlogPost = BlogFrontmatter & {

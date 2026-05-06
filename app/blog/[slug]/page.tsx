@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Script from 'next/script';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
@@ -28,6 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
   const metaTitle = post.metaTitle || post.title;
+  const ogImage = post.coverImage
+    ? `${site.url}${post.coverImage}`
+    : `${site.url}/og?title=${encodeURIComponent(metaTitle)}`;
   return {
     title: metaTitle,
     description: post.description,
@@ -39,6 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.dateModified || post.datePublished,
       authors: [post.author || 'Jim Zaslaw'],
       tags: post.topics,
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: metaTitle,
+      description: post.description,
+      images: [ogImage],
     },
     alternates: { canonical: `${site.url}/blog/${post.slug}` },
   };
@@ -54,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
   const all = getAllPosts();
   const related = all.filter((p) => p.slug !== post.slug).slice(0, 3);
 
-  const articleLd = {
+  const articleLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
@@ -70,6 +81,9 @@ export default async function BlogPostPage({ params }: Props) {
     mainEntityOfPage: `${site.url}/blog/${post.slug}`,
     keywords: post.topics.join(', '),
   };
+  if (post.coverImage) {
+    articleLd.image = [`${site.url}${post.coverImage}`];
+  }
   const faqLd = post.faq?.length
     ? {
         '@context': 'https://schema.org',
@@ -132,8 +146,23 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </header>
 
+          {post.coverImage ? (
+            <figure className="mt-12 -mx-6 md:mx-0 md:max-w-[1120px]">
+              <div className="relative aspect-[16/9] md:rounded-[20px] overflow-hidden bg-bg-soft">
+                <Image
+                  src={post.coverImage}
+                  alt={post.coverImageAlt || post.title}
+                  fill
+                  priority
+                  sizes="(min-width: 1120px) 1120px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+          ) : null}
+
           <div
-            className="mt-12 prose-jz"
+            className={post.coverImage ? 'mt-12 prose-jz' : 'mt-12 prose-jz'}
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </Container>

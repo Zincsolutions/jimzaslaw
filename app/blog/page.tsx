@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { BlogCard } from '@/components/blog-card';
@@ -56,15 +57,26 @@ export default async function BlogIndexPage({
               href={`/blog/${featured.slug}`}
               className="group grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 md:mb-20 border-b border-border pb-12 md:pb-16"
             >
-              <div className="lg:col-span-7 aspect-[16/10] rounded-xl border border-border relative overflow-hidden">
-                <div
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      'radial-gradient(120% 100% at 0% 0%, var(--chip-sky) 0%, transparent 60%), radial-gradient(120% 100% at 100% 100%, var(--chip-orange) 0%, transparent 55%)',
-                  }}
-                />
+              <div className="lg:col-span-7 aspect-[16/10] rounded-xl border border-border relative overflow-hidden bg-bg-soft">
+                {featured.coverImage ? (
+                  <Image
+                    src={featured.coverImage}
+                    alt={featured.coverImageAlt || featured.title}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                ) : (
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        'radial-gradient(120% 100% at 0% 0%, var(--chip-sky) 0%, transparent 60%), radial-gradient(120% 100% at 100% 100%, var(--chip-orange) 0%, transparent 55%)',
+                    }}
+                  />
+                )}
               </div>
               <div className="lg:col-span-5 flex flex-col gap-5 self-center">
                 <div className="flex items-center gap-3">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog';
 
@@ -16,14 +17,24 @@ export function BlogCard({ post }: { post: BlogPost }) {
       className="group flex flex-col gap-5 border border-border rounded-xl bg-bg p-6 hover:border-border-strong transition-colors h-full"
     >
       <div className="aspect-[16/10] rounded-md bg-bg-soft border border-border relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-90"
-          style={{
-            background:
-              'radial-gradient(120% 100% at 0% 0%, var(--chip-sky) 0%, transparent 60%), radial-gradient(120% 100% at 100% 100%, var(--chip-orange) 0%, transparent 55%)',
-          }}
-          aria-hidden
-        />
+        {post.coverImage ? (
+          <Image
+            src={post.coverImage}
+            alt={post.coverImageAlt || post.title}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 opacity-90"
+            style={{
+              background:
+                'radial-gradient(120% 100% at 0% 0%, var(--chip-sky) 0%, transparent 60%), radial-gradient(120% 100% at 100% 100%, var(--chip-orange) 0%, transparent 55%)',
+            }}
+            aria-hidden
+          />
+        )}
         <span className="absolute bottom-3 left-3 chip chip-stone bg-white/90 text-ink">
           {post.topics[0] || 'Article'}
         </span>
