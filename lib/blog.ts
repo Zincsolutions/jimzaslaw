@@ -11,6 +11,7 @@ import rehypeStringify from 'rehype-stringify';
 
 export type BlogFrontmatter = {
   title: string;
+  metaTitle?: string;
   description: string;
   datePublished: string;
   dateModified?: string;

@@ -27,11 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const metaTitle = post.metaTitle || post.title;
   return {
-    title: post.title,
+    title: metaTitle,
     description: post.description,
     openGraph: {
-      title: post.title,
+      title: metaTitle,
       description: post.description,
       type: 'article',
       publishedTime: post.datePublished,
@@ -165,7 +166,12 @@ export default async function BlogPostPage({ params }: Props) {
         </section>
       ) : null}
 
-      <CTABand />
+      <CTABand
+        title="Ready to find your first AI opportunity?"
+        body="Jim Zaslaw helps small and mid-sized businesses turn scattered AI usage into practical systems for marketing, content, operations, and brand execution."
+        primaryLabel="Schedule a Free AI Opportunity Assessment"
+        secondaryLabel="Email Jim"
+      />
 
       <Script
         id={`ld-article-${post.slug}`}
