@@ -170,13 +170,13 @@ export default async function ServicePage({ params }: Props) {
               <Link
                 key={o.slug}
                 href={`/services/${o.slug}`}
-                className="group border border-border rounded-xl p-6 hover:border-border-strong transition-colors flex items-center justify-between gap-4"
+                className="group border border-border rounded-xl p-6 hover:border-accent/40 transition-colors flex items-center justify-between gap-4"
               >
                 <div className="flex flex-col gap-2">
                   <span className={`chip chip-${o.chip} self-start`}>
                     Service {o.number}
                   </span>
-                  <p className="text-[20px] tracking-[-0.015em] font-semibold">
+                  <p className="text-[20px] tracking-[-0.015em] font-semibold transition-colors group-hover:text-accent">
                     {o.short}
                   </p>
                   <p className="text-[14px] text-ink-2">{o.tagline}</p>

@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
         <Container>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-[14px] text-ink-3 hover:text-ink"
+            className="inline-flex items-center gap-1.5 text-[14px] text-ink-3 hover:text-accent transition-colors"
           >
             <ArrowLeft className="size-4" aria-hidden />
             All posts
@@ -180,7 +180,7 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
               <Link
                 href="/blog"
-                className="hidden md:inline-flex items-center gap-1.5 text-[14px] font-medium text-ink hover:gap-2 transition-all"
+                className="hidden md:inline-flex items-center gap-1.5 text-[14px] font-medium text-ink hover:text-accent hover:gap-2 transition-all"
               >
                 All posts
                 <ArrowRight className="size-4" aria-hidden />

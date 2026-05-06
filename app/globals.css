@@ -34,9 +34,13 @@
   --dark-border: rgba(255, 255, 255, 0.14);
   --dark-border-strong: rgba(255, 255, 255, 0.28);
 
+  /* Brand accent (used for link/button hover states + focus rings) */
+  --accent: #f25c19;
+  --accent-hover: #d44a0e;
+
   /* Accent chips */
   --chip-orange: #fff1ea;
-  --chip-orange-fg: #f25c19;
+  --chip-orange-fg: var(--accent);
   --chip-sky: #e3f2fd;
   --chip-sky-fg: #1565c0;
   --chip-blush: #fce4ec;
@@ -48,7 +52,7 @@
   --chip-stone: #efedea;
   --chip-stone-fg: #5c5552;
 
-  --focus: oklch(0.55 0.18 250);
+  --focus: var(--accent);
 
   /* Radii */
   --r-sm: 6px;
@@ -84,6 +88,8 @@
   --color-ink-bg-soft: var(--ink-bg-soft);
   --color-ink-bg-border: var(--ink-bg-border);
   --color-focus: var(--focus);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -119,8 +125,8 @@
     color: var(--bg);
   }
   :focus-visible {
-    outline: 2px solid var(--focus);
-    outline-offset: 2px;
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
     border-radius: 4px;
   }
   h1,
@@ -381,6 +387,14 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  text-decoration-color: currentColor;
+  transition:
+    color 180ms var(--ease-out),
+    text-decoration-color 180ms var(--ease-out);
+}
+.prose-jz a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 .prose-jz blockquote {
   font-style: normal;

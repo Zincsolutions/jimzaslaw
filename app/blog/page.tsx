@@ -85,7 +85,7 @@ export default async function BlogIndexPage({
                     {featured.readingTime}
                   </span>
                 </div>
-                <h2 className="text-[clamp(28px,4vw,40px)] tracking-[-0.025em] leading-[1.1] font-semibold group-hover:underline underline-offset-4">
+                <h2 className="text-[clamp(28px,4vw,40px)] tracking-[-0.025em] leading-[1.1] font-semibold transition-colors group-hover:text-accent">
                   {featured.title}
                 </h2>
                 <p className="text-[17px] leading-relaxed text-ink-2">

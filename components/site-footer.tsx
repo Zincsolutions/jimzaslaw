@@ -84,14 +84,14 @@ export function SiteFooter() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[14px] text-white/85 hover:text-white"
+                        className="text-[14px] text-white/85 hover:text-accent"
                       >
                         {l.label}
                       </a>
                     ) : (
                       <Link
                         href={l.href}
-                        className="text-[14px] text-white/85 hover:text-white"
+                        className="text-[14px] text-white/85 hover:text-accent"
                       >
                         {l.label}
                       </Link>

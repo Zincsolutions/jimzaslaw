@@ -78,7 +78,7 @@ export function WhatWeMightFind() {
         <div className="mt-10">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 text-[15px] font-medium text-ink hover:gap-2 transition-all"
+            className="inline-flex items-center gap-1.5 text-[15px] font-medium text-ink hover:text-accent hover:gap-2 transition-all"
           >
             Find Your First AI Opportunity
             <ArrowRight className="size-4" aria-hidden />

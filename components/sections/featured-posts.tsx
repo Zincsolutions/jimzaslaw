@@ -20,7 +20,7 @@ export function FeaturedPosts() {
           </div>
           <Link
             href="/blog"
-            className="hidden md:inline-flex items-center gap-1.5 text-[15px] font-medium text-ink hover:gap-2 transition-all shrink-0"
+            className="hidden md:inline-flex items-center gap-1.5 text-[15px] font-medium text-ink hover:text-accent hover:gap-2 transition-all shrink-0"
           >
             View all posts
             <ArrowRight className="size-4" aria-hidden />

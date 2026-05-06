@@ -179,8 +179,8 @@ function NavLink({
       className={cn(
         'px-3 py-2 text-[15px] rounded-md transition-colors',
         dark
-          ? 'text-white/75 hover:text-white'
-          : 'text-ink-2 hover:text-ink',
+          ? 'text-white/75 hover:text-accent'
+          : 'text-ink-2 hover:text-accent',
       )}
     >
       {children}
@@ -201,10 +201,10 @@ function NavTrigger({
   onClose: () => void;
   dark?: boolean;
 }) {
-  const colorActive = dark ? 'text-white' : 'text-ink';
+  const colorActive = 'text-accent';
   const colorIdle = dark
-    ? 'text-white/75 hover:text-white'
-    : 'text-ink-2 hover:text-ink';
+    ? 'text-white/75 hover:text-accent'
+    : 'text-ink-2 hover:text-accent';
   return (
     <button
       aria-haspopup="true"
@@ -267,8 +267,8 @@ function MegaMenuPanel({
 
 function ServicesMenuContent({ dark = false }: { dark?: boolean }) {
   const sideLink = dark
-    ? 'text-white/75 hover:text-white'
-    : 'text-ink-2 hover:text-ink';
+    ? 'text-white/75 hover:text-accent'
+    : 'text-ink-2 hover:text-accent';
   const sideBorder = dark
     ? 'border-l border-[var(--dark-border)]'
     : 'border-l border-border';
@@ -345,7 +345,7 @@ function MenuItem({
       <span className="flex flex-col">
         <span
           className={cn(
-            'text-[15px] font-medium',
+            'text-[15px] font-medium transition-colors group-hover:text-accent',
             dark ? 'text-white' : 'text-ink',
           )}
         >
@@ -450,7 +450,7 @@ function MobileLink({
       href={href}
       onClick={onClose}
       className={cn(
-        'text-[22px] tracking-[-0.02em] py-3 border-b',
+        'text-[22px] tracking-[-0.02em] py-3 border-b transition-colors hover:text-accent active:text-accent',
         dark
           ? 'text-white border-[var(--dark-border)]'
           : 'text-ink border-border',

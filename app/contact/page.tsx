@@ -72,7 +72,7 @@ export default function ContactPage() {
                   </p>
                   <a
                     href={`mailto:${site.email}`}
-                    className="text-ink hover:underline underline-offset-4"
+                    className="text-ink hover:text-accent hover:underline underline-offset-4 transition-colors"
                   >
                     {site.email}
                   </a>

@@ -69,7 +69,7 @@ export default function ServicesPage() {
                 <Link
                   key={p.slug}
                   href={`/services/${p.slug}`}
-                  className="group flex flex-col gap-6 border border-border rounded-xl bg-bg p-6 hover:border-border-strong transition-colors"
+                  className="group flex flex-col gap-6 border border-border rounded-xl bg-bg p-6 hover:border-accent/40 transition-colors"
                 >
                   <Mockup />
                   <div className="flex items-center gap-2">
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                       Service {p.number}
                     </span>
                   </div>
-                  <h2 className="text-[24px] tracking-[-0.02em] leading-[1.15] font-semibold">
+                  <h2 className="text-[24px] tracking-[-0.02em] leading-[1.15] font-semibold transition-colors group-hover:text-accent">
                     {p.short}
                   </h2>
                   <p className="text-[15px] leading-relaxed text-ink-2">

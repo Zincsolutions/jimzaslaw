@@ -14,7 +14,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col gap-5 border border-border rounded-xl bg-bg p-6 hover:border-border-strong transition-colors h-full"
+      className="group flex flex-col gap-5 border border-border rounded-xl bg-bg p-6 hover:border-accent/40 transition-colors h-full"
     >
       <div className="aspect-[16/10] rounded-md bg-bg-soft border border-border relative overflow-hidden">
         {post.coverImage ? (
@@ -44,13 +44,13 @@ export function BlogCard({ post }: { post: BlogPost }) {
         <span aria-hidden>·</span>
         <span>{post.readingTime}</span>
       </div>
-      <h3 className="text-[20px] tracking-[-0.015em] leading-[1.2] font-semibold text-ink">
+      <h3 className="text-[20px] tracking-[-0.015em] leading-[1.2] font-semibold text-ink transition-colors group-hover:text-accent">
         {post.title}
       </h3>
       <p className="text-[15px] leading-relaxed text-ink-2 line-clamp-3">
         {post.description}
       </p>
-      <div className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink">
+      <div className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink transition-colors group-hover:text-accent">
         Read post
         <ArrowUpRight
           className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"

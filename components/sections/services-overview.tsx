@@ -56,12 +56,12 @@ export function ServicesOverview() {
             return (
               <article
                 key={s.slug}
-                className="flex flex-col gap-5 border border-border rounded-xl bg-bg p-7 hover:border-border-strong transition-colors"
+                className="group flex flex-col gap-5 border border-border rounded-xl bg-bg p-7 hover:border-accent/40 transition-colors"
               >
                 <div className="flex items-center gap-2">
                   <span className={`chip chip-${s.chip}`}>{s.short}</span>
                 </div>
-                <h3 className="text-[24px] tracking-[-0.02em] leading-[1.15] font-semibold">
+                <h3 className="text-[24px] tracking-[-0.02em] leading-[1.15] font-semibold transition-colors group-hover:text-accent">
                   {o.subtitle}
                 </h3>
                 <p className="text-[15px] leading-relaxed text-ink-2">
@@ -87,7 +87,7 @@ export function ServicesOverview() {
                 </ul>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink hover:gap-2 transition-all"
+                  className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink hover:text-accent hover:gap-2 transition-all"
                 >
                   Explore {s.short}
                   <ArrowRight className="size-4" aria-hidden />
