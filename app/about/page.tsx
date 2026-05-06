@@ -1,34 +1,63 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
-import { Eyebrow } from '@/components/ui/eyebrow';
+import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { ZincBand } from '@/components/sections/zinc-band';
 
 export const metadata: Metadata = {
   title: 'About Jim Zaslaw',
   description:
-    'Jim Zaslaw is the CEO of ZINC and the founder of Jim Zaslaw Consulting. Twenty years of building digital systems, applied to AI specifically.',
+    'Jim Zaslaw is the CEO of ZINC and the founder of Jim Zaslaw Consulting. More than 25 years of building digital systems, applied to AI specifically.',
 };
 
 export default function AboutPage() {
   return (
     <>
-      <section className="pt-32 md:pt-40 pb-20 md:pb-28">
-        <Container>
+      {/* Dark hero — sits flush under the fixed header */}
+      <section className="dark-hero pb-24 md:pb-32">
+        <Container className="pt-12 md:pt-16">
           <div className="max-w-3xl">
-            <Eyebrow>About</Eyebrow>
+            <p className="eyebrow">About Jim</p>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
               Strategy from someone who has actually shipped the work.
             </h1>
-            <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] text-ink-2">
-              Most people calling themselves &ldquo;AI consultants&rdquo; today
-              have been doing this work for eighteen months. Jim has spent
-              twenty years translating new technology into operating systems
-              that businesses actually run on.
+            <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
+              Jim Zaslaw helps growing businesses turn scattered AI usage into
+              practical systems for marketing, content, operations, and brand
+              execution.
             </p>
+            <p className="mt-4 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
+              His perspective is grounded in more than 25 years leading ZINC —
+              building brands, websites, ecommerce platforms, marketing
+              systems, and technology integrations for real businesses.
+            </p>
+            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+              <Button
+                href="/contact"
+                size="lg"
+                variant="primary-on-ink"
+                withArrow
+              >
+                Get a Free Assessment
+              </Button>
+              <Button
+                href="/services"
+                size="lg"
+                variant="ghost"
+                className="!text-white !border !border-white/30 hover:!border-white hover:!bg-white/10"
+              >
+                Explore Services
+              </Button>
+            </div>
           </div>
-          <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        </Container>
+      </section>
+
+      {/* Light content below */}
+      <section className="py-20 md:py-28">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-border max-w-md">
                 <Image
@@ -47,7 +76,7 @@ export default function AboutPage() {
                 Jim Zaslaw is the CEO of ZINC, a digital agency he has led for
                 over two decades, helping hundreds of businesses design, build,
                 and scale digital systems across branding, marketing, and
-                technology. Websites, brands, e-commerce platforms, marketing
+                technology. Brands, websites, e-commerce platforms, marketing
                 engines, internal tools — the operating systems businesses
                 actually run on.
               </p>
@@ -70,7 +99,8 @@ export default function AboutPage() {
                 Most engagements stand on the consulting work alone. When the
                 need goes beyond strategy — a website redesign, brand refresh,
                 advanced integrations, e-commerce — ZINC is right behind it,
-                with twenty years of agency execution capacity ready to deploy.
+                with more than two decades of agency execution capacity ready
+                to deploy.
               </p>
               <p>
                 That continuity is rare. Most AI consultants can&apos;t build
@@ -82,8 +112,10 @@ export default function AboutPage() {
       </section>
       <ZincBand />
       <CTABand
-        title="Want to talk?"
-        body="The first conversation is a 60–90 minute working session. Free. No commitment."
+        title="Ready to organize AI into a practical business advantage?"
+        body="The first step is a 60–90 minute working session. Free. No commitment."
+        primaryLabel="Get a Free AI Opportunity Assessment"
+        secondaryLabel="Email Jim"
       />
     </>
   );

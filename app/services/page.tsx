@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
-import { Eyebrow } from '@/components/ui/eyebrow';
+import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { services } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
@@ -10,9 +10,9 @@ import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
 
 export const metadata: Metadata = {
-  title: 'The Three Services',
+  title: 'Services',
   description:
-    'AI Operating System, AI Visibility Engine, AI Brand Asset System — three productized engagements with defined deliverables. Engage one, two, or all three.',
+    'AI Operating System, AI Visibility Engine, AI Brand Asset System — three practical ways to put AI to work inside your business.',
 };
 
 const mockups = {
@@ -24,23 +24,43 @@ const mockups = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="pt-32 md:pt-40 pb-12 md:pb-16">
-        <Container>
+      {/* Dark hero */}
+      <section className="dark-hero pb-20 md:pb-28">
+        <Container className="pt-12 md:pt-16">
           <div className="max-w-3xl">
-            <Eyebrow>The services</Eyebrow>
+            <p className="eyebrow">Services</p>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
-              Three productized engagements. Engage one, two, or all three.
+              Three practical ways to put AI to work.
             </h1>
-            <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] text-ink-2">
-              Each service is a discrete engagement with defined deliverables and
-              a defined timeline. Which one fits depends on what the diagnostic
-              surfaces.
+            <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
+              Start with a focused assessment. Then build the system your
+              business needs most — from internal AI workflows to AI visibility
+              and brand asset creation.
             </p>
+            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+              <Button
+                href="/contact"
+                size="lg"
+                variant="primary-on-ink"
+                withArrow
+              >
+                Get a Free Assessment
+              </Button>
+              <Button
+                href="#compare"
+                size="lg"
+                variant="ghost"
+                className="!text-white !border !border-white/30 hover:!border-white hover:!bg-white/10"
+              >
+                Compare Services
+              </Button>
+            </div>
           </div>
         </Container>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      {/* Light content section — service cards */}
+      <section id="compare" className="py-24 md:py-32">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {services.map((p) => {

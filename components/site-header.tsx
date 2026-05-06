@@ -4,6 +4,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { Button } from './ui/button';
@@ -11,7 +12,18 @@ import { services } from '@/lib/site';
 
 type MenuKey = 'services' | null;
 
+const DARK_PAGES = ['/about', '/services'];
+
+function isDarkPath(pathname: string | null): boolean {
+  if (!pathname) return false;
+  return DARK_PAGES.some(
+    (p) => pathname === p || pathname.startsWith(p + '/'),
+  );
+}
+
 export function SiteHeader() {
+  const pathname = usePathname();
+  const dark = isDarkPath(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<MenuKey>(null);
@@ -44,14 +56,26 @@ export function SiteHeader() {
     closeTimer.current = setTimeout(() => setOpenMenu(null), 120);
   };
 
+  // Header background: respects dark vs light pages, plus scrolled vs at-top
+  const headerBg = (() => {
+    if (dark) {
+      // On dark pages: transparent over hero, dark-blurred when scrolled or menu open
+      return scrolled || openMenu
+        ? 'bg-[var(--dark-bg)]/90 backdrop-blur-md border-b border-[var(--dark-border)]'
+        : 'bg-transparent';
+    }
+    return scrolled || openMenu
+      ? 'bg-bg/85 backdrop-blur-md border-b border-border'
+      : 'bg-transparent';
+  })();
+
   return (
     <header
       className={cn(
         'fixed top-0 inset-x-0 z-50 transition-colors duration-200',
-        scrolled || openMenu
-          ? 'bg-bg/85 backdrop-blur-md border-b border-border'
-          : 'bg-transparent',
+        headerBg,
       )}
+      data-theme={dark ? 'dark' : 'light'}
       onMouseLeave={scheduleClose}
     >
       <div className="container-x flex items-center justify-between h-[72px] gap-6">
@@ -61,7 +85,7 @@ export function SiteHeader() {
           className="flex items-center gap-2 shrink-0"
         >
           <Image
-            src="/logos/zaslaw-black.svg"
+            src={dark ? '/logos/zaslaw-white.svg' : '/logos/zaslaw-black.svg'}
             alt=""
             width={130}
             height={20}
@@ -80,14 +104,26 @@ export function SiteHeader() {
             isOpen={openMenu === 'services'}
             onOpen={() => openWithIntent('services')}
             onClose={scheduleClose}
+            dark={dark}
           />
-          <NavLink href="/how-it-works">How It Works</NavLink>
-          <NavLink href="/about">About Jim</NavLink>
-          <NavLink href="/blog">Field Notes</NavLink>
+          <NavLink href="/how-it-works" dark={dark}>
+            How It Works
+          </NavLink>
+          <NavLink href="/about" dark={dark}>
+            About Jim
+          </NavLink>
+          <NavLink href="/blog" dark={dark}>
+            Field Notes
+          </NavLink>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button href="/contact" size="md" withArrow>
+          <Button
+            href="/contact"
+            size="md"
+            withArrow
+            variant={dark ? 'primary-on-ink' : 'primary'}
+          >
             Get a Free Assessment
           </Button>
         </div>
@@ -95,7 +131,12 @@ export function SiteHeader() {
         <button
           aria-label="Open menu"
           aria-expanded={mobileOpen}
-          className="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md hover:bg-bg-soft"
+          className={cn(
+            'md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md',
+            dark
+              ? 'text-white hover:bg-white/10'
+              : 'hover:bg-bg-soft',
+          )}
           onClick={() => setMobileOpen(true)}
         >
           <Menu className="size-5" aria-hidden />
@@ -107,13 +148,17 @@ export function SiteHeader() {
         isOpen={openMenu === 'services'}
         onMouseEnter={() => openWithIntent('services')}
         onMouseLeave={scheduleClose}
+        dark={dark}
       >
-        <ServicesMenuContent />
+        <ServicesMenuContent dark={dark} />
       </MegaMenuPanel>
 
       {/* Mobile sheet */}
       {mobileOpen ? (
-        <MobileNav onClose={() => setMobileOpen(false)} />
+        <MobileNav
+          onClose={() => setMobileOpen(false)}
+          dark={dark}
+        />
       ) : null}
     </header>
   );
@@ -122,14 +167,21 @@ export function SiteHeader() {
 function NavLink({
   href,
   children,
+  dark = false,
 }: {
   href: string;
   children: React.ReactNode;
+  dark?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className="px-3 py-2 text-[15px] text-ink-2 hover:text-ink rounded-md transition-colors"
+      className={cn(
+        'px-3 py-2 text-[15px] rounded-md transition-colors',
+        dark
+          ? 'text-white/75 hover:text-white'
+          : 'text-ink-2 hover:text-ink',
+      )}
     >
       {children}
     </Link>
@@ -141,12 +193,18 @@ function NavTrigger({
   isOpen,
   onOpen,
   onClose,
+  dark = false,
 }: {
   label: string;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  dark?: boolean;
 }) {
+  const colorActive = dark ? 'text-white' : 'text-ink';
+  const colorIdle = dark
+    ? 'text-white/75 hover:text-white'
+    : 'text-ink-2 hover:text-ink';
   return (
     <button
       aria-haspopup="true"
@@ -157,7 +215,7 @@ function NavTrigger({
       onClick={() => (isOpen ? onClose() : onOpen())}
       className={cn(
         'inline-flex items-center gap-1 px-3 py-2 text-[15px] rounded-md transition-colors',
-        isOpen ? 'text-ink' : 'text-ink-2 hover:text-ink',
+        isOpen ? colorActive : colorIdle,
       )}
     >
       {label}
@@ -177,11 +235,13 @@ function MegaMenuPanel({
   children,
   onMouseEnter,
   onMouseLeave,
+  dark = false,
 }: {
   isOpen: boolean;
   children: React.ReactNode;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  dark?: boolean;
 }) {
   return (
     <div
@@ -190,19 +250,31 @@ function MegaMenuPanel({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className={cn(
-        'absolute inset-x-0 top-full bg-bg border-b border-border transition-all duration-200 ease-out',
+        'absolute inset-x-0 top-full transition-all duration-200 ease-out border-b',
+        dark
+          ? 'bg-[var(--dark-bg-soft)] border-[var(--dark-border)]'
+          : 'bg-bg border-border',
         isOpen
           ? 'opacity-100 translate-y-0 pointer-events-auto'
           : 'opacity-0 -translate-y-2 pointer-events-none',
       )}
-      style={{ boxShadow: 'var(--shadow-pop)' }}
+      style={{ boxShadow: dark ? '0 24px 80px rgba(0,0,0,0.4)' : 'var(--shadow-pop)' }}
     >
       <div className="container-x py-10">{children}</div>
     </div>
   );
 }
 
-function ServicesMenuContent() {
+function ServicesMenuContent({ dark = false }: { dark?: boolean }) {
+  const sideLink = dark
+    ? 'text-white/75 hover:text-white'
+    : 'text-ink-2 hover:text-ink';
+  const sideBorder = dark
+    ? 'border-l border-[var(--dark-border)]'
+    : 'border-l border-border';
+  const eyebrowClass = dark
+    ? 'text-[12px] uppercase tracking-[0.08em] text-white/60 font-medium mb-3'
+    : 'eyebrow mb-3';
   return (
     <div className="grid grid-cols-12 gap-10">
       <div className="col-span-8 grid grid-cols-3 gap-6">
@@ -213,24 +285,25 @@ function ServicesMenuContent() {
             title={p.short}
             desc={p.tagline}
             href={`/services/${p.slug}`}
+            dark={dark}
           />
         ))}
       </div>
-      <div className="col-span-4 border-l border-border pl-8">
-        <p className="eyebrow mb-3">Overview</p>
+      <div className={cn('col-span-4 pl-8', sideBorder)}>
+        <p className={eyebrowClass}>Overview</p>
         <ul className="flex flex-col gap-2 text-[15px]">
           <li>
-            <Link href="/services" className="hover:text-ink text-ink-2">
+            <Link href="/services" className={sideLink}>
               All three services →
             </Link>
           </li>
           <li>
-            <Link href="/how-it-works" className="hover:text-ink text-ink-2">
+            <Link href="/how-it-works" className={sideLink}>
               How it works
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-ink text-ink-2">
+            <Link href="/contact" className={sideLink}>
               Get a Free Assessment
             </Link>
           </li>
@@ -245,16 +318,21 @@ function MenuItem({
   title,
   desc,
   href,
+  dark = false,
 }: {
   chip: 'orange' | 'sky' | 'blush' | 'amber' | 'violet' | 'stone';
   title: string;
   desc: string;
   href: string;
+  dark?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className="group flex gap-3 p-2 -m-2 rounded-md hover:bg-bg-soft transition-colors"
+      className={cn(
+        'group flex gap-3 p-2 -m-2 rounded-md transition-colors',
+        dark ? 'hover:bg-white/5' : 'hover:bg-bg-soft',
+      )}
     >
       <span
         className={cn(
@@ -265,8 +343,20 @@ function MenuItem({
         ◆
       </span>
       <span className="flex flex-col">
-        <span className="text-[15px] font-medium text-ink">{title}</span>
-        <span className="text-[13px] text-ink-3 leading-snug mt-0.5">
+        <span
+          className={cn(
+            'text-[15px] font-medium',
+            dark ? 'text-white' : 'text-ink',
+          )}
+        >
+          {title}
+        </span>
+        <span
+          className={cn(
+            'text-[13px] leading-snug mt-0.5',
+            dark ? 'text-white/60' : 'text-ink-3',
+          )}
+        >
           {desc}
         </span>
       </span>
@@ -274,18 +364,27 @@ function MenuItem({
   );
 }
 
-function MobileNav({ onClose }: { onClose: () => void }) {
+function MobileNav({
+  onClose,
+  dark = false,
+}: {
+  onClose: () => void;
+  dark?: boolean;
+}) {
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-label="Mobile menu"
-      className="md:hidden fixed inset-0 z-[60] bg-bg flex flex-col"
+      className={cn(
+        'md:hidden fixed inset-0 z-[60] flex flex-col',
+        dark ? 'bg-[var(--dark-bg)] text-white' : 'bg-bg',
+      )}
     >
       <div className="container-x flex items-center justify-between h-[72px]">
         <Link href="/" onClick={onClose} aria-label="Home">
           <Image
-            src="/logos/zaslaw-black.svg"
+            src={dark ? '/logos/zaslaw-white.svg' : '/logos/zaslaw-black.svg'}
             alt=""
             width={130}
             height={20}
@@ -295,7 +394,10 @@ function MobileNav({ onClose }: { onClose: () => void }) {
         <button
           aria-label="Close menu"
           onClick={onClose}
-          className="inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md hover:bg-bg-soft"
+          className={cn(
+            'inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md',
+            dark ? 'text-white hover:bg-white/10' : 'hover:bg-bg-soft',
+          )}
         >
           <X className="size-5" aria-hidden />
         </button>
@@ -304,21 +406,27 @@ function MobileNav({ onClose }: { onClose: () => void }) {
         aria-label="Mobile primary"
         className="container-x flex flex-col gap-1 py-6"
       >
-        <MobileLink href="/services" onClose={onClose}>
+        <MobileLink href="/services" onClose={onClose} dark={dark}>
           Services
         </MobileLink>
-        <MobileLink href="/how-it-works" onClose={onClose}>
+        <MobileLink href="/how-it-works" onClose={onClose} dark={dark}>
           How It Works
         </MobileLink>
-        <MobileLink href="/about" onClose={onClose}>
+        <MobileLink href="/about" onClose={onClose} dark={dark}>
           About Jim
         </MobileLink>
-        <MobileLink href="/blog" onClose={onClose}>
+        <MobileLink href="/blog" onClose={onClose} dark={dark}>
           Field Notes
         </MobileLink>
       </nav>
       <div className="container-x mt-auto pb-10">
-        <Button href="/contact" size="lg" withArrow className="w-full">
+        <Button
+          href="/contact"
+          size="lg"
+          withArrow
+          className="w-full"
+          variant={dark ? 'primary-on-ink' : 'primary'}
+        >
           Get a Free Assessment
         </Button>
       </div>
@@ -330,16 +438,23 @@ function MobileLink({
   href,
   onClose,
   children,
+  dark = false,
 }: {
   href: string;
   onClose: () => void;
   children: React.ReactNode;
+  dark?: boolean;
 }) {
   return (
     <Link
       href={href}
       onClick={onClose}
-      className="text-[22px] tracking-[-0.02em] py-3 border-b border-border text-ink"
+      className={cn(
+        'text-[22px] tracking-[-0.02em] py-3 border-b',
+        dark
+          ? 'text-white border-[var(--dark-border)]'
+          : 'text-ink border-border',
+      )}
     >
       {children}
     </Link>

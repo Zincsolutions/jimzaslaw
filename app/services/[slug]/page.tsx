@@ -42,15 +42,16 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
-      <section className="pt-32 md:pt-40 pb-16 md:pb-24">
-        <Container>
+      {/* Dark hero */}
+      <section className="dark-hero pb-16 md:pb-24">
+        <Container className="pt-12 md:pt-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-6 flex flex-col gap-6">
               <div className="flex items-center gap-2">
                 <span className={`chip chip-${p.chip}`}>
                   Service {p.number}
                 </span>
-                <Eyebrow>{p.short}</Eyebrow>
+                <span className="eyebrow">{p.short}</span>
               </div>
               <h1 className="text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold">
                 {p.title}
@@ -59,23 +60,35 @@ export default async function ServicePage({ params }: Props) {
                 {p.objective.split('\n\n').map((para, i) => (
                   <p
                     key={i}
-                    className="text-[18px] md:text-[20px] leading-[1.55] text-ink-2"
+                    className="text-[18px] md:text-[20px] leading-[1.55] max-w-[58ch] text-pretty"
                   >
                     {para}
                   </p>
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
-                <Button href="/contact" size="lg" withArrow>
+                <Button
+                  href="/contact"
+                  size="lg"
+                  variant="primary-on-ink"
+                  withArrow
+                >
                   Get a Free Assessment
                 </Button>
-                <Button href="/how-it-works" size="lg" variant="secondary">
+                <Button
+                  href="/how-it-works"
+                  size="lg"
+                  variant="ghost"
+                  className="!text-white !border !border-white/30 hover:!border-white hover:!bg-white/10"
+                >
                   How It Works
                 </Button>
               </div>
             </div>
             <div className="lg:col-span-6">
-              <Mockup />
+              <div className="dark-card rounded-xl p-3 md:p-4">
+                <Mockup />
+              </div>
             </div>
           </div>
         </Container>

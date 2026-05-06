@@ -41,7 +41,7 @@ export const services: Service[] = [
     title: 'An operating system for how your team uses AI.',
     tagline: 'Organize and structure how the team uses AI internally.',
     objective:
-      'Most businesses do not need more random AI experimentation. They need to understand which tools to use, when to use them, why they matter, and how to set them up for repeatable team use.\n\nThe AI Operating System helps organize your AI tools, prompts, workflows, permissions, standards, and shared knowledge into a structure your team can actually use.',
+      'Organize the tools, prompts, workflows, standards, and shared knowledge your team needs to use AI consistently.',
     scope: [
       'Audit of current AI usage across team members and functions',
       'Tool selection — which AI tools to use, when, and why',
@@ -67,10 +67,10 @@ export const services: Service[] = [
     number: '02',
     chip: 'sky',
     short: 'AI Visibility Engine',
-    title: 'Get the business found in AI-driven search.',
+    title: 'Improve how your business shows up in AI-driven search.',
     tagline: 'Show up when prospects ask AI tools questions in your category.',
     objective:
-      'Ensure the business shows up when prospective customers ask AI tools (ChatGPT, Claude, Perplexity, Google AI Overviews) questions in its category.',
+      'Map the questions your buyers ask AI tools, then build content designed to make your business easier to understand, cite, and recommend.',
     scope: [
       'Identification of the 30–100 highest-value questions customers are asking AI tools in your category',
       'Development of a structured content strategy aligned to those questions',
@@ -92,10 +92,10 @@ export const services: Service[] = [
     number: '03',
     chip: 'blush',
     short: 'AI Brand Asset System',
-    title: 'On-brand visual content, generated at scale.',
+    title: 'Create on-brand visuals faster.',
     tagline: 'Produce consistent visuals using AI tools — without cleanup.',
     objective:
-      'Establish a repeatable system for generating high-quality, on-brand visuals using AI tools — without the constant cleanup, off-brand outputs, or manual recreation that kills most companies\' first attempts.',
+      'Build AI-ready brand guidelines, visual prompt systems, and asset workflows so your team can produce better marketing visuals with less cleanup.',
     scope: [
       'Translation of brand identity into AI-compatible visual guidelines',
       'Definition of which tools to use for which jobs (image, design, video)',
