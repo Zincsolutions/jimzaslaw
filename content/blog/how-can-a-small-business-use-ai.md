@@ -7,6 +7,8 @@ dateModified: '2026-05-05'
 author: 'Jim Zaslaw'
 topics: ['AI Consulting', 'Small Business AI', 'AI Assessment', 'AI Strategy', 'AI Implementation']
 featured: true
+coverImage: '/images/blog/how-can-a-small-business-use-ai.png'
+coverImageAlt: 'Editorial close-up of a person in an orange hood looking through orange binoculars against a clear blue sky — representing scanning the landscape for the first AI opportunity.'
 faq:
   - question: 'What is the first mistake businesses make with AI?'
     answer: 'The first mistake is starting with tools instead of work. A company that starts with tools usually ends up with scattered experimentation. A company that starts with the work it wants to improve can build practical AI workflows.'
