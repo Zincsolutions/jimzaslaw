@@ -22,7 +22,7 @@ export function Opportunity() {
               The businesses that win with AI will not use the most tools.
             </h2>
             <p className="mt-4 text-[20px] md:text-[22px] tracking-[-0.015em] leading-[1.3] text-ink font-semibold">
-              They&apos;ll have the clearest systems.
+              They&apos;ll have the smartest systems.
             </p>
             <p className="mt-6 text-[17px] text-ink-2 leading-relaxed">
               With the right structure, AI can help your team create more

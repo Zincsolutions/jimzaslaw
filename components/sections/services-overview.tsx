@@ -7,13 +7,13 @@ import { services } from '@/lib/site';
 const overviews = {
   'ai-operating-system': {
     subtitle: 'Organize how your team uses AI.',
-    body: 'Turn scattered experimentation into shared prompts, workflows, standards, and repeatable processes your team can actually use.',
+    body: 'Help your team understand which AI tools to use, when to use them, and how to configure them into a shared system for prompts, workflows, standards, and collaboration.',
     bestFor: 'Best for teams using AI inconsistently.',
     deliverables: [
-      'AI workspace',
+      'Tool selection & guidelines',
+      'AI workspace setup',
       'Prompt library',
       'Workflow templates',
-      'Tool guidelines',
       'Team onboarding',
     ],
   },

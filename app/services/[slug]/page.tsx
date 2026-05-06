@@ -55,9 +55,16 @@ export default async function ServicePage({ params }: Props) {
               <h1 className="text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold">
                 {p.title}
               </h1>
-              <p className="text-[18px] md:text-[20px] leading-[1.55] text-ink-2">
-                {p.objective}
-              </p>
+              <div className="flex flex-col gap-4">
+                {p.objective.split('\n\n').map((para, i) => (
+                  <p
+                    key={i}
+                    className="text-[18px] md:text-[20px] leading-[1.55] text-ink-2"
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <Button href="/contact" size="lg" withArrow>
                   Get a Free Assessment

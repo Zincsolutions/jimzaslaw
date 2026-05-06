@@ -35,7 +35,7 @@ export function WhyJim() {
             </h2>
             <p className="text-[18px] leading-relaxed text-ink-2">
               Jim Zaslaw is the CEO of ZINC, a digital agency that has spent
-              more than 25 years helping companies build websites, brands,
+              more than 25 years helping companies build brands, websites,
               ecommerce platforms, marketing systems, and technology
               integrations.
             </p>
