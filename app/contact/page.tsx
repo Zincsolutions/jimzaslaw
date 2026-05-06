@@ -3,13 +3,13 @@ import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { ContactForm } from '@/components/contact-form';
-import { CalendlyEmbed } from '@/components/calendly-embed';
+// import { CalendlyEmbed } from '@/components/calendly-embed';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Get a Free AI Opportunity Assessment',
+  title: 'Request a Free AI Opportunity Assessment',
   description:
-    'Book a free 60–90 minute AI Opportunity Assessment with Jim Zaslaw. A focused diagnostic, two to three high-impact recommendations, and a clear next step.',
+    'Tell Jim Zaslaw about your business and where AI could help. He’ll review your information and follow up to schedule a focused assessment conversation.',
 };
 
 export default function ContactPage() {
@@ -20,32 +20,29 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <Eyebrow>Free AI Opportunity Assessment</Eyebrow>
             <h1 className="mt-4 text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold">
-              Request Your Free AI Opportunity Assessment.
+              Request a Free AI Opportunity Assessment.
             </h1>
             <p className="mt-6 text-[18px] md:text-[19px] leading-[1.6] text-ink-2 max-w-xl">
-              A focused 60–90 minute working session with Jim. The deliverable
-              is a short written summary, two to three high-impact
-              recommendations, and a clear next step. No commitment.
+              Tell me a little about your business and where you think AI could
+              help. I&apos;ll review your information and follow up to schedule
+              a focused assessment conversation.
             </p>
 
-            <div className="mt-10">
-              <h2 className="text-[14px] font-medium uppercase tracking-[0.08em] text-ink-3 mb-3">
-                Pick a time directly
-              </h2>
-              <CalendlyEmbed url={site.calendly} />
-            </div>
+            {/*
+              Calendly embed temporarily disabled — visitors now request the
+              assessment via the form below, and Jim follows up directly to
+              schedule. Restore by uncommenting the import + this section.
 
-            <div className="mt-12 border-t border-border pt-10">
-              <h2 className="text-[20px] font-semibold tracking-[-0.015em]">
-                Or send a note first
-              </h2>
-              <p className="mt-2 text-[15px] text-ink-2">
-                If you&apos;d rather frame the conversation in writing, fill
-                out the form. Replies typically come within one business day.
-              </p>
-              <div className="mt-6">
-                <ContactForm />
+              <div className="mt-10">
+                <h2 className="text-[14px] font-medium uppercase tracking-[0.08em] text-ink-3 mb-3">
+                  Pick a time directly
+                </h2>
+                <CalendlyEmbed url={site.calendly} />
               </div>
+            */}
+
+            <div className="mt-10">
+              <ContactForm />
             </div>
           </div>
 

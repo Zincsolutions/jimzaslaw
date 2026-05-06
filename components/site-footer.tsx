@@ -24,7 +24,7 @@ const cols = [
   {
     heading: 'Get a Free Assessment',
     links: [
-      { label: 'Schedule a call', href: '/contact' },
+      { label: 'Request an assessment', href: '/contact' },
       { label: 'Email Jim', href: `mailto:${site.email}` },
     ],
   },

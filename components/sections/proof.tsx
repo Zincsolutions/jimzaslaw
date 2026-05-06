@@ -48,7 +48,7 @@ export function Proof() {
         </dl>
         <div className="mt-12 flex">
           <Button href="/contact" size="lg" withArrow>
-            Schedule Your Free Assessment
+            Request Your Free Assessment
           </Button>
         </div>
       </Container>
