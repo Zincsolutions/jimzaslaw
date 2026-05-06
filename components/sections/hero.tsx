@@ -13,7 +13,7 @@ export function Hero() {
           <h1 className="mt-6 text-[44px] md:text-[72px] leading-[1.02] tracking-[-0.03em] font-semibold max-w-[24ch] text-balance">
             Turn scattered AI usage into business advantage.
           </h1>
-          <p className="mt-6 text-[18px] md:text-[20px] leading-[1.55] text-ink-2 max-w-[60ch]">
+          <p className="mt-6 text-[18px] md:text-[20px] leading-[1.55] text-ink-2 max-w-[56ch] text-pretty">
             Your team is already using AI. The question is whether it&apos;s
             saving time, improving output, and helping the business grow. Jim
             Zaslaw helps small and mid-sized businesses build practical AI
