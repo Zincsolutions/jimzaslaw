@@ -9,7 +9,7 @@ import { cn } from '@/lib/cn';
 import { Button } from './ui/button';
 import { services } from '@/lib/site';
 
-type MenuKey = 'approach' | 'services' | null;
+type MenuKey = 'services' | null;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -76,31 +76,19 @@ export function SiteHeader() {
           className="hidden md:flex items-center gap-1"
         >
           <NavTrigger
-            label="Approach"
-            isOpen={openMenu === 'approach'}
-            onOpen={() => openWithIntent('approach')}
-            onClose={scheduleClose}
-          />
-          <NavTrigger
             label="Services"
             isOpen={openMenu === 'services'}
             onOpen={() => openWithIntent('services')}
             onClose={scheduleClose}
           />
-          <NavLink href="/engagement">Engagement</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/about">About</NavLink>
+          <NavLink href="/how-it-works">How It Works</NavLink>
+          <NavLink href="/about">About Jim</NavLink>
+          <NavLink href="/blog">Field Notes</NavLink>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/contact"
-            className="text-[15px] text-ink-2 hover:text-ink"
-          >
-            Contact
-          </Link>
           <Button href="/contact" size="md" withArrow>
-            Schedule an Assessment
+            Get a Free Assessment
           </Button>
         </div>
 
@@ -115,13 +103,6 @@ export function SiteHeader() {
       </div>
 
       {/* Mega-menu panels */}
-      <MegaMenuPanel
-        isOpen={openMenu === 'approach'}
-        onMouseEnter={() => openWithIntent('approach')}
-        onMouseLeave={scheduleClose}
-      >
-        <ApproachMenuContent />
-      </MegaMenuPanel>
       <MegaMenuPanel
         isOpen={openMenu === 'services'}
         onMouseEnter={() => openWithIntent('services')}
@@ -221,59 +202,6 @@ function MegaMenuPanel({
   );
 }
 
-function ApproachMenuContent() {
-  return (
-    <div className="grid grid-cols-12 gap-10">
-      <div className="col-span-8 grid grid-cols-2 gap-x-8 gap-y-6">
-        <MenuItem
-          chip="orange"
-          title="Clarity first"
-          desc="Understand current state. Identify what actually moves the business."
-          href="/#approach"
-        />
-        <MenuItem
-          chip="sky"
-          title="Structure second"
-          desc="Build repeatable systems your team can run on day two."
-          href="/#approach"
-        />
-        <MenuItem
-          chip="blush"
-          title="Scale third"
-          desc="Compound the work as the AI landscape evolves."
-          href="/#approach"
-        />
-        <MenuItem
-          chip="amber"
-          title="Engagement model"
-          desc="Three stages — each one stands on its own."
-          href="/engagement"
-        />
-      </div>
-      <div className="col-span-4 border-l border-border pl-8">
-        <p className="eyebrow mb-3">Get started</p>
-        <ul className="flex flex-col gap-2 text-[15px]">
-          <li>
-            <Link href="/contact" className="hover:text-ink text-ink-2">
-              Schedule an Assessment →
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:text-ink text-ink-2">
-              About Jim
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog" className="hover:text-ink text-ink-2">
-              Read the field notes
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-}
-
 function ServicesMenuContent() {
   return (
     <div className="grid grid-cols-12 gap-10">
@@ -297,13 +225,13 @@ function ServicesMenuContent() {
             </Link>
           </li>
           <li>
-            <Link href="/engagement" className="hover:text-ink text-ink-2">
-              How engagements work
+            <Link href="/how-it-works" className="hover:text-ink text-ink-2">
+              How it works
             </Link>
           </li>
           <li>
             <Link href="/contact" className="hover:text-ink text-ink-2">
-              Start with a free Snapshot
+              Get a Free Assessment
             </Link>
           </li>
         </ul>
@@ -376,28 +304,22 @@ function MobileNav({ onClose }: { onClose: () => void }) {
         aria-label="Mobile primary"
         className="container-x flex flex-col gap-1 py-6"
       >
-        <MobileLink href="/#approach" onClose={onClose}>
-          Approach
-        </MobileLink>
         <MobileLink href="/services" onClose={onClose}>
           Services
         </MobileLink>
-        <MobileLink href="/engagement" onClose={onClose}>
-          Engagement
-        </MobileLink>
-        <MobileLink href="/blog" onClose={onClose}>
-          Blog
+        <MobileLink href="/how-it-works" onClose={onClose}>
+          How It Works
         </MobileLink>
         <MobileLink href="/about" onClose={onClose}>
-          About
+          About Jim
         </MobileLink>
-        <MobileLink href="/contact" onClose={onClose}>
-          Contact
+        <MobileLink href="/blog" onClose={onClose}>
+          Field Notes
         </MobileLink>
       </nav>
       <div className="container-x mt-auto pb-10">
         <Button href="/contact" size="lg" withArrow className="w-full">
-          Schedule an Assessment
+          Get a Free Assessment
         </Button>
       </div>
     </div>

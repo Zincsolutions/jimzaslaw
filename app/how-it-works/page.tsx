@@ -6,16 +6,16 @@ import { CTABand } from '@/components/sections/cta-band';
 import { Check } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'How engagements work',
+  title: 'How It Works',
   description:
-    'Three stages — Snapshot, Implementation, Retainer. Each one stands on its own. Designed to deliver value at every step.',
+    'Three stages — Free Assessment, Implementation, Retainer. Each one stands on its own. Designed to deliver value at every step.',
 };
 
 const stages = [
   {
     num: '01',
     chip: 'Free',
-    title: 'AI Opportunity Snapshot',
+    title: 'AI Opportunity Assessment',
     timebox: '60–90 minute working session',
     body: 'A focused diagnostic with the founder and one or two key team members. The session covers how AI is currently being used, where the inefficiencies are, and which of the three services would deliver the most value first.',
     bullets: [
@@ -29,7 +29,7 @@ const stages = [
     num: '02',
     title: 'Implementation',
     timebox: 'Fixed-scope, fixed-fee',
-    body: 'Following the Snapshot, the engagement moves into one or more of the three services. Each service is a discrete, productized engagement with defined deliverables and a defined timeline.',
+    body: 'Following the Assessment, the engagement moves into one or more of the three services. Each service is a discrete, productized engagement with defined deliverables and a defined timeline.',
     bullets: [
       'Clients can engage one service, two, or all three',
       'Each service has its own timeline and fee',
@@ -54,7 +54,7 @@ const stages = [
 const faqs = [
   {
     q: 'Do I have to engage all three services?',
-    a: 'No. The Snapshot identifies which services matter most for your business. Many engagements start with one. Some companies do all three over time.',
+    a: 'No. The Assessment identifies which services matter most for your business. Many engagements start with one. Some companies do all three over time.',
   },
   {
     q: 'How long does a service engagement take?',
@@ -78,7 +78,7 @@ const faqs = [
   },
 ];
 
-export default function EngagementPage() {
+export default function HowItWorksPage() {
   return (
     <>
       <section className="pt-32 md:pt-40 pb-16 md:pb-20">
@@ -94,7 +94,7 @@ export default function EngagementPage() {
             </p>
             <div className="mt-8 flex gap-3">
               <Button href="/contact" size="lg" withArrow>
-                Start with a free Snapshot
+                Get a Free Assessment
               </Button>
             </div>
           </div>

@@ -1,13 +1,14 @@
-import { Check } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Check } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 
 const outcomes = [
-  'Marketing teams ship two to three times the content with the same headcount.',
-  'Sales and ops teams reclaim hours per week on work AI does faster and better.',
-  'The brand shows up consistently in AI-driven discovery — where buyers increasingly start.',
-  'Visual content production becomes a system, not a fire drill.',
-  'Leadership has a clear answer to "what’s our AI strategy?" — backed by tools the team is actually using.',
+  'More content, with the same headcount.',
+  'Repeated work automated and standardized.',
+  'Brand quality consistent across every output.',
+  'Visibility in AI-driven search where buyers now start.',
+  'Scattered knowledge turned into a business asset.',
 ];
 
 export function Opportunity() {
@@ -18,13 +19,24 @@ export function Opportunity() {
           <div className="lg:col-span-5">
             <Eyebrow>The opportunity</Eyebrow>
             <h2 className="mt-4 text-[clamp(28px,4vw,42px)] leading-[1.1] tracking-[-0.025em] font-semibold">
-              Companies that move from ad hoc usage to a structured system get
-              defensible gains.
+              The businesses that win with AI will not use the most tools.
             </h2>
-            <p className="mt-6 text-[18px] text-ink-2 leading-relaxed">
-              The gap between experimentation and structured implementation is
-              where this consulting practice operates.
+            <p className="mt-4 text-[20px] md:text-[22px] tracking-[-0.015em] leading-[1.3] text-ink font-semibold">
+              They&apos;ll have the clearest systems.
             </p>
+            <p className="mt-6 text-[17px] text-ink-2 leading-relaxed">
+              With the right structure, AI can help your team create more
+              content, automate repeated tasks, improve brand consistency, show
+              up in AI search, and turn scattered knowledge into a business
+              asset.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-medium text-ink hover:gap-2 transition-all"
+            >
+              Find Your First AI Opportunity
+              <ArrowRight className="size-4" aria-hidden />
+            </Link>
           </div>
           <ul className="lg:col-span-7 flex flex-col divide-y divide-border border-y border-border">
             {outcomes.map((o, i) => (

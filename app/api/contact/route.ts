@@ -43,11 +43,11 @@ export async function POST(req: Request) {
 
   try {
     const resend = new Resend(apiKey);
-    const subject = `New AI Snapshot request — ${data.name}${
+    const subject = `New AI Assessment request — ${data.name}${
       data.company ? ` · ${data.company}` : ''
     }`;
     const html = `
-      <h2>New AI Opportunity Snapshot request</h2>
+      <h2>New AI Opportunity Assessment request</h2>
       <p><strong>Name:</strong> ${escape(data.name)}</p>
       <p><strong>Email:</strong> ${escape(data.email)}</p>
       ${data.company ? `<p><strong>Company:</strong> ${escape(data.company)}</p>` : ''}

@@ -5,13 +5,12 @@ import { site } from '@/lib/site';
 
 const cols = [
   {
-    heading: 'Platform',
+    heading: 'Practice',
     links: [
-      { label: 'Approach', href: '/#approach' },
-      { label: 'Engagement', href: '/engagement' },
       { label: 'Services', href: '/services' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'About Jim', href: '/about' },
+      { label: 'Field Notes', href: '/blog' },
     ],
   },
   {
@@ -23,19 +22,18 @@ const cols = [
     ],
   },
   {
-    heading: 'Company',
+    heading: 'Get a Free Assessment',
     links: [
-      { label: 'About Jim', href: '/about' },
-      { label: 'ZINC ↗', href: site.zinc.url, external: true },
+      { label: 'Schedule a call', href: '/contact' },
+      { label: 'Email Jim', href: `mailto:${site.email}` },
     ],
   },
   {
     heading: 'Connect',
     links: [
-      { label: 'Email', href: `mailto:${site.email}` },
       { label: 'LinkedIn', href: site.socials.linkedin, external: true },
       { label: 'X', href: site.socials.x, external: true },
-      { label: 'Schedule a call', href: '/contact' },
+      { label: 'ZINC ↗', href: site.zinc.url, external: true },
     ],
   },
 ];

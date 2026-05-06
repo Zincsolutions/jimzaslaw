@@ -4,11 +4,15 @@ import { Button } from '@/components/ui/button';
 import { site } from '@/lib/site';
 
 export function CTABand({
-  title = 'Get a free AI Opportunity Snapshot.',
-  body = 'A 60–90 minute working session. A short written summary, two to three high-impact recommendations, and a clear next step. No commitment.',
+  title = 'Know where AI can help your business next.',
+  body = 'Start with a Free AI Opportunity Assessment. You will leave with clarity, recommendations, and a practical next step.',
+  primaryLabel = 'Get a Free AI Opportunity Assessment',
+  secondaryLabel = 'Contact Jim',
 }: {
   title?: string;
   body?: string;
+  primaryLabel?: string;
+  secondaryLabel?: string;
 } = {}) {
   return (
     <section className="on-ink relative overflow-hidden">
@@ -35,13 +39,13 @@ export function CTABand({
               variant="primary-on-ink"
               withArrow
             >
-              Schedule an Assessment
+              {primaryLabel}
             </Button>
             <a
               href={`mailto:${site.email}`}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-pill border border-white/30 hover:border-white text-white text-[16px]"
             >
-              Talk first
+              {secondaryLabel}
             </a>
           </div>
         </div>

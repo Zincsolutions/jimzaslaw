@@ -2,12 +2,13 @@ import { Hero } from '@/components/sections/hero';
 import { LogoStrip } from '@/components/sections/logo-strip';
 import { ProblemGrid } from '@/components/sections/problem-grid';
 import { Opportunity } from '@/components/sections/opportunity';
-import { Approach } from '@/components/sections/approach';
-import { ServicesRows } from '@/components/sections/services-rows';
-import { EngagementStages } from '@/components/sections/engagement-stages';
-import { AboutBlock } from '@/components/sections/about-block';
+import { ServicesOverview } from '@/components/sections/services-overview';
+import { WhyJim } from '@/components/sections/why-jim';
+import { FreeAssessment } from '@/components/sections/free-assessment';
+import { WhatWeMightFind } from '@/components/sections/what-we-might-find';
+import { WhoThisIsFor } from '@/components/sections/who-this-is-for';
+import { Proof } from '@/components/sections/proof';
 import { ZincBand } from '@/components/sections/zinc-band';
-import { TestimonialSlider } from '@/components/sections/testimonial-slider';
 import { FeaturedPosts } from '@/components/sections/featured-posts';
 import { CTABand } from '@/components/sections/cta-band';
 
@@ -18,12 +19,13 @@ export default function Home() {
       <LogoStrip />
       <ProblemGrid />
       <Opportunity />
-      <Approach />
-      <ServicesRows />
-      <EngagementStages />
-      <AboutBlock />
+      <ServicesOverview />
+      <WhyJim />
+      <FreeAssessment />
+      <WhatWeMightFind />
+      <WhoThisIsFor />
+      <Proof />
       <ZincBand />
-      <TestimonialSlider />
       <FeaturedPosts />
       <CTABand />
     </>

@@ -8,30 +8,31 @@ export function Hero() {
       <Container className="relative">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <span className="chip chip-orange">
-            AI strategy and implementation
+            AI consulting for growing businesses
           </span>
           <h1 className="mt-6 text-[44px] md:text-[72px] leading-[1.02] tracking-[-0.03em] font-semibold max-w-[16ch]">
-            Turning AI usage into business advantage.
+            Turn scattered AI usage into business advantage.
           </h1>
-          <p className="mt-6 text-[18px] md:text-[20px] leading-[1.55] text-ink-2 max-w-[58ch]">
-            For executives and founders whose teams are already using AI — but
-            whose investment in it isn&apos;t yet showing up in the work that
-            ships, the speed it ships at, or the numbers on the P&amp;L.
+          <p className="mt-6 text-[18px] md:text-[20px] leading-[1.55] text-ink-2 max-w-[60ch]">
+            Your team is already using AI. The question is whether it&apos;s
+            saving time, improving output, and helping the business grow. Jim
+            Zaslaw helps small and mid-sized businesses build practical AI
+            systems for marketing, content, operations, and brand execution.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row items-center gap-3">
             <Button href="/contact" size="lg" withArrow>
-              Schedule an Assessment
+              Get a Free AI Opportunity Assessment
             </Button>
-            <Button href="/#approach" size="lg" variant="secondary">
-              See the approach
+            <Button href="/how-it-works" size="lg" variant="secondary">
+              See How It Works
             </Button>
           </div>
           <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12px] uppercase tracking-[0.08em] text-ink-3 font-mono">
-            <li>20+ years building digital systems</li>
+            <li>25+ years building digital systems through ZINC</li>
             <li aria-hidden>·</li>
-            <li>100s of businesses</li>
+            <li>300+ projects launched</li>
             <li aria-hidden>·</li>
-            <li>Strategy → execution under one roof</li>
+            <li>Strategy and execution under one roof</li>
           </ul>
         </div>
       </Container>

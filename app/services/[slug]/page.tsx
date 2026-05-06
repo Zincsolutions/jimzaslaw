@@ -60,10 +60,10 @@ export default async function ServicePage({ params }: Props) {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <Button href="/contact" size="lg" withArrow>
-                  Schedule an Assessment
+                  Get a Free Assessment
                 </Button>
-                <Button href="/engagement" size="lg" variant="secondary">
-                  How engagements work
+                <Button href="/how-it-works" size="lg" variant="secondary">
+                  How It Works
                 </Button>
               </div>
             </div>

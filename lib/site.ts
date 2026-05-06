@@ -114,11 +114,10 @@ export const services: Service[] = [
 
 export const navLinks = {
   primary: [
-    { label: 'Approach', href: '/#approach', hasMenu: true },
     { label: 'Services', href: '/services', hasMenu: true },
-    { label: 'Engagement', href: '/engagement' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'About', href: '/about' },
+    { label: 'How It Works', href: '/how-it-works' },
+    { label: 'About Jim', href: '/about' },
+    { label: 'Field Notes', href: '/blog' },
   ],
 };
 

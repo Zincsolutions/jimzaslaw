@@ -7,9 +7,9 @@ import { CalendlyEmbed } from '@/components/calendly-embed';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Schedule an Assessment',
+  title: 'Get a Free AI Opportunity Assessment',
   description:
-    'Book a free 60–90 minute AI Opportunity Snapshot with Jim Zaslaw. A focused diagnostic, two to three high-impact recommendations, and a clear next step.',
+    'Book a free 60–90 minute AI Opportunity Assessment with Jim Zaslaw. A focused diagnostic, two to three high-impact recommendations, and a clear next step.',
 };
 
 export default function ContactPage() {
@@ -18,9 +18,9 @@ export default function ContactPage() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <Eyebrow>Schedule an Assessment</Eyebrow>
+            <Eyebrow>Free AI Opportunity Assessment</Eyebrow>
             <h1 className="mt-4 text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold">
-              Start with a free AI Opportunity Snapshot.
+              Request Your Free AI Opportunity Assessment.
             </h1>
             <p className="mt-6 text-[18px] md:text-[19px] leading-[1.6] text-ink-2 max-w-xl">
               A focused 60–90 minute working session with Jim. The deliverable

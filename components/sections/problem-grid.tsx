@@ -55,8 +55,8 @@ export function ProblemGrid() {
       <Container>
         <SectionHeader
           eyebrow="The problem"
-          title="Most companies are stuck in the same place."
-          lede="Usage is broad and uncoordinated. Prompts live in personal chat histories. The marketing team’s Midjourney workflow only works when the person who built it is in the room. And whether it’s working is a hunch, not a number. Six patterns show up in nearly every engagement."
+          title="AI is already in your business. But is it working for the business?"
+          lede="Most companies are experimenting with AI in disconnected ways. Prompts live in personal chat histories. Employees use different tools in different ways. Good outputs are hard to repeat. Brand quality is inconsistent. Content is not tied to visibility, sales, or growth."
         />
         <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-lg overflow-hidden">
           {problems.map(({ icon: Icon, chip, title, body }) => (
@@ -80,9 +80,8 @@ export function ProblemGrid() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-[18px] text-ink-2 max-w-2xl">
-          The issue isn’t access to tools. The issue is the absence of
-          structure.
+        <p className="mt-10 text-[24px] md:text-[28px] tracking-[-0.02em] leading-[1.25] font-semibold max-w-2xl text-ink">
+          The problem is not access to AI. The problem is lack of structure.
         </p>
       </Container>
     </section>
