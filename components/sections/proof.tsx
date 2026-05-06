@@ -5,21 +5,15 @@ import { Button } from '@/components/ui/button';
 const proofs = [
   {
     stat: '25+',
-    label: 'years building digital systems',
+    label: 'Years building digital systems',
   },
   {
     stat: '300+',
-    label: 'projects launched',
+    label: 'Projects launched',
   },
   {
-    stat: '6',
-    label: 'disciplines under one roof',
-    sub: 'websites, ecommerce, branding, content, automation, CRM',
-  },
-  {
-    stat: '1',
-    label: 'founder-led practice',
-    sub: 'agency execution support when needed',
+    stat: '100s',
+    label: 'Businesses helped',
   },
 ];
 
@@ -37,23 +31,18 @@ export function Proof() {
             execution through ZINC.
           </p>
         </div>
-        <dl className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-lg overflow-hidden">
+        <dl className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px bg-border border border-border rounded-lg overflow-hidden">
           {proofs.map((p, i) => (
             <div
               key={i}
-              className="bg-bg p-8 md:p-10 flex flex-col gap-3 min-h-[180px]"
+              className="bg-bg p-8 md:p-10 flex flex-col justify-between gap-6 min-h-[200px]"
             >
               <dt className="text-[12px] uppercase tracking-[0.08em] text-ink-3 font-mono">
                 {p.label}
               </dt>
-              <dd className="text-[clamp(40px,5vw,56px)] tracking-[-0.025em] font-semibold leading-none text-ink">
+              <dd className="text-[clamp(56px,7vw,84px)] tracking-[-0.03em] font-semibold leading-none text-ink">
                 {p.stat}
               </dd>
-              {p.sub ? (
-                <p className="text-[13px] leading-relaxed text-ink-3 mt-auto">
-                  {p.sub}
-                </p>
-              ) : null}
             </div>
           ))}
         </dl>
