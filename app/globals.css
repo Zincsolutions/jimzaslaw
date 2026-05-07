@@ -337,6 +337,24 @@
     color: var(--dark-text);
     border: 1px solid var(--dark-border);
   }
+
+  /* ─── Footer logo mark hover (white circle → orange, dark mark → white) ── */
+  .footer-logo-mark .logo-mark-bg {
+    fill: #ffffff;
+    transition: fill 180ms var(--ease-out);
+  }
+  .footer-logo-mark .logo-mark-symbol {
+    fill: #231f20;
+    transition: fill 180ms var(--ease-out);
+  }
+  .footer-logo-mark:hover .logo-mark-bg,
+  .footer-logo-mark:focus-visible .logo-mark-bg {
+    fill: var(--accent);
+  }
+  .footer-logo-mark:hover .logo-mark-symbol,
+  .footer-logo-mark:focus-visible .logo-mark-symbol {
+    fill: #ffffff;
+  }
 }
 
 /* ─── Reduced motion ─────────────────────────────────────────────────────── */
