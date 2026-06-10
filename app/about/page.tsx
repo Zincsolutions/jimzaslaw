@@ -5,10 +5,25 @@ import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { ZincBand } from '@/components/sections/zinc-band';
 
+const title = 'About Jim Zaslaw';
+const description =
+  'Jim Zaslaw is the CEO of ZINC and the founder of Jim Zaslaw Consulting. More than 25 years of building digital systems, applied to AI specifically.';
+
 export const metadata: Metadata = {
-  title: 'About Jim Zaslaw',
-  description:
-    'Jim Zaslaw is the CEO of ZINC and the founder of Jim Zaslaw Consulting. More than 25 years of building digital systems, applied to AI specifically.',
+  title,
+  description,
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title,
+    description,
+    url: '/about',
+    images: [`/og?title=${encodeURIComponent('Strategy from someone who has actually shipped the work.')}&eyebrow=${encodeURIComponent('About Jim')}`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 export default function AboutPage() {

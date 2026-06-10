@@ -5,13 +5,8 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+# Security headers live in next.config.mjs (headers()) — rules here don't
+# apply to pages served through the Next.js runtime functions.
 
 [[headers]]
   for = "/_next/static/*"

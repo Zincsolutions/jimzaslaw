@@ -43,13 +43,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
       { url: '/logos/jim-mark.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico' },
     ],
-    apple: '/logos/jim-mark.svg',
-  },
-  alternates: {
-    canonical: site.url,
+    apple: '/apple-touch-icon.png',
   },
 };
 
@@ -78,15 +75,22 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
 
-        {/* JSON-LD: Organization + Person */}
-        <Script
+        {/* JSON-LD: Organization + Person — plain <script> so it's in the
+            server-rendered HTML for crawlers that don't execute JS */}
+        <script
           id="ld-org"
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@graph': [
+                {
+                  '@type': 'WebSite',
+                  '@id': `${site.url}#website`,
+                  name: site.name,
+                  url: site.url,
+                  publisher: { '@id': `${site.url}#org` },
+                },
                 {
                   '@type': 'Organization',
                   '@id': `${site.url}#org`,

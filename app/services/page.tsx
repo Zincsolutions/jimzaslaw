@@ -9,10 +9,25 @@ import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
 
+const title = 'Services';
+const description =
+  'AI Operating System, AI Visibility Engine, AI Brand Asset System — three practical ways to put AI to work inside your business.';
+
 export const metadata: Metadata = {
-  title: 'Services',
-  description:
-    'AI Operating System, AI Visibility Engine, AI Brand Asset System — three practical ways to put AI to work inside your business.',
+  title,
+  description,
+  alternates: { canonical: '/services' },
+  openGraph: {
+    title,
+    description,
+    url: '/services',
+    images: [`/og?title=${encodeURIComponent('Three practical ways to put AI to work.')}&eyebrow=${encodeURIComponent('Services')}`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 const mockups = {

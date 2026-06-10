@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
-import { services } from '@/lib/site';
+import { services, site } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
@@ -27,9 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = services.find((x) => x.slug === slug);
   if (!p) return {};
+  const ogImage = `/og?title=${encodeURIComponent(p.title)}&eyebrow=${encodeURIComponent(`Service ${p.number} — ${p.short}`)}`;
   return {
     title: p.short,
     description: p.tagline,
+    alternates: { canonical: `/services/${p.slug}` },
+    openGraph: {
+      title: p.short,
+      description: p.tagline,
+      url: `/services/${p.slug}`,
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: p.short,
+      description: p.tagline,
+      images: [ogImage],
+    },
   };
 }
 
@@ -39,6 +53,34 @@ export default async function ServicePage({ params }: Props) {
   if (!p) notFound();
   const Mockup = mockups[p.slug];
   const others = services.filter((x) => x.slug !== p.slug);
+
+  const serviceLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${site.url}/services/${p.slug}#service`,
+    name: p.short,
+    description: p.objective,
+    serviceType: p.short,
+    url: `${site.url}/services/${p.slug}`,
+    provider: { '@id': `${site.url}#org` },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${p.short} deliverables`,
+      itemListElement: p.deliverables.map((d) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: d },
+      })),
+    },
+  };
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${site.url}/services` },
+      { '@type': 'ListItem', position: 3, name: p.short, item: `${site.url}/services/${p.slug}` },
+    ],
+  };
 
   return (
     <>
@@ -192,6 +234,17 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       <CTABand />
+
+      <script
+        id={`ld-service-${p.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
+      />
+      <script
+        id={`ld-breadcrumb-${p.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
     </>
   );
 }

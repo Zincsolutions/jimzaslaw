@@ -25,6 +25,7 @@ export function BlogTopicFilter({
             key={t}
             href={href}
             scroll={false}
+            aria-current={isActive ? 'page' : undefined}
             className={cn(
               'shrink-0 rounded-pill px-3.5 py-1.5 text-[13px] font-medium border transition-colors whitespace-nowrap',
               isActive

@@ -29,7 +29,39 @@ const ContactSchema = z.object({
 
 type ContactPayload = z.infer<typeof ContactSchema>;
 
+// Simple in-memory rate limit: 5 submissions per IP per 10 minutes.
+// Per-instance state — a fresh serverless instance starts a fresh window,
+// so this is a throttle on bursts, not a hard global guarantee. Good
+// enough to keep a script from flooding the inbox and the Resend bill.
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const RATE_MAX = 5;
+const rateHits = new Map<string, number[]>();
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const recent = (rateHits.get(ip) ?? []).filter(
+    (t) => now - t < RATE_WINDOW_MS,
+  );
+  if (recent.length >= RATE_MAX) {
+    rateHits.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  if (rateHits.size > 5000) rateHits.clear();
+  rateHits.set(ip, recent);
+  return false;
+}
+
 export async function POST(req: Request) {
+  const ip =
+    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again in a few minutes.' },
+      { status: 429 },
+    );
+  }
+
   let json: unknown;
   try {
     json = await req.json();
@@ -63,7 +95,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: `Jim Zaslaw Site <${from}>`,
       to,
-      replyTo: data.email,
+      replyTo: data.email.replace(/[\r\n]/g, ''),
       subject,
       html,
     });

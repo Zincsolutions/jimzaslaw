@@ -295,7 +295,7 @@ export function ContactForm() {
             name="context"
             rows={5}
             required
-            className="rounded-md border border-border p-3.5 text-[15px] text-ink bg-bg focus:border-ink leading-relaxed"
+            className="rounded-md border border-border p-3.5 text-[15px] text-ink bg-bg focus:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/25 leading-relaxed"
             placeholder="Example: We are using ChatGPT and Canva a little, but we do not have a clear process. We need help figuring out which tools to use, how to organize prompts and workflows, and how AI could help our marketing team create more content."
           />
         </div>
@@ -362,7 +362,7 @@ function Field({
         autoComplete={autoComplete}
         required={required}
         placeholder={placeholder}
-        className="h-11 rounded-md border border-border px-3.5 text-[15px] text-ink bg-bg focus:border-ink"
+        className="h-11 rounded-md border border-border px-3.5 text-[15px] text-ink bg-bg focus:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/25"
       />
     </div>
   );
@@ -390,7 +390,7 @@ function SelectField({
         name={name}
         required={required}
         defaultValue=""
-        className="h-11 rounded-md border border-border px-3.5 text-[15px] text-ink bg-bg focus:border-ink"
+        className="h-11 rounded-md border border-border px-3.5 text-[15px] text-ink bg-bg focus:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/25"
       >
         <option value="" disabled>
           Select…

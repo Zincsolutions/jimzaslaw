@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/hero';
 import { LogoStrip } from '@/components/sections/logo-strip';
 import { ProblemGrid } from '@/components/sections/problem-grid';
@@ -11,6 +12,10 @@ import { Proof } from '@/components/sections/proof';
 import { ZincBand } from '@/components/sections/zinc-band';
 import { FeaturedPosts } from '@/components/sections/featured-posts';
 import { CTABand } from '@/components/sections/cta-band';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function Home() {
   return (
