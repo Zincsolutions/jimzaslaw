@@ -7,10 +7,8 @@ Marketing site for Jim Zaslaw Consulting, a sister practice to ZINC.
 - Next.js 15 (App Router) + React 19
 - Tailwind CSS v4 + `@tailwindcss/typography`
 - Geist Sans + Geist Mono (self-hosted via the `geist` package)
-- Framer Motion + Embla Carousel
-- MDX blog (file-based, `content/blog/*.mdx`)
+- Markdown blog (file-based, `content/blog/*.md`, rendered via unified/remark)
 - Resend (contact form)
-- Calendly (inline scheduling on `/contact`)
 - Deploy: Netlify (`@netlify/plugin-nextjs`)
 
 ## Getting started
@@ -18,8 +16,8 @@ Marketing site for Jim Zaslaw Consulting, a sister practice to ZINC.
 ```bash
 npm install
 cp .env.example .env.local
-# fill in NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_CALENDLY_URL,
-# NEXT_PUBLIC_GA_ID, RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
+# fill in NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_GA_ID,
+# RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
 npm run dev
 ```
 
@@ -33,19 +31,20 @@ npm run dev
 | `/services/[slug]` | Individual service page (3 of these) |
 | `/how-it-works` | How engagements work — Assessment / Implementation / Retainer + FAQ |
 | `/blog` | Blog index (rendered as "Field Notes"), topic filter, featured slot |
-| `/blog/[slug]` | MDX post template with JSON-LD Article + FAQPage + BreadcrumbList |
-| `/contact` | Calendly inline + contact form (Resend handler) |
-| `/api/contact` | POST endpoint, Resend integration with Zod validation + honeypot |
+| `/blog/[slug]` | Markdown post template with JSON-LD Article + FAQPage + BreadcrumbList |
+| `/contact` | Assessment request form (Resend handler) |
+| `/api/contact` | POST endpoint, Resend integration with Zod validation, honeypot + rate limit |
 | `/sitemap.xml` | Auto-generated from MDX + static routes |
 | `/feed.xml` | RSS feed |
-| `/robots.txt` | Robots policy |
+| `/robots.txt` | Robots policy (AI crawlers explicitly allowed) |
+| `/llms.txt` | Site summary for LLM/AI-agent discoverability |
 | `/og` | Dynamic OG image (accepts `?title=&eyebrow=`) |
 
 ## Adding a blog post
 
-Drop a new `.mdx` file in `content/blog/`:
+Drop a new `.md` file in `content/blog/`:
 
-```mdx
+```md
 ---
 title: 'How does X work in 2026?'
 description: 'A 1–2 sentence answer suitable as the AEO direct answer.'

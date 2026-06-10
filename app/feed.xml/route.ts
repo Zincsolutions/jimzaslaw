@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/blog';
+import { getAllPosts, renderPostToHtml } from '@/lib/blog';
 import { site } from '@/lib/site';
 
 export const dynamic = 'force-static';
@@ -12,23 +12,31 @@ function escape(s: string) {
     .replace(/'/g, '&apos;');
 }
 
+function cdata(s: string) {
+  return `<![CDATA[${s.replace(/]]>/g, ']]&gt;')}]]>`;
+}
+
 export async function GET() {
   const posts = getAllPosts();
-  const items = posts
-    .map((p) => {
-      const url = `${site.url}/blog/${p.slug}`;
-      return `<item>
+  const items = (
+    await Promise.all(
+      posts.map(async (p) => {
+        const url = `${site.url}/blog/${p.slug}`;
+        const html = await renderPostToHtml(p);
+        return `<item>
         <title>${escape(p.title)}</title>
         <link>${url}</link>
         <guid>${url}</guid>
         <pubDate>${new Date(p.datePublished).toUTCString()}</pubDate>
         <description>${escape(p.description)}</description>
+        <content:encoded>${cdata(html)}</content:encoded>
       </item>`;
-    })
-    .join('\n');
+      }),
+    )
+  ).join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>${escape(site.name)}</title>
     <link>${site.url}/blog</link>

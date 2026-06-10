@@ -5,10 +5,25 @@ import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { Check } from 'lucide-react';
 
+const title = 'How It Works';
+const description =
+  'Three stages — Free Assessment, Implementation, Retainer. Each one stands on its own. Designed to deliver value at every step.';
+
 export const metadata: Metadata = {
-  title: 'How It Works',
-  description:
-    'Three stages — Free Assessment, Implementation, Retainer. Each one stands on its own. Designed to deliver value at every step.',
+  title,
+  description,
+  alternates: { canonical: '/how-it-works' },
+  openGraph: {
+    title,
+    description,
+    url: '/how-it-works',
+    images: [`/og?title=${encodeURIComponent('Three stages. Each one stands on its own.')}&eyebrow=${encodeURIComponent('How It Works')}`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 const stages = [
@@ -77,6 +92,16 @@ const faqs = [
     a: 'Retainer pricing depends on scope and team size. Discussed after Stage 2 deliverables are scoped.',
   },
 ];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 export default function HowItWorksPage() {
   return (
@@ -182,6 +207,12 @@ export default function HowItWorksPage() {
       </section>
 
       <CTABand />
+
+      <script
+        id="ld-faq-how-it-works"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
     </>
   );
 }

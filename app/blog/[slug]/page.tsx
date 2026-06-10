@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
@@ -62,8 +61,19 @@ export default async function BlogPostPage({ params }: Props) {
 
   const html = await renderPostToHtml(post);
 
+  // Related posts: rank by shared topics, fall back to recency.
   const all = getAllPosts();
-  const related = all.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const postTopics = new Set(post.topics.map((t) => t.toLowerCase()));
+  const related = all
+    .filter((p) => p.slug !== post.slug)
+    .map((p, i) => ({
+      post: p,
+      score: p.topics.filter((t) => postTopics.has(t.toLowerCase())).length,
+      recency: i,
+    }))
+    .sort((a, b) => b.score - a.score || a.recency - b.recency)
+    .slice(0, 3)
+    .map((r) => r.post);
 
   const articleLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -202,18 +212,20 @@ export default async function BlogPostPage({ params }: Props) {
         secondaryLabel="Email Jim"
       />
 
-      <Script
+      {/* Plain <script> tags so the schema is in the server-rendered HTML
+          for crawlers that don't execute JS (most AI crawlers). */}
+      <script
         id={`ld-article-${post.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
-      <Script
+      <script
         id={`ld-breadcrumb-${post.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {faqLd ? (
-        <Script
+        <script
           id={`ld-faq-${post.slug}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}

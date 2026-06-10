@@ -3,13 +3,27 @@ import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { ContactForm } from '@/components/contact-form';
-// import { CalendlyEmbed } from '@/components/calendly-embed';
 import { site } from '@/lib/site';
 
+const title = 'Request a Free AI Opportunity Assessment';
+const description =
+  'Tell Jim Zaslaw about your business and where AI could help. He’ll review your information and follow up to schedule a focused assessment conversation.';
+
 export const metadata: Metadata = {
-  title: 'Request a Free AI Opportunity Assessment',
-  description:
-    'Tell Jim Zaslaw about your business and where AI could help. He’ll review your information and follow up to schedule a focused assessment conversation.',
+  title,
+  description,
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title,
+    description,
+    url: '/contact',
+    images: [`/og?title=${encodeURIComponent('Request a Free AI Opportunity Assessment.')}&eyebrow=${encodeURIComponent('Contact')}`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 export default function ContactPage() {
@@ -27,19 +41,6 @@ export default function ContactPage() {
               help. I&apos;ll review your information and follow up to schedule
               a focused assessment conversation.
             </p>
-
-            {/*
-              Calendly embed temporarily disabled — visitors now request the
-              assessment via the form below, and Jim follows up directly to
-              schedule. Restore by uncommenting the import + this section.
-
-              <div className="mt-10">
-                <h2 className="text-[14px] font-medium uppercase tracking-[0.08em] text-ink-3 mb-3">
-                  Pick a time directly
-                </h2>
-                <CalendlyEmbed url={site.calendly} />
-              </div>
-            */}
 
             <div className="mt-10">
               <ContactForm />

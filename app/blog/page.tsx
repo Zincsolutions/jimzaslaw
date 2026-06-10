@@ -7,10 +7,25 @@ import { BlogTopicFilter } from '@/components/blog-topic-filter';
 import { CTABand } from '@/components/sections/cta-band';
 import { getAllPosts, getAllTopics } from '@/lib/blog';
 
+const title = 'Blog — Field notes on AI systems';
+const description =
+  'Practical writing on AI strategy, AEO, AI operating systems, and AI-driven brand production. From an operator who has been building digital systems for twenty years.';
+
 export const metadata: Metadata = {
-  title: 'Blog — Field notes on AI systems',
-  description:
-    'Practical writing on AI strategy, AEO, AI operating systems, and AI-driven brand production. From an operator who has been building digital systems for twenty years.',
+  title,
+  description,
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title,
+    description,
+    url: '/blog',
+    images: [`/og?title=${encodeURIComponent('Field notes on building AI systems.')}&eyebrow=${encodeURIComponent('Field Notes')}`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 export default async function BlogIndexPage({

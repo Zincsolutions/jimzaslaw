@@ -6,8 +6,13 @@ const OG_SIZE = { width: 1200, height: 630 };
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get('title') || 'Turning AI usage into business advantage.';
-  const eyebrow = searchParams.get('eyebrow') || 'Jim Zaslaw Consulting';
+  // Clamp lengths so crafted URLs can't blow up the layout.
+  const title = (
+    searchParams.get('title') || 'Turning AI usage into business advantage.'
+  ).slice(0, 140);
+  const eyebrow = (
+    searchParams.get('eyebrow') || 'Jim Zaslaw Consulting'
+  ).slice(0, 80);
 
   return new ImageResponse(
     (

@@ -1,0 +1,23 @@
+# Jim Zaslaw Consulting
+
+> AI strategy and implementation for executives and founders of growing businesses. Jim Zaslaw is the CEO of ZINC (wearezinc.com) and applies more than 25 years of building digital systems — brands, websites, ecommerce platforms, marketing systems — to AI specifically. Engagements turn scattered AI usage into structured, practical business systems.
+
+Every engagement starts with a free 60–90 minute AI Opportunity Assessment, followed by fixed-scope implementation of one or more productized services, with an optional ongoing retainer.
+
+## Services
+
+- [AI Operating System](https://jimzaslaw.com/services/ai-operating-system): Organize the tools, prompts, workflows, standards, and shared knowledge a team needs to use AI consistently.
+- [AI Visibility Engine](https://jimzaslaw.com/services/ai-visibility-engine): Map the questions buyers ask AI tools, then build content designed to make the business easier to understand, cite, and recommend in AI-driven search.
+- [AI Brand Asset System](https://jimzaslaw.com/services/ai-brand-asset-system): AI-ready brand guidelines, visual prompt systems, and asset workflows for producing consistent on-brand visuals.
+
+## Key pages
+
+- [How It Works](https://jimzaslaw.com/how-it-works): The three-stage engagement model — Free Assessment, Implementation, Retainer — plus FAQ.
+- [About Jim Zaslaw](https://jimzaslaw.com/about): Background, ZINC relationship, and consulting philosophy.
+- [Field Notes (blog)](https://jimzaslaw.com/blog): Practical writing on AI strategy, AEO, AI operating systems, and AI-driven brand production.
+- [Contact](https://jimzaslaw.com/contact): Request a free AI Opportunity Assessment.
+
+## Feeds
+
+- [RSS feed](https://jimzaslaw.com/feed.xml)
+- [Sitemap](https://jimzaslaw.com/sitemap.xml)

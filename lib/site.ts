@@ -4,9 +4,6 @@ export const site = {
   description:
     'AI strategy and implementation for executives and founders. Twenty years of building digital systems for actual businesses, applied to AI specifically.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://jimzaslaw.com',
-  calendly:
-    process.env.NEXT_PUBLIC_CALENDLY_URL ||
-    'https://calendly.com/jimzaslaw',
   email: 'jim@jimzaslaw.com',
   socials: {
     linkedin: 'https://www.linkedin.com/in/jimzaslaw/',
