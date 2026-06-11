@@ -6,6 +6,8 @@ dateModified: '2026-03-25'
 author: 'Jim Zaslaw'
 topics: ['Ecommerce', 'AEO', 'Strategy']
 featured: true
+coverImage: '/images/blog/ai-checkout-and-the-2026-ecommerce-shift.png'
+coverImageAlt: 'A glowing shopping cart speeding past an oversized clock face in streaks of orange light — representing instant, AI-driven checkout compressing the ecommerce purchase journey.'
 faq:
   - question: 'Does AI checkout replace my website?'
     answer: 'No. Your website is still where brand identity, deeper product education, support, and post-purchase experience live. AI checkout becomes an additional, very high-intent entry point — not a replacement.'

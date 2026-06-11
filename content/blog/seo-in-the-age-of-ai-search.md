@@ -6,6 +6,8 @@ dateModified: '2026-04-22'
 author: 'Jim Zaslaw'
 topics: ['AEO', 'Visibility', 'Strategy']
 featured: true
+coverImage: '/images/blog/seo-in-the-age-of-ai-search.png'
+coverImageAlt: 'A fingertip touching a glowing AI button on a translucent search interface beside a document icon — representing search results generated and cited by AI engines instead of traditional rankings.'
 faq:
   - question: 'Is SEO dead in the age of AI search?'
     answer: 'No. Google still handles roughly 373 times more queries than ChatGPT, and AI engines lean heavily on the same SEO signals — site structure, schema, EEAT — to decide what to cite. SEO isn''t dead. It''s being absorbed into a larger discipline.'

@@ -6,6 +6,8 @@ dateModified: '2026-04-08'
 author: 'Jim Zaslaw'
 topics: ['Operating System', 'Frameworks', 'Strategy']
 featured: true
+coverImage: '/images/blog/coaching-llms-like-elite-athletes.png'
+coverImageAlt: 'An athlete standing before a wall-sized performance display analyzing his biometrics — representing coaching large language models with the same discipline as elite athletic training.'
 faq:
   - question: 'What''s wrong with benchmarking LLMs against fixed tests?'
     answer: 'Benchmarks measure performance on static, isolated tasks — like measuring an athlete''s vertical jump in an empty gym. They don''t reveal how a model behaves in a real workflow with shifting context, ambiguous goals, and the need to improvise. Real performance only shows up in real situations.'
