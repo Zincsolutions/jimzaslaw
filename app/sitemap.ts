@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/how-it-works`, lastModified: now, priority: 0.8 },
     { url: `${site.url}/blog`, lastModified: now, priority: 0.7 },
     { url: `${site.url}/contact`, lastModified: now, priority: 0.9 },
+    { url: `${site.url}/privacy`, lastModified: now, priority: 0.3 },
   ];
   const servicePaths: MetadataRoute.Sitemap = services.map((p) => ({
     url: `${site.url}/services/${p.slug}`,

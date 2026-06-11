@@ -122,6 +122,10 @@ export function SiteFooter() {
         <div className="mt-16 pt-8 border-t flex flex-col md:flex-row md:items-center justify-between gap-4 text-[13px] text-white/60">
           <p>
             © {new Date().getFullYear()} {site.name}. A practice of {site.zinc.name}.
+            {' · '}
+            <Link href="/privacy" className="hover:text-accent">
+              Privacy
+            </Link>
           </p>
           <p>Built for clarity. Delivering growth.</p>
         </div>
