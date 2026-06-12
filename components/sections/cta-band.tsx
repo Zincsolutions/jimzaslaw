@@ -1,18 +1,23 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { site } from '@/lib/site';
+
+const secondaryClasses =
+  'inline-flex items-center justify-center gap-2 h-12 px-6 rounded-pill border border-white/30 text-white text-[16px] transition-all duration-200 ease-out hover:bg-accent hover:border-accent active:translate-y-[1px]';
 
 export function CTABand({
   title = 'Know where AI can help your business next.',
   body = 'Start with a Free AI Opportunity Assessment. You will leave with clarity, recommendations, and a practical next step.',
   primaryLabel = 'Get a Free AI Opportunity Assessment',
   secondaryLabel = 'Contact Jim',
+  secondaryHref = '/contact',
 }: {
   title?: string;
   body?: string;
   primaryLabel?: string;
   secondaryLabel?: string;
+  secondaryHref?: string;
 } = {}) {
   return (
     <section className="on-ink relative overflow-hidden">
@@ -41,12 +46,15 @@ export function CTABand({
             >
               {primaryLabel}
             </Button>
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-pill border border-white/30 hover:border-white text-white text-[16px]"
-            >
-              {secondaryLabel}
-            </a>
+            {secondaryHref.startsWith('mailto:') ? (
+              <a href={secondaryHref} className={secondaryClasses}>
+                {secondaryLabel}
+              </a>
+            ) : (
+              <Link href={secondaryHref} className={secondaryClasses}>
+                {secondaryLabel}
+              </Link>
+            )}
           </div>
         </div>
       </Container>

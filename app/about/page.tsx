@@ -131,6 +131,7 @@ export default function AboutPage() {
         body="The first step is a 60–90 minute working session. Free. No commitment."
         primaryLabel="Get a Free AI Opportunity Assessment"
         secondaryLabel="Email Jim"
+        secondaryHref="mailto:jim@jimzaslaw.com"
       />
     </>
   );

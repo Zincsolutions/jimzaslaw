@@ -210,6 +210,7 @@ export default async function BlogPostPage({ params }: Props) {
         body="Jim Zaslaw helps small and mid-sized businesses turn scattered AI usage into practical systems for marketing, content, operations, brand execution, and team collaboration."
         primaryLabel="Request a Free AI Opportunity Assessment"
         secondaryLabel="Email Jim"
+        secondaryHref="mailto:jim@jimzaslaw.com"
       />
 
       {/* Plain <script> tags so the schema is in the server-rendered HTML
