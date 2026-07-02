@@ -43,7 +43,7 @@ const stages = [
   {
     num: '02',
     title: 'Implementation',
-    timebox: 'Fixed-scope, fixed-fee',
+    timebox: 'Fixed-scope, fixed-fee · Starting at $15K',
     body: 'Following the Assessment, the engagement moves into one or more of the three services. Each service is a discrete, productized engagement with defined deliverables and a defined timeline.',
     bullets: [
       'Clients can engage one service, two, or all three',
@@ -55,7 +55,7 @@ const stages = [
   {
     num: '03',
     title: 'Retainer',
-    timebox: 'Ongoing · monthly',
+    timebox: 'Ongoing · From $5K/month',
     body: 'AI moves fast enough that the systems built in Stage 2 will be out of date within months without active maintenance. The retainer keeps the client current on tool changes, model upgrades, new capabilities, and emerging best practices.',
     bullets: [
       'Tool and model upgrades evaluated and applied',
@@ -88,8 +88,12 @@ const faqs = [
     a: 'Yes. Standard practice. Engagements regularly involve confidential strategy, customer data, and internal workflows.',
   },
   {
+    q: 'What do engagements cost?',
+    a: 'Implementation engagements start at $15K, fixed-fee and scoped up front — no open-ended consulting hours. Exact pricing depends on which services you engage and the size of your team.',
+  },
+  {
     q: 'What does the retainer cost?',
-    a: 'Retainer pricing depends on scope and team size. Discussed after Stage 2 deliverables are scoped.',
+    a: 'Advisory retainers start at $5K/month. Final pricing depends on scope and team size, and is defined after Stage 2 deliverables are scoped.',
   },
 ];
 

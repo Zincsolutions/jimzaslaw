@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
-import { services, site } from '@/lib/site';
+import { services, site, pricing } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
@@ -126,6 +126,10 @@ export default async function ServicePage({ params }: Props) {
                   How It Works
                 </Button>
               </div>
+              <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-white/60">
+                Fixed-scope, fixed-fee · Engagements start at{' '}
+                {pricing.implementationFrom}
+              </p>
             </div>
             <div className="lg:col-span-6">
               <div className="dark-card rounded-xl p-3 md:p-4">

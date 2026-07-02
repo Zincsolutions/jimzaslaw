@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
-import { services } from '@/lib/site';
+import { services, pricing } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
@@ -51,6 +51,9 @@ export default function ServicesPage() {
               Start with a focused assessment. Then build the system your
               business needs most — from internal AI workflows to AI visibility
               and brand asset creation.
+            </p>
+            <p className="mt-5 font-mono text-[13px] uppercase tracking-[0.06em] text-white/60">
+              {pricing.implementation} · {pricing.retainer}
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Button

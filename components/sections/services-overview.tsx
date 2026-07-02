@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { SectionHeader } from '@/components/ui/section-header';
-import { services } from '@/lib/site';
+import { services, pricing } from '@/lib/site';
 
 const overviews = {
   'ai-operating-system': {
@@ -96,6 +96,9 @@ export function ServicesOverview() {
             );
           })}
         </div>
+        <p className="mt-10 text-center font-mono text-[13px] uppercase tracking-[0.06em] text-ink-3">
+          {pricing.implementation} · {pricing.retainer}
+        </p>
       </Container>
     </section>
   );

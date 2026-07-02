@@ -16,6 +16,13 @@ export const site = {
   },
 } as const;
 
+export const pricing = {
+  implementationFrom: '$15K',
+  retainerFrom: '$5K/month',
+  implementation: 'Implementation engagements start at $15K',
+  retainer: 'Advisory retainers from $5K/month',
+} as const;
+
 export type Service = {
   slug: 'ai-operating-system' | 'ai-visibility-engine' | 'ai-brand-asset-system';
   number: '01' | '02' | '03';
