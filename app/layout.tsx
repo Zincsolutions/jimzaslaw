@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Suspense } from 'react';
 import Script from 'next/script';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { site } from '@/lib/site';
@@ -64,7 +64,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
@@ -143,21 +142,13 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
 }(window,document,window._fs_namespace,"script",window._fs_script);`}
         </Script>
 
-        {/* GA4 — only when ID is set */}
-        {gaId ? (
-          <Suspense fallback={null}>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}', { anonymize_ip: true });`}
-            </Script>
-          </Suspense>
-        ) : null}
+        {/* GA4. ID hardcoded on purpose: measurement IDs are public in page
+            source, and the previous env-var gate (NEXT_PUBLIC_GA_ID) was
+            never set in Netlify — so this block silently rendered nothing
+            and the site shipped with no analytics at all (found 2026-07-23).
+            The official component also fires pageviews on client-side route
+            changes, which the raw gtag snippet missed. */}
+        <GoogleAnalytics gaId="G-MVGPNVLJWZ" />
       </body>
     </html>
   );
