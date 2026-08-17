@@ -33,7 +33,7 @@ const problems = [
     icon: Search,
     chip: 'orange' as const,
     title: 'Invisible in AI search',
-    body: 'Customers ask ChatGPT, Claude, Perplexity, and Google AI Overviews questions in your category — and the company isn’t showing up.',
+    body: 'Customers ask ChatGPT, Claude, Perplexity, and Google AI Overviews questions in your category, and the company isn’t showing up.',
   },
   {
     icon: ImageIcon,

@@ -65,7 +65,7 @@ export function SiteFooter() {
             </p>
             <Link
               href="/"
-              aria-label="Jim Zaslaw — Home"
+              aria-label="Jim Zaslaw home"
               className="footer-logo-mark mt-6 inline-block size-10 rounded-full"
             >
               <svg

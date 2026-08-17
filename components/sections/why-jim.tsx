@@ -46,7 +46,7 @@ export function WhyJim() {
             </p>
             <p className="text-[18px] leading-relaxed text-ink-2">
               Jim brings the perspective of someone who has actually built the
-              systems businesses run on — and now applies that experience to
+              systems businesses run on, and now applies that experience to
               AI.
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">

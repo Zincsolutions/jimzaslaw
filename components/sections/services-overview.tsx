@@ -19,7 +19,7 @@ const overviews = {
   },
   'ai-visibility-engine': {
     subtitle: 'Get found when buyers ask AI for recommendations.',
-    body: 'Identify the questions your customers are asking ChatGPT, Claude, Perplexity, and Google AI Overviews — then build content designed to make your business easier to understand, cite, and recommend.',
+    body: 'Identify the questions your customers are asking ChatGPT, Claude, Perplexity, and Google AI Overviews. Then build content designed to make your business easier to understand, cite, and recommend.',
     bestFor: 'Best for businesses that rely on inbound leads, authority, and search visibility.',
     deliverables: [
       'Question map',

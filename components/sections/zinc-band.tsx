@@ -14,7 +14,7 @@ export function ZincBand() {
               Jim Zaslaw Consulting is strategic advisory.{' '}
               <span className="text-white">ZINC</span> is execution. When the
               work calls for a website redesign, brand refresh, advanced
-              integrations, or e-commerce — twenty years of agency execution
+              integrations, or e-commerce, twenty years of agency execution
               capacity is right behind it.
             </p>
           </div>

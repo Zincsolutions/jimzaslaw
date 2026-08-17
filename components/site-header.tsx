@@ -81,7 +81,7 @@ export function SiteHeader() {
       <div className="container-x flex items-center justify-between h-[72px] gap-6">
         <Link
           href="/"
-          aria-label="Jim Zaslaw Consulting — Home"
+          aria-label="Jim Zaslaw Consulting home"
           className="flex items-center gap-2 shrink-0"
         >
           <Image
