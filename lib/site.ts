@@ -97,7 +97,7 @@ export const services: Service[] = [
     chip: 'blush',
     short: 'AI Brand Asset System',
     title: 'Create on-brand visuals faster.',
-    tagline: 'Produce consistent visuals using AI tools — without cleanup.',
+    tagline: 'Produce consistent visuals using AI tools, without cleanup.',
     objective:
       'Build AI-ready brand guidelines, visual prompt systems, and asset workflows so your team can produce better marketing visuals with less cleanup.',
     scope: [
