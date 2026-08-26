@@ -41,13 +41,9 @@ export const metadata: Metadata = {
     description: site.description,
     images: ['/og'],
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
-      { url: '/logos/jim-mark.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-touch-icon.png',
-  },
+  // Favicons served via Next.js App Router convention:
+  // app/icon.png → <link rel="icon">
+  // app/apple-icon.png → <link rel="apple-touch-icon">
 };
 
 export const viewport: Viewport = {
