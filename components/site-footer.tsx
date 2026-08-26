@@ -127,7 +127,17 @@ export function SiteFooter() {
               Privacy
             </Link>
           </p>
-          <p>Built for clarity. Delivering growth.</p>
+          <p>
+            This site is governed by{' '}
+            <a
+              href="https://dispatchvault.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent"
+            >
+              Dispatch
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
