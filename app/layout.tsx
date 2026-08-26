@@ -11,8 +11,8 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: ${site.tagline}`,
-    template: `%s — ${site.name}`,
+    default: 'AI Consulting for Growing Businesses | Jim Zaslaw',
+    template: '%s | Jim Zaslaw',
   },
   description: site.description,
   applicationName: site.name,
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: site.name,
-    title: `${site.name}: ${site.tagline}`,
+    title: 'AI Consulting for Growing Businesses | Jim Zaslaw',
     description: site.description,
     url: site.url,
     images: ['/og'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name}: ${site.tagline}`,
+    title: 'AI Consulting for Growing Businesses | Jim Zaslaw',
     description: site.description,
     images: ['/og'],
   },

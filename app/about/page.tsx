@@ -5,12 +5,12 @@ import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { ZincBand } from '@/components/sections/zinc-band';
 
-const title = 'About Jim Zaslaw';
+const title = 'About Jim Zaslaw — AI Consultant & CEO of ZINC';
 const description =
-  'Jim Zaslaw is the CEO of ZINC and the founder of Jim Zaslaw Consulting. More than 25 years of building digital systems, applied to AI specifically.';
+  'Jim Zaslaw is an AI consultant and CEO of ZINC. He helps growing businesses turn scattered AI into practical systems, grounded in more than 25 years of digital execution.';
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: title },
   description,
   alternates: { canonical: '/about' },
   openGraph: {

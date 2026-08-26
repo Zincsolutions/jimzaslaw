@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
-import { services, site, pricing } from '@/lib/site';
+import { services, site, pricing, type Service } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
@@ -23,25 +23,47 @@ export async function generateStaticParams() {
 
 type Props = { params: Promise<{ slug: string }> };
 
+const SERVICE_SEO: Record<
+  Service['slug'],
+  { title: string; description: string }
+> = {
+  'ai-operating-system': {
+    title: 'AI Operating System for Business',
+    description:
+      'Build an AI operating system for your business — tools, prompts, workflows, standards, and shared knowledge organized into a system your team can actually use.',
+  },
+  'ai-visibility-engine': {
+    title: 'AI Visibility (AEO) for Business',
+    description:
+      'AI Visibility Engine — Answer Engine Optimization (AEO) for growing businesses. Show up when buyers ask ChatGPT, Claude, Perplexity, and Google AI Overviews.',
+  },
+  'ai-brand-asset-system': {
+    title: 'AI Brand Asset System',
+    description:
+      'Create on-brand marketing visuals faster with an AI Brand Asset System — brand-ready guidelines, visual prompt libraries, and asset workflows for your team.',
+  },
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = services.find((x) => x.slug === slug);
   if (!p) return {};
+  const seo = SERVICE_SEO[p.slug] ?? { title: p.short, description: p.tagline };
   const ogImage = `/og?title=${encodeURIComponent(p.title)}&eyebrow=${encodeURIComponent(`Service ${p.number} — ${p.short}`)}`;
   return {
-    title: p.short,
-    description: p.tagline,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/services/${p.slug}` },
     openGraph: {
-      title: p.short,
-      description: p.tagline,
+      title: seo.title,
+      description: seo.description,
       url: `/services/${p.slug}`,
       images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
-      title: p.short,
-      description: p.tagline,
+      title: seo.title,
+      description: seo.description,
       images: [ogImage],
     },
   };

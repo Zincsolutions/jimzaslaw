@@ -7,9 +7,9 @@ import { BlogTopicFilter } from '@/components/blog-topic-filter';
 import { CTABand } from '@/components/sections/cta-band';
 import { getAllPosts, getAllTopics } from '@/lib/blog';
 
-const title = 'Blog — Field notes on AI systems';
+const title = 'AI Field Notes for Growing Businesses';
 const description =
-  'Practical writing on AI strategy, AEO, AI operating systems, and AI-driven brand production. From an operator who has been building digital systems for twenty years.';
+  'Practical field notes on AI strategy, AEO, AI operating systems, and AI-driven brand production — from an operator with 25 years of digital execution.';
 
 export const metadata: Metadata = {
   title,

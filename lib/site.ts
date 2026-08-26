@@ -2,7 +2,7 @@ export const site = {
   name: 'Jim Zaslaw Consulting',
   tagline: 'Turning AI usage into business advantage.',
   description:
-    'AI strategy and implementation for executives and founders. Twenty years of building digital systems for actual businesses, applied to AI specifically.',
+    'AI consulting for small and mid-sized businesses. Jim Zaslaw turns scattered AI into practical systems for marketing, content, operations, and brand.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://jimzaslaw.com',
   email: 'jim@jimzaslaw.com',
   socials: {

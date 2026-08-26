@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { Check } from 'lucide-react';
 
-const title = 'How It Works';
+const title = 'How AI Consulting Engagements Work';
 const description =
-  'Three stages — Free Assessment, Implementation, Retainer. Each one stands on its own. Designed to deliver value at every step.';
+  'How Jim Zaslaw structures AI consulting engagements — three stages (Free Assessment, Implementation, Retainer), each one designed to deliver value on its own.';
 
 export const metadata: Metadata = {
   title,

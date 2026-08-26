@@ -9,9 +9,9 @@ import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
 
-const title = 'Services';
+const title = 'AI Consulting Services';
 const description =
-  'AI Operating System, AI Visibility Engine, AI Brand Asset System — three practical ways to put AI to work inside your business.';
+  'AI consulting services for growing businesses — AI Operating System, AI Visibility Engine, and AI Brand Asset System. Three practical ways to put AI to work.';
 
 export const metadata: Metadata = {
   title,
