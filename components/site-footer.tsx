@@ -34,6 +34,7 @@ const cols = [
       { label: 'LinkedIn', href: site.socials.linkedin, external: true },
       { label: 'X', href: site.socials.x, external: true },
       { label: 'ZINC ↗', href: site.zinc.url, external: true },
+      { label: 'GarageWire ↗', href: 'https://garagewire.com', external: true },
     ],
   },
 ];
