@@ -80,27 +80,29 @@ export function ContactForm() {
 
     setStatus({ state: 'submitting' });
 
+    // Serialize for Netlify Forms — URL-encoded body, form-name in the payload.
+    // Multi-select "helpAreas" is joined into a single comma-separated string
+    // so it lands as one readable field in the email + Netlify dashboard.
+    // The "bot-field" honeypot is included as-is; Netlify silently drops any
+    // submission where it has a value.
     const formData = new FormData(e.currentTarget);
-    const payload: Record<string, string | string[]> = {};
+    const params = new URLSearchParams();
+    params.set('form-name', 'ai-opportunity-assessment');
     formData.forEach((value, key) => {
-      if (typeof value === 'string') payload[key] = value;
+      if (typeof value === 'string' && key !== 'helpAreas') {
+        params.set(key, value);
+      }
     });
-    payload.helpAreas = helpAreas;
-
-    if (payload._hp) {
-      setStatus({ state: 'success' });
-      return;
-    }
+    params.set('helpAreas', helpAreas.join(', '));
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
       });
-      const json = await res.json().catch(() => ({}));
       if (!res.ok) {
-        throw new Error(json?.error || 'Something went wrong. Try again.');
+        throw new Error('Something went wrong. Try again.');
       }
       startTransition(() => {
         setStatus({ state: 'success' });
@@ -147,11 +149,16 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-8" noValidate>
-      {/* Honeypot */}
+    <form
+      name="ai-opportunity-assessment"
+      onSubmit={onSubmit}
+      className="flex flex-col gap-8"
+      noValidate
+    >
+      {/* Netlify honeypot — submissions with any value here are silently dropped. */}
       <input
         type="text"
-        name="_hp"
+        name="bot-field"
         tabIndex={-1}
         autoComplete="off"
         className="absolute left-[-9999px] top-[-9999px]"

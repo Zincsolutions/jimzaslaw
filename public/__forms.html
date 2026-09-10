@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Forms — build-time detection</title>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <!--
+      This static form exists solely so Netlify's build-time HTML scanner
+      picks up the "ai-opportunity-assessment" form and its field names.
+      The real form (components/contact-form.tsx) is a React client
+      component and isn't visible to that scanner. The React form POSTs
+      URL-encoded data to "/" with form-name=ai-opportunity-assessment,
+      which Netlify's form-handler intercepts.
+    -->
+    <form
+      name="ai-opportunity-assessment"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="ai-opportunity-assessment" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="url" name="website" />
+      <input type="text" name="role" />
+      <select name="businessType"><option></option></select>
+      <select name="companySize"><option></option></select>
+      <select name="aiUsageLevel"><option></option></select>
+      <input type="text" name="helpAreas" />
+      <textarea name="context"></textarea>
+      <select name="timeline"><option></option></select>
+    </form>
+  </body>
+</html>
