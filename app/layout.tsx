@@ -106,7 +106,7 @@ export default function RootLayout({
                   jobTitle: 'Founder, Jim Zaslaw Consulting',
                   worksFor: { '@id': `${site.url}#org` },
                   url: site.url,
-                  image: `${site.url}/jz-headshot-v2.png`,
+                  image: `${site.url}/jz-headshot-v3.png`,
                   sameAs: [site.socials.linkedin, site.socials.x],
                 },
               ],

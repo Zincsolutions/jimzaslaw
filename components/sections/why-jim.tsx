@@ -19,7 +19,7 @@ export function WhyJim() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-border max-w-md">
               <Image
-                src="/jz-headshot-v2.png"
+                src="/jz-headshot-v3.png"
                 alt="Jim Zaslaw, Founder of Jim Zaslaw Consulting and CEO of ZINC"
                 fill
                 priority={false}
