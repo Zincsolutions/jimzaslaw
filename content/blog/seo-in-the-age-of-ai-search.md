@@ -74,4 +74,4 @@ The shift from blue links to AI answers is real, and the brands ignoring it will
 
 What changes is the scoreboard. Stop only counting clicks. Start counting citations.
 
-If you want a structured way to do this — identify the questions your category is asking AI tools, restructure your content for citation, and put a system in place to keep producing it — that's [Service 02: the AI Visibility Engine](/services/ai-visibility-engine). It's one of the three engagements I run, and it's the one most companies need first.
+If you want a structured way to do this — identify the questions your category is asking AI tools, restructure your content for citation, and put a system in place to keep producing it — that's [Service 02: the AI Visibility Engine](/services/ai-visibility-engine). It's one of the four engagements I run, and it's often the one companies need first.

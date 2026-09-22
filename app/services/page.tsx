@@ -3,15 +3,17 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
+import { Eyebrow } from '@/components/ui/eyebrow';
 import { CTABand } from '@/components/sections/cta-band';
 import { services, pricing } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
+import { MockupWebsite } from '@/components/mockups/mockup-website';
 
 const title = 'AI Consulting Services';
 const description =
-  'AI consulting services for growing businesses — AI Operating System, AI Visibility Engine, and AI Brand Asset System. Three practical ways to put AI to work.';
+  'AI consulting services for growing businesses: AI Operating System, AI Visibility Engine, AI Brand Asset System, and AI Website Transition Strategy.';
 
 export const metadata: Metadata = {
   title,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/services',
-    images: [`/og?title=${encodeURIComponent('Three practical ways to put AI to work.')}&eyebrow=${encodeURIComponent('Services')}`],
+    images: [`/og?title=${encodeURIComponent('Four focused services for putting AI to work.')}&eyebrow=${encodeURIComponent('Services')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -34,7 +36,30 @@ const mockups = {
   'ai-operating-system': MockupOS,
   'ai-visibility-engine': MockupVisibility,
   'ai-brand-asset-system': MockupBrand,
+  'ai-website-transition-strategy': MockupWebsite,
 };
+
+const startHere = [
+  {
+    problem:
+      'Everyone uses AI differently and useful knowledge is scattered',
+    slug: 'ai-operating-system',
+  },
+  {
+    problem:
+      'Buyers ask AI systems for recommendations and your company is hard to find or understand',
+    slug: 'ai-visibility-engine',
+  },
+  {
+    problem: 'AI-generated visual work is inconsistent or off-brand',
+    slug: 'ai-brand-asset-system',
+  },
+  {
+    problem:
+      'Your website platform, workflow, or operating model needs a major decision',
+    slug: 'ai-website-transition-strategy',
+  },
+] as const;
 
 export default function ServicesPage() {
   return (
@@ -45,12 +70,13 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <p className="eyebrow">Services</p>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
-              Three practical ways to put AI to work.
+              Four focused services for putting AI to work.
             </h1>
             <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
-              Start with a focused assessment. Then build the system your
-              business needs most — from internal AI workflows to AI visibility
-              and brand asset creation.
+              I help leadership teams turn AI from scattered activity into
+              clear systems and decisions. Start with an assessment, then
+              engage the service that addresses the most valuable problem
+              first.
             </p>
             <p className="mt-5 font-mono text-[13px] uppercase tracking-[0.06em] text-white/60">
               {pricing.implementation} · {pricing.retainer}
@@ -62,7 +88,7 @@ export default function ServicesPage() {
                 variant="primary-on-ink"
                 withArrow
               >
-                Get a Free Assessment
+                Request an AI Opportunity Assessment
               </Button>
               <Button
                 href="#compare"
@@ -80,7 +106,7 @@ export default function ServicesPage() {
       {/* Light content section — service cards */}
       <section id="compare" className="py-24 md:py-32">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((p) => {
               const Mockup = mockups[p.slug];
               return (
@@ -114,6 +140,68 @@ export default function ServicesPage() {
           </div>
         </Container>
       </section>
+
+      {/* Which service first */}
+      <section
+        id="which-first"
+        className="py-24 md:py-32 bg-bg-soft border-t border-border"
+      >
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>Where to start</Eyebrow>
+            <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+              Which service should come first?
+            </h2>
+            <p className="mt-4 text-[18px] leading-[1.55] text-ink-2">
+              Most clients start with one. The assessment confirms the right
+              starting point before you commit.
+            </p>
+          </div>
+          <table className="mt-12 w-full border-collapse text-left">
+            <thead>
+              <tr className="border-b border-border-strong">
+                <th
+                  scope="col"
+                  className="pb-3 pr-6 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-3 font-normal"
+                >
+                  If this is the problem
+                </th>
+                <th
+                  scope="col"
+                  className="pb-3 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-3 font-normal w-[38%]"
+                >
+                  Start here
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {startHere.map((row) => {
+                const svc = services.find((x) => x.slug === row.slug)!;
+                return (
+                  <tr key={row.slug} className="border-b border-border align-top">
+                    <td className="py-5 pr-6 text-[16px] md:text-[17px] leading-relaxed text-ink">
+                      {row.problem}
+                    </td>
+                    <td className="py-5">
+                      <Link
+                        href={`/services/${svc.slug}`}
+                        className="group inline-flex items-start gap-1.5 text-[15px] md:text-[16px] font-medium text-ink hover:text-accent transition-colors"
+                      >
+                        {svc.short}
+                        <ArrowRight
+                          className="size-4 mt-1 shrink-0 group-hover:translate-x-0.5 transition-transform"
+                          aria-hidden
+                        />
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </Container>
+      </section>
+
       <CTABand />
     </>
   );

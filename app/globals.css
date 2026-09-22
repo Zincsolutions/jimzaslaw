@@ -309,19 +309,20 @@
     background: var(--dark-bg);
     color: var(--dark-text);
   }
-  .dark-hero h1,
-  .dark-hero h2,
-  .dark-hero h3 {
+  /* Light mockups framed by .dark-card keep their own palette */
+  .dark-hero h1:not(.dark-card *),
+  .dark-hero h2:not(.dark-card *),
+  .dark-hero h3:not(.dark-card *) {
     color: #ffffff;
   }
-  .dark-hero p {
+  .dark-hero p:not(.dark-card *) {
     color: var(--dark-text-muted);
   }
   .dark-hero .eyebrow {
     color: var(--dark-text-subtle);
   }
   .dark-hero hr,
-  .dark-hero * {
+  .dark-hero *:not(.dark-card *) {
     border-color: var(--dark-border);
   }
 

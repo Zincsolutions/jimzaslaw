@@ -19,6 +19,10 @@ const cols = [
       { label: 'AI Operating System', href: '/services/ai-operating-system' },
       { label: 'AI Visibility Engine', href: '/services/ai-visibility-engine' },
       { label: 'AI Brand Asset System', href: '/services/ai-brand-asset-system' },
+      {
+        label: 'AI Website Transition Strategy',
+        href: '/services/ai-website-transition-strategy',
+      },
     ],
   },
   {
@@ -53,7 +57,7 @@ export function SiteFooter() {
               className="h-[22px] w-auto"
             />
             <p className="mt-4 text-[14px] leading-relaxed max-w-[28ch]">
-              Turning AI usage into business advantage. A practice of{' '}
+              {site.tagline} A practice of{' '}
               <a
                 href={site.zinc.url}
                 target="_blank"

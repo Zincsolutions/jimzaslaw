@@ -5,6 +5,7 @@ import {
   Search,
   Image as ImageIcon,
   LineChart,
+  Globe,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { SectionHeader } from '@/components/ui/section-header';
@@ -47,6 +48,13 @@ const problems = [
     title: 'No tie to business outcomes',
     body: 'AI usage hasn’t moved a single number on the P&L, and leadership can’t articulate why.',
   },
+  {
+    icon: Globe,
+    chip: 'violet' as const,
+    title: 'Your website was built for the last operating model',
+    body: 'Your CMS may still work, but it was not designed for a team working with coding agents. You need to know whether to improve it, migrate it, or redesign it without putting your brand, search visibility, or integrations at unnecessary risk.',
+    wide: true,
+  },
 ];
 
 export function ProblemGrid() {
@@ -59,10 +67,13 @@ export function ProblemGrid() {
           lede="Most companies are experimenting with AI in disconnected ways. Prompts live in personal chat histories. Employees use different tools in different ways. Good outputs are hard to repeat. Brand quality is inconsistent. Content is not tied to visibility, sales, or growth."
         />
         <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-lg overflow-hidden">
-          {problems.map(({ icon: Icon, chip, title, body }) => (
+          {problems.map(({ icon: Icon, chip, title, body, wide }) => (
             <div
               key={title}
-              className="bg-bg p-8 md:p-10 flex flex-col gap-4"
+              className={cn(
+                'bg-bg p-8 md:p-10 flex flex-col gap-4',
+                wide && 'md:col-span-2 lg:col-span-3',
+              )}
             >
               <span
                 className={cn(
@@ -76,7 +87,9 @@ export function ProblemGrid() {
               <h3 className="text-[20px] font-semibold tracking-[-0.015em]">
                 {title}
               </h3>
-              <p className="text-[15px] leading-relaxed text-ink-2">{body}</p>
+              <p className="text-[15px] leading-relaxed text-ink-2 max-w-[80ch]">
+                {body}
+              </p>
             </div>
           ))}
         </div>

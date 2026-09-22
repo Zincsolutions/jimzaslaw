@@ -5,9 +5,9 @@ import { Eyebrow } from '@/components/ui/eyebrow';
 import { ContactForm } from '@/components/contact-form';
 import { site } from '@/lib/site';
 
-const title = 'Request a Free AI Opportunity Assessment';
+const title = 'Request an AI and Digital Opportunity Assessment';
 const description =
-  'Tell Jim Zaslaw about your business and where AI could help. He’ll review your information and follow up to schedule a focused assessment conversation.';
+  'Tell Jim Zaslaw about the AI, workflow, or website decision you are facing. He will review it and follow up to schedule a free, focused working session.';
 
 export const metadata: Metadata = {
   title,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/contact',
-    images: [`/og?title=${encodeURIComponent('Request a Free AI Opportunity Assessment.')}&eyebrow=${encodeURIComponent('Contact')}`],
+    images: [`/og?title=${encodeURIComponent('Request an AI and Digital Opportunity Assessment.')}&eyebrow=${encodeURIComponent('Contact')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -32,14 +32,19 @@ export default function ContactPage() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <Eyebrow>Free AI Opportunity Assessment</Eyebrow>
-            <h1 className="mt-4 text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold">
-              Request a Free AI Opportunity Assessment.
+            <Eyebrow>Free assessment</Eyebrow>
+            <h1 className="mt-4 text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold text-balance">
+              Request an AI and Digital Opportunity Assessment.
             </h1>
             <p className="mt-6 text-[18px] md:text-[19px] leading-[1.6] text-ink-2 max-w-xl">
-              Tell me a little about your business and where you think AI could
-              help. I&apos;ll review your information and follow up to schedule
-              a focused assessment conversation.
+              Tell me about the business decision, workflow, or website issue
+              you are trying to solve. I will review the information and follow
+              up to schedule a focused working session.
+            </p>
+            <p className="mt-4 text-[16px] md:text-[17px] leading-[1.6] text-ink-2 max-w-xl">
+              This is a practical assessment, not a generic AI demonstration.
+              We will identify where AI can create value, where the business
+              needs more control, and which decision should come first.
             </p>
 
             <div className="mt-10">
@@ -85,8 +90,8 @@ export default function ContactPage() {
                   <ul className="mt-1 flex flex-col gap-1 text-ink-2">
                     <li>· A 60–90 minute working session</li>
                     <li>· A short written summary</li>
-                    <li>· 2–3 high-impact recommendations</li>
-                    <li>· A clear next step</li>
+                    <li>· Two or three high-impact recommendations</li>
+                    <li>· A suggested first engagement or decision path</li>
                   </ul>
                 </div>
                 <div>

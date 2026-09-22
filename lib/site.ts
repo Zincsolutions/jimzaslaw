@@ -1,8 +1,8 @@
 export const site = {
   name: 'Jim Zaslaw Consulting',
-  tagline: 'Turning AI usage into business advantage.',
+  tagline: 'Senior advice for the decisions where AI meets your real business.',
   description:
-    'AI consulting for small and mid-sized businesses. Jim Zaslaw turns scattered AI into practical systems for marketing, content, operations, and brand.',
+    'AI and digital strategy for growing businesses. Jim Zaslaw helps leadership teams decide where AI belongs across workflows, content, brand, and the website.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://jimzaslaw.com',
   email: 'jim@jimzaslaw.com',
   socials: {
@@ -24,9 +24,13 @@ export const pricing = {
 } as const;
 
 export type Service = {
-  slug: 'ai-operating-system' | 'ai-visibility-engine' | 'ai-brand-asset-system';
-  number: '01' | '02' | '03';
-  chip: 'orange' | 'sky' | 'blush';
+  slug:
+    | 'ai-operating-system'
+    | 'ai-visibility-engine'
+    | 'ai-brand-asset-system'
+    | 'ai-website-transition-strategy';
+  number: '01' | '02' | '03' | '04';
+  chip: 'orange' | 'sky' | 'blush' | 'violet';
   short: string;
   title: string;
   tagline: string;
@@ -48,7 +52,7 @@ export const services: Service[] = [
       'Organize the tools, prompts, workflows, standards, and shared knowledge your team needs to use AI consistently.',
     scope: [
       'Audit of current AI usage across team members and functions',
-      'Tool selection — which AI tools to use, when, and why',
+      'Tool selection: which AI tools to use, when, and why',
       'Tool setup, configuration, and permissions',
       'Centralized AI workspace appropriate to your existing stack',
       'Prompt libraries and workflow templates by function',
@@ -89,7 +93,7 @@ export const services: Service[] = [
       'Ongoing content production system',
     ],
     outcome:
-      'The business becomes visible and citable in AI-driven search. Inbound conversations start with prospects who already trust the brand because an AI tool surfaced it.',
+      'The business becomes clearer, more useful, and easier to surface in AI-driven search, with a content system the team can keep running. More inbound conversations start with prospects who already understand what you do.',
   },
   {
     slug: 'ai-brand-asset-system',
@@ -116,7 +120,43 @@ export const services: Service[] = [
     outcome:
       'Marketing and content teams ship campaigns faster, reduce reliance on outside design support for routine work, and maintain a consistent visual identity across every channel.',
   },
+  {
+    slug: 'ai-website-transition-strategy',
+    number: '04',
+    chip: 'violet',
+    short: 'AI Website Transition Strategy',
+    title: 'Decide what your website should become before you start rebuilding it.',
+    tagline:
+      'Improve what you have. Migrate what works. Redesign what no longer does.',
+    objective:
+      'Decide whether to improve your current website, migrate it to an agent-ready foundation, or redesign and migrate at the same time.',
+    scope: [
+      'Current CMS, architecture, workflow, and ownership',
+      'Business and brand requirements',
+      'Content, URLs, search foundations, and redirects',
+      'Forms, analytics, CRM, commerce, and other integrations',
+      'AI-agent use cases and approval boundaries',
+      'Governance, monitoring, recovery, and handoff',
+    ],
+    deliverables: [
+      'Improve-in-place vs migration vs redesign recommendation',
+      'Target architecture and operating model',
+      'Risk register and migration safeguards',
+      'Phased implementation roadmap',
+      'Scope, responsibilities, budget range, and next decision',
+    ],
+    outcome:
+      'Leadership can choose the right path before committing to a rebuild or migration, with a plan that protects what works and creates a controlled path to AI-powered website operations.',
+  },
 ];
+
+export const dispatch = {
+  name: 'Dispatch',
+  url: 'https://dispatchvault.com',
+} as const;
+
+export const zincWebsiteMigrationUrl =
+  'https://www.wearezinc.com/solutions/ai-website-migration';
 
 export const navLinks = {
   primary: [

@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -11,45 +12,53 @@ import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
 import { MockupBrand } from '@/components/mockups/mockup-brand';
 
-const mockups = {
+// AI Website Transition Strategy has its own hand-built route at
+// app/services/ai-website-transition-strategy, so it is excluded here.
+type TemplatedSlug = Exclude<Service['slug'], 'ai-website-transition-strategy'>;
+type TemplatedService = Service & { slug: TemplatedSlug };
+
+const templated = services.filter(
+  (s): s is TemplatedService => s.slug !== 'ai-website-transition-strategy',
+);
+
+const mockups: Record<TemplatedSlug, ComponentType> = {
   'ai-operating-system': MockupOS,
   'ai-visibility-engine': MockupVisibility,
   'ai-brand-asset-system': MockupBrand,
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  return services.map((p) => ({ slug: p.slug }));
+  return templated.map((p) => ({ slug: p.slug }));
 }
 
 type Props = { params: Promise<{ slug: string }> };
 
-const SERVICE_SEO: Record<
-  Service['slug'],
-  { title: string; description: string }
-> = {
+const SERVICE_SEO: Record<TemplatedSlug, { title: string; description: string }> = {
   'ai-operating-system': {
     title: 'AI Operating System for Business',
     description:
-      'Build an AI operating system for your business — tools, prompts, workflows, standards, and shared knowledge organized into a system your team can actually use.',
+      'Build an AI operating system for your business: tools, prompts, workflows, standards, and shared knowledge organized into a system your team can actually use.',
   },
   'ai-visibility-engine': {
     title: 'AI Visibility (AEO) for Business',
     description:
-      'AI Visibility Engine — Answer Engine Optimization (AEO) for growing businesses. Show up when buyers ask ChatGPT, Claude, Perplexity, and Google AI Overviews.',
+      'AI Visibility Engine: Answer Engine Optimization (AEO) for growing businesses. Be easier to find and understand when buyers ask ChatGPT, Claude, Perplexity, and Google AI Overviews.',
   },
   'ai-brand-asset-system': {
     title: 'AI Brand Asset System',
     description:
-      'Create on-brand marketing visuals faster with an AI Brand Asset System — brand-ready guidelines, visual prompt libraries, and asset workflows for your team.',
+      'Create on-brand marketing visuals faster with an AI Brand Asset System: brand-ready guidelines, visual prompt libraries, and asset workflows for your team.',
   },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const p = services.find((x) => x.slug === slug);
+  const p = templated.find((x) => x.slug === slug);
   if (!p) return {};
-  const seo = SERVICE_SEO[p.slug] ?? { title: p.short, description: p.tagline };
-  const ogImage = `/og?title=${encodeURIComponent(p.title)}&eyebrow=${encodeURIComponent(`Service ${p.number} — ${p.short}`)}`;
+  const seo = SERVICE_SEO[p.slug];
+  const ogImage = `/og?title=${encodeURIComponent(p.title)}&eyebrow=${encodeURIComponent(`Service ${p.number}: ${p.short}`)}`;
   return {
     title: seo.title,
     description: seo.description,
@@ -71,7 +80,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
-  const p = services.find((x) => x.slug === slug);
+  const p = templated.find((x) => x.slug === slug);
   if (!p) notFound();
   const Mockup = mockups[p.slug];
   const others = services.filter((x) => x.slug !== p.slug);
@@ -233,7 +242,7 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
             Often combined with.
           </h2>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {others.map((o) => (
               <Link
                 key={o.slug}

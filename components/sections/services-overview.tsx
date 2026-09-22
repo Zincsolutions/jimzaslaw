@@ -39,6 +39,18 @@ const overviews = {
       'Brand usage rules',
     ],
   },
+  'ai-website-transition-strategy': {
+    subtitle: 'Decide what your website should become.',
+    body: 'Decide whether to improve your current website, migrate it to an agent-ready foundation, or redesign and migrate at the same time.',
+    bestFor: 'Best for leaders facing a major website, CMS, or digital-platform decision.',
+    deliverables: [
+      'Current-state assessment',
+      'Path comparison',
+      'Risk and governance plan',
+      'Phased roadmap',
+    ],
+    cta: 'Plan the right website transition',
+  },
 } as const;
 
 export function ServicesOverview() {
@@ -47,10 +59,10 @@ export function ServicesOverview() {
       <Container>
         <SectionHeader
           eyebrow="Services"
-          title="Three practical ways to put AI to work."
-          lede="Start with one focused assessment. Then build the system your business needs most."
+          title="Four focused ways to put AI to work."
+          lede="Start with a focused assessment. Then choose the system or decision your business needs most."
         />
-        <div className="mt-14 md:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((s) => {
             const o = overviews[s.slug];
             return (
@@ -89,7 +101,7 @@ export function ServicesOverview() {
                   href={`/services/${s.slug}`}
                   className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink hover:text-accent hover:gap-2 transition-all"
                 >
-                  Explore {s.short}
+                  {'cta' in o ? o.cta : `Explore ${s.short}`}
                   <ArrowRight className="size-4" aria-hidden />
                 </Link>
               </article>

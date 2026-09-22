@@ -277,7 +277,7 @@ function ServicesMenuContent({ dark = false }: { dark?: boolean }) {
     : 'eyebrow mb-3';
   return (
     <div className="grid grid-cols-12 gap-10">
-      <div className="col-span-8 grid grid-cols-3 gap-6">
+      <div className="col-span-8 grid grid-cols-2 gap-x-10 gap-y-7">
         {services.map((p) => (
           <MenuItem
             key={p.slug}
@@ -294,7 +294,7 @@ function ServicesMenuContent({ dark = false }: { dark?: boolean }) {
         <ul className="flex flex-col gap-2 text-[15px]">
           <li>
             <Link href="/services" className={sideLink}>
-              All three services →
+              All four services →
             </Link>
           </li>
           <li>
