@@ -7,6 +7,15 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/jz-headshot-v3.png',
+        destination: '/jim-zaslaw.jpg',
+        permanent: true,
+      },
+    ];
+  },
   // Security headers are set here (not netlify.toml) because the Netlify
   // Next.js plugin serves pages through functions, where netlify.toml
   // header rules don't apply.

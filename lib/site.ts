@@ -129,7 +129,7 @@ export const services: Service[] = [
     tagline:
       'Improve what you have. Migrate what works. Redesign what no longer does.',
     objective:
-      'Decide whether to improve your current website, migrate it to an agent-ready foundation, or redesign and migrate at the same time.',
+      'Decide whether to improve your current website, migrate it to an AI-native website, or redesign and migrate at the same time.',
     scope: [
       'Current CMS, architecture, workflow, and ownership',
       'Business and brand requirements',
@@ -157,7 +157,6 @@ export const dispatch = {
 
 export const zincWebsiteMigrationUrl =
   'https://www.wearezinc.com/solutions/ai-website-migration';
-
 export const navLinks = {
   primary: [
     { label: 'Services', href: '/services', hasMenu: true },

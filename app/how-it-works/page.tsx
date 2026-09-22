@@ -46,7 +46,7 @@ const stages: Stage[] = [
     timebox: '60–90 minute working session',
     body: [
       'I meet with the founder and one or two key leaders to understand how AI is being used, where the friction is, and which decision or service would create the most value first.',
-      'The conversation can cover team workflows, marketing, content, brand assets, AI visibility, or a website-platform transition.',
+      'The conversation can cover team workflows, marketing, content, brand assets, AI visibility, or a move to an AI-native website.',
     ],
     bulletsLabel: 'You receive',
     bullets: [
@@ -62,7 +62,7 @@ const stages: Stage[] = [
     timebox: 'Defined deliverables and fee · Most engagements start at $15K',
     body: [
       'Following the assessment, the work moves into one or more of four productized services. Each engagement has a defined outcome, timeline, deliverables, and fee.',
-      'The website-transition engagement may lead to a separate ZINC implementation proposal, but strategy does not require the client to use ZINC.',
+      'The website-transition engagement may lead to a separate ZINC proposal for the AI website migration, but strategy does not require the client to use ZINC.',
     ],
     bulletsLabel: 'The four services',
     bullets: services.map((s) => ({

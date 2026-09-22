@@ -17,20 +17,20 @@ export function WebsiteDecision() {
       <Container className="py-24 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <p className="eyebrow">Website transition</p>
+            <p className="eyebrow">AI-native websites and migration</p>
             <h2 className="text-[clamp(28px,4vw,42px)] tracking-[-0.025em] leading-[1.1] font-semibold">
               Your next website decision is bigger than a redesign.
             </h2>
             <p className="text-[17px] md:text-[18px] leading-relaxed">
               For years, the main website question was what CMS to use. Now
-              companies also need to decide how AI agents will create and
-              maintain pages, what people must review, and how the business
-              keeps control.
+              companies also need to decide whether an AI-native website fits,
+              how AI agents will create and maintain pages, what people must
+              review, and how the business keeps control.
             </p>
             <p className="text-[17px] md:text-[18px] leading-relaxed">
               The result is a decision and roadmap the business can act on. If
               you need execution, ZINC can carry the plan through design,
-              development, migration, integration, and launch.
+              development, AI website migration, integration, and launch.
             </p>
             <div className="mt-2 flex">
               <Button

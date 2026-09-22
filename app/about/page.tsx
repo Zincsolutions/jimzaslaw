@@ -72,9 +72,11 @@ export default function AboutPage() {
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-border max-w-md">
                 <Image
-                  src="/jz-headshot-v3.png"
-                  alt="Jim Zaslaw, founder of Jim Zaslaw Consulting and CEO of ZINC"
+                  src="/jim-zaslaw.jpg"
+                  alt="Jim Zaslaw, AI consultant and CEO of ZINC"
+                  title="Jim Zaslaw"
                   fill
+                  unoptimized
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover"
                   priority
@@ -113,7 +115,8 @@ export default function AboutPage() {
                 That is especially true for websites. The question is no longer
                 only how the site looks or which CMS it uses. Leaders also need
                 to decide how agents will work on it, how the company keeps
-                control, and whether the current foundation is still right.
+                control, and whether an AI-native foundation is the right next
+                step.
               </p>
               <h2>The relationship to ZINC and Dispatch</h2>
               <p>
