@@ -5,6 +5,8 @@ import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
+import { servicesFaqs } from '@/lib/faqs';
 import { services, pricing } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
@@ -203,6 +205,12 @@ export default function ServicesPage() {
       </section>
 
       <CTABand />
+      <PageFaq
+        id="services"
+        faqs={servicesFaqs}
+        title="Questions about the four services."
+        intro="How the services work, what they cost, and how to choose where to start."
+      />
     </>
   );
 }

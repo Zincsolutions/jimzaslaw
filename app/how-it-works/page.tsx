@@ -3,6 +3,8 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
+import { howItWorksFaqs } from '@/lib/faqs';
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { services } from '@/lib/site';
@@ -88,51 +90,6 @@ const stages: Stage[] = [
     ],
   },
 ];
-
-const faqs = [
-  {
-    q: 'Do I have to engage all four services?',
-    a: 'No. The assessment identifies the decision or service that matters most. Many clients start with one and add another only when the work creates a clear reason to do so.',
-  },
-  {
-    q: 'How long does an engagement take?',
-    a: 'Most system-building engagements run six to ten weeks. An AI Website Transition Strategy may be shorter or longer depending on site size, integrations, stakeholders, and the depth of technical assessment required. The timeline is defined before you commit.',
-  },
-  {
-    q: 'Who does the work?',
-    a: 'I lead every engagement directly. When the scope moves from advisory into brand, design, development, website migration, integrations, or e-commerce, that execution can run through ZINC with me still involved.',
-  },
-  {
-    q: 'Do I have to use ZINC for implementation?',
-    a: 'No. The strategy and roadmap should be usable by your existing team or another qualified partner. ZINC is available when you want continuity from decision through delivery.',
-  },
-  {
-    q: 'How is this different from hiring an AI consultant?',
-    a: 'My work is grounded in more than 25 years of building brands, websites, commerce platforms, marketing systems, and integrations. AI is changing that stack, not replacing the need to understand it.',
-  },
-  {
-    q: 'Do you sign NDAs and work with sensitive data?',
-    a: 'Yes. Standard practice. Engagements regularly involve confidential strategy, customer data, and internal workflows.',
-  },
-  {
-    q: 'What do engagements cost?',
-    a: 'Most fixed-scope engagements start at $15K. Final pricing depends on the service, business requirements, stakeholders, and technical depth. Any ZINC execution is scoped separately so the advisory decision and implementation commitment remain clear.',
-  },
-  {
-    q: 'What does the retainer cost?',
-    a: 'Advisory retainers start at $5K/month. Final pricing depends on scope and team size, and is defined once the Stage 2 work is scoped.',
-  },
-];
-
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
 
 export default function HowItWorksPage() {
   return (
@@ -235,43 +192,14 @@ export default function HowItWorksPage() {
         </section>
       ))}
 
-      <section className="py-24 md:py-32 border-t border-border">
-        <Container>
-          <Eyebrow>FAQ</Eyebrow>
-          <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold max-w-2xl">
-            Common questions before the first conversation.
-          </h2>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
-            {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="group border-b border-border py-5"
-              >
-                <summary className="flex items-center justify-between gap-6 cursor-pointer list-none">
-                  <h3 className="text-[17px] font-medium text-ink">{f.q}</h3>
-                  <span
-                    aria-hidden
-                    className="size-7 rounded-full border border-border-strong inline-flex items-center justify-center text-ink-3 group-open:rotate-45 transition-transform"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-                  {f.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       <CTABand />
-
-      <script
-        id="ld-faq-how-it-works"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      <PageFaq
+        id="how-it-works"
+        faqs={howItWorksFaqs}
+        title="Common questions before the first conversation."
+        intro="What to expect from the assessment, engagements, timelines, and pricing."
       />
+
     </>
   );
 }

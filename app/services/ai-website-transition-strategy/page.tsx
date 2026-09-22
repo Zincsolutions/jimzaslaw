@@ -5,6 +5,8 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
+import { websiteTransitionFaqs } from '@/lib/faqs';
 import { MockupWebsite } from '@/components/mockups/mockup-website';
 import { services, site, dispatch, zincWebsiteMigrationUrl } from '@/lib/site';
 
@@ -164,45 +166,6 @@ const caseStory = [
   },
 ];
 
-const faqs = [
-  {
-    q: 'What is an AI-native website?',
-    a: 'An AI-native website is built on a modern codebase that AI coding agents can work on directly. Team members request changes in plain language, the agent prepares them, and people review higher-risk work before it goes live. The design, content, and URLs can stay the same. The operating model is what changes.',
-  },
-  {
-    q: 'What does an AI website migration involve?',
-    a: 'Moving an existing site from its current CMS to an AI-native foundation. The work includes a full inventory of pages, URLs, redirects, forms, integrations, analytics, and structured data; a staging build that is tested while the current site stays live; a coordinated launch; and monitoring afterward. Whether it is worth doing is the question the strategy engagement answers first.',
-  },
-  {
-    q: 'Do we have to migrate?',
-    a: 'No. The purpose of the engagement is to choose the right path. If your current platform still fits the business, I will recommend improving it rather than moving for the sake of moving.',
-  },
-  {
-    q: 'Can you assess WordPress and Webflow websites?',
-    a: 'Yes. The analysis is based on the site’s content, functionality, integrations, workflow, ownership, and business requirements. A feature tied to the current CMS may need to remain, be rebuilt, or move to another service.',
-  },
-  {
-    q: 'Will a migration preserve our search rankings?',
-    a: 'No responsible advisor should promise unchanged rankings. The plan will address URL continuity, redirects, metadata, internal links, structured data, crawlability, performance, and post-launch monitoring to reduce avoidable risk.',
-  },
-  {
-    q: 'Do we need to redesign?',
-    a: 'Not necessarily. A transition can preserve the agreed design and content, include targeted improvements, or support a full redesign. The recommendation depends on what is working and what the business needs next.',
-  },
-  {
-    q: 'Who executes the roadmap?',
-    a: 'The strategy can be used by your existing team or implementation partner. If you want one team from strategy through launch, ZINC can handle the execution with me remaining involved.',
-  },
-  {
-    q: 'What is Dispatch?',
-    a: 'Dispatch is a management layer for AI-powered websites. It helps teams govern work produced by coding agents through review, approvals, risk controls, attribution, monitoring, and restore capability.',
-  },
-  {
-    q: 'Will our team need to code?',
-    a: 'Not for every supported task. An agent-ready operating model can let team members begin work with plain-language requests, but the organization still needs clear review, approval, and escalation rules.',
-  },
-];
-
 export default function AIWebsiteTransitionStrategyPage() {
   const service = services.find((s) => s.slug === slug)!;
   const others = services.filter((s) => s.slug !== slug);
@@ -234,16 +197,6 @@ export default function AIWebsiteTransitionStrategyPage() {
       { '@type': 'ListItem', position: 3, name: title, item: `${site.url}${path}` },
     ],
   };
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
-
   return (
     <>
       {/* Dark hero */}
@@ -649,34 +602,6 @@ export default function AIWebsiteTransitionStrategyPage() {
         </Container>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 md:py-28 bg-bg-soft border-t border-border">
-        <Container>
-          <Eyebrow>FAQ</Eyebrow>
-          <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold max-w-2xl">
-            Questions leaders ask before a website decision.
-          </h2>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
-            {faqs.map((f) => (
-              <details key={f.q} className="group border-b border-border py-5">
-                <summary className="flex items-center justify-between gap-6 cursor-pointer list-none">
-                  <h3 className="text-[17px] font-medium text-ink">{f.q}</h3>
-                  <span
-                    aria-hidden
-                    className="size-7 shrink-0 rounded-full border border-border-strong inline-flex items-center justify-center text-ink-3 group-open:rotate-45 transition-transform"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-                  {f.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* Other services */}
       <section className="py-20 md:py-28 border-t border-border">
         <Container>
@@ -718,6 +643,14 @@ export default function AIWebsiteTransitionStrategyPage() {
         secondaryLabel="Request an AI Opportunity Assessment"
         secondaryHref="/contact"
       />
+      <PageFaq
+        id="ai-website-transition-strategy"
+        faqs={websiteTransitionFaqs}
+        title="Questions leaders ask before a website decision."
+        intro="AI-native websites, AI website migration, platforms, search risk, and cost."
+        ctaLabel="Request a Website Transition Assessment"
+        ctaHref={contactHref}
+      />
 
       <script
         id="ld-service-ai-website-transition-strategy"
@@ -728,11 +661,6 @@ export default function AIWebsiteTransitionStrategyPage() {
         id="ld-breadcrumb-ai-website-transition-strategy"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        id="ld-faq-ai-website-transition-strategy"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
     </>
   );

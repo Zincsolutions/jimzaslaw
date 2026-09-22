@@ -7,6 +7,8 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
+import { serviceFaqs } from '@/lib/faqs';
 import { services, site, pricing, type Service } from '@/lib/site';
 import { MockupOS } from '@/components/mockups/mockup-os';
 import { MockupVisibility } from '@/components/mockups/mockup-visibility';
@@ -25,6 +27,12 @@ const mockups: Record<TemplatedSlug, ComponentType> = {
   'ai-operating-system': MockupOS,
   'ai-visibility-engine': MockupVisibility,
   'ai-brand-asset-system': MockupBrand,
+};
+
+const faqTitles: Record<TemplatedSlug, string> = {
+  'ai-operating-system': 'Questions about AI operating systems.',
+  'ai-visibility-engine': 'Questions about AI search visibility.',
+  'ai-brand-asset-system': 'Questions about AI brand assets.',
 };
 
 export const dynamicParams = false;
@@ -269,6 +277,12 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       <CTABand />
+      <PageFaq
+        id={p.slug}
+        faqs={serviceFaqs[p.slug]}
+        title={faqTitles[p.slug]}
+        intro={`What leaders ask about the ${p.short}, answered plainly.`}
+      />
 
       <script
         id={`ld-service-${p.slug}`}
