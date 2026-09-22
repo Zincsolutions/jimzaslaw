@@ -5,6 +5,8 @@ import { Eyebrow } from '@/components/ui/eyebrow';
 import { BlogCard } from '@/components/blog-card';
 import { BlogTopicFilter } from '@/components/blog-topic-filter';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
+import { blogFaqs } from '@/lib/faqs';
 import { getAllPosts, getAllTopics } from '@/lib/blog';
 
 const title = 'AI Field Notes for Growing Businesses';
@@ -125,13 +127,19 @@ export default async function BlogIndexPage({
 
           {posts.length === 0 ? (
             <p className="text-[16px] text-ink-2">
-              No posts under that topic yet — check back soon.
+              No posts under that topic yet. Check back soon.
             </p>
           ) : null}
         </Container>
       </section>
 
       <CTABand />
+      <PageFaq
+        id="blog"
+        faqs={blogFaqs}
+        title="Questions about Field Notes and AI for business."
+        intro="Quick answers, with pointers to the articles that go deeper."
+      />
     </>
   );
 }

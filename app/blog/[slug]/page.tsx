@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
 import { BlogCard } from '@/components/blog-card';
 import { getAllPosts, getPostBySlug, renderPostToHtml } from '@/lib/blog';
 import { site } from '@/lib/site';
@@ -94,17 +95,6 @@ export default async function BlogPostPage({ params }: Props) {
   if (post.coverImage) {
     articleLd.image = [`${site.url}${post.coverImage}`];
   }
-  const faqLd = post.faq?.length
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: post.faq.map((q) => ({
-          '@type': 'Question',
-          name: q.question,
-          acceptedAnswer: { '@type': 'Answer', text: q.answer },
-        })),
-      }
-    : null;
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -212,6 +202,14 @@ export default async function BlogPostPage({ params }: Props) {
         secondaryLabel="Email Jim"
         secondaryHref="mailto:jim@jimzaslaw.com"
       />
+      {post.faq?.length ? (
+        <PageFaq
+          id={post.slug}
+          faqs={post.faq.map((f) => ({ q: f.question, a: f.answer }))}
+          title="Frequently asked questions."
+          intro="Short answers to the questions this topic raises most often."
+        />
+      ) : null}
 
       {/* Plain <script> tags so the schema is in the server-rendered HTML
           for crawlers that don't execute JS (most AI crawlers). */}
@@ -225,13 +223,6 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      {faqLd ? (
-        <script
-          id={`ld-faq-${post.slug}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
-      ) : null}
     </>
   );
 }

@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
+import { PageFaq } from '@/components/sections/page-faq';
+import { aboutFaqs } from '@/lib/faqs';
 import { site, dispatch } from '@/lib/site';
 
 const title = 'About Jim Zaslaw: AI Consultant & CEO of ZINC';
@@ -156,6 +158,12 @@ export default function AboutPage() {
         primaryLabel="Request an AI Opportunity Assessment"
         secondaryLabel="Email Jim"
         secondaryHref="mailto:jim@jimzaslaw.com"
+      />
+      <PageFaq
+        id="about"
+        faqs={aboutFaqs}
+        title="Questions about Jim Zaslaw."
+        intro="Background, how I work, and how Jim Zaslaw Consulting, ZINC, and Dispatch fit together."
       />
     </>
   );
