@@ -7,6 +7,8 @@ import {
   Image as ImageIcon,
   TrendingUp,
   LayoutGrid,
+  Globe,
+  ShieldCheck,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { SectionHeader } from '@/components/ui/section-header';
@@ -43,6 +45,16 @@ const findings = [
     chip: 'stone' as const,
     text: 'A cleaner way to organize how your team uses AI',
   },
+  {
+    icon: Globe,
+    chip: 'violet' as const,
+    text: 'A website platform decision that should come before the next redesign',
+  },
+  {
+    icon: ShieldCheck,
+    chip: 'sky' as const,
+    text: 'Migration or governance risks hiding in your current website',
+  },
 ];
 
 export function WhatWeMightFind() {
@@ -54,11 +66,11 @@ export function WhatWeMightFind() {
           title="What could AI improve first?"
           lede="In your assessment, we may uncover any of the following."
         />
-        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-lg overflow-hidden">
+        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-lg overflow-hidden">
           {findings.map(({ icon: Icon, chip, text }, i) => (
             <div
               key={i}
-              className="bg-bg p-7 md:p-8 flex items-start gap-4"
+              className="bg-bg p-7 md:p-8 flex items-start lg:flex-col gap-4"
             >
               <span
                 className={cn(
@@ -69,7 +81,7 @@ export function WhatWeMightFind() {
               >
                 <Icon className="size-5" strokeWidth={1.75} />
               </span>
-              <p className="text-[16px] leading-relaxed text-ink pt-1.5">
+              <p className="text-[16px] leading-relaxed text-ink pt-1.5 lg:pt-0">
                 {text}
               </p>
             </div>

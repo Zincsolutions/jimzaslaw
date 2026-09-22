@@ -4,18 +4,20 @@ import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 
 const secondaryClasses =
-  'inline-flex items-center justify-center gap-2 h-12 px-6 rounded-pill border border-white/30 text-white text-[16px] transition-all duration-200 ease-out hover:bg-accent hover:border-accent active:translate-y-[1px]';
+  'inline-flex items-center justify-center gap-2 min-h-12 py-2.5 px-6 max-w-full text-center leading-snug rounded-pill border border-white/30 text-white text-[16px] transition-all duration-200 ease-out hover:bg-accent hover:border-accent active:translate-y-[1px]';
 
 export function CTABand({
   title = 'Know where AI can help your business next.',
-  body = 'Start with a Free AI Opportunity Assessment. You will leave with clarity, recommendations, and a practical next step.',
-  primaryLabel = 'Get a Free AI Opportunity Assessment',
+  body = 'Start with a free AI and Digital Opportunity Assessment. You will leave with clarity, recommendations, and a practical next step.',
+  primaryLabel = 'Request an AI Opportunity Assessment',
+  primaryHref = '/contact',
   secondaryLabel = 'Contact Jim',
   secondaryHref = '/contact',
 }: {
   title?: string;
   body?: string;
   primaryLabel?: string;
+  primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
 } = {}) {
@@ -39,7 +41,7 @@ export function CTABand({
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
             <Button
-              href="/contact"
+              href={primaryHref}
               size="lg"
               variant="primary-on-ink"
               withArrow

@@ -5,10 +5,10 @@ import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 
 const bullets = [
-  'Practical, not theoretical.',
   'Business-first, not tool-first.',
   'Brand-aware, not generic.',
-  'Strategy backed by real execution.',
+  'Clear about risk, ownership, and implementation.',
+  'Strategy backed by an experienced execution team when needed.',
 ];
 
 export function WhyJim() {
@@ -31,23 +31,19 @@ export function WhyJim() {
           <div className="lg:col-span-7 flex flex-col gap-6">
             <Eyebrow>Why Jim</Eyebrow>
             <h2 className="text-[clamp(28px,4vw,42px)] tracking-[-0.025em] leading-[1.1] font-semibold">
-              AI advice is only useful if it can be implemented.
+              I have spent 25+ years building the systems AI is now changing.
             </h2>
             <p className="text-[18px] leading-relaxed text-ink-2">
-              Jim Zaslaw is the CEO of ZINC, a digital agency that has spent
-              more than 25 years helping companies build brands, websites,
-              ecommerce platforms, marketing systems, and technology
-              integrations.
+              I am the CEO of ZINC, a digital agency that has helped companies
+              build brands, websites, e-commerce platforms, marketing systems,
+              and technology integrations for more than 25 years.
             </p>
             <p className="text-[18px] leading-relaxed text-ink-2">
-              That matters because AI does not live in a vacuum. It touches
-              your website, content, brand, sales process, workflows, tools,
-              and team habits.
-            </p>
-            <p className="text-[18px] leading-relaxed text-ink-2">
-              Jim brings the perspective of someone who has actually built the
-              systems businesses run on, and now applies that experience to
-              AI.
+              That experience matters because AI does not sit outside the
+              business. It touches your website, content, brand, sales
+              process, workflows, tools, and team habits. I advise from the
+              perspective of someone who has had to make those systems work in
+              the real world.
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
               {bullets.map((b) => (
@@ -65,8 +61,8 @@ export function WhyJim() {
               ))}
             </ul>
             <div className="mt-4 flex">
-              <Button href="/contact" size="lg" withArrow>
-                Get a Free Assessment
+              <Button href="/about" size="lg" variant="secondary" withArrow>
+                More about my background
               </Button>
             </div>
           </div>

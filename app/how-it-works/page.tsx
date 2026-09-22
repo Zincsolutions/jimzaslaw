@@ -3,11 +3,13 @@ import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
-import { Check } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Check } from 'lucide-react';
+import { services } from '@/lib/site';
 
 const title = 'How AI Consulting Engagements Work';
 const description =
-  'How Jim Zaslaw structures AI consulting engagements — three stages (Free Assessment, Implementation, Retainer), each one designed to deliver value on its own.';
+  'How Jim Zaslaw structures AI and digital strategy engagements: a free assessment, a fixed-scope engagement, and ongoing advisory, each with a useful outcome.';
 
 export const metadata: Metadata = {
   title,
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/how-it-works',
-    images: [`/og?title=${encodeURIComponent('Three stages. Each one stands on its own.')}&eyebrow=${encodeURIComponent('How It Works')}`],
+    images: [`/og?title=${encodeURIComponent('Three stages. A useful outcome at every stage.')}&eyebrow=${encodeURIComponent('How It Works')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -26,62 +28,87 @@ export const metadata: Metadata = {
   },
 };
 
-const stages = [
+type Stage = {
+  num: string;
+  chip?: string;
+  title: string;
+  timebox: string;
+  body: string[];
+  bullets: { label: string; href?: string }[];
+  bulletsLabel?: string;
+};
+
+const stages: Stage[] = [
   {
     num: '01',
     chip: 'Free',
-    title: 'AI Opportunity Assessment',
+    title: 'AI and Digital Opportunity Assessment',
     timebox: '60–90 minute working session',
-    body: 'A focused diagnostic with the founder and one or two key team members. The session covers how AI is currently being used, where the inefficiencies are, and which of the three services would deliver the most value first.',
+    body: [
+      'I meet with the founder and one or two key leaders to understand how AI is being used, where the friction is, and which decision or service would create the most value first.',
+      'The conversation can cover team workflows, marketing, content, brand assets, AI visibility, or a website-platform transition.',
+    ],
+    bulletsLabel: 'You receive',
     bullets: [
-      'A short written summary',
-      'Two to three high-impact recommendations',
-      'A clear next step',
-      'No commitment beyond the session',
+      { label: 'A short written summary' },
+      { label: 'Two or three high-impact recommendations' },
+      { label: 'A suggested first engagement or decision path' },
+      { label: 'No commitment beyond the session' },
     ],
   },
   {
     num: '02',
-    title: 'Implementation',
-    timebox: 'Fixed-scope, fixed-fee · Starting at $15K',
-    body: 'Following the Assessment, the engagement moves into one or more of the three services. Each service is a discrete, productized engagement with defined deliverables and a defined timeline.',
-    bullets: [
-      'Clients can engage one service, two, or all three',
-      'Each service has its own timeline and fee',
-      'Productized — not custom consulting hours',
-      'This is where the structured systems get built',
+    title: 'Fixed-scope engagement',
+    timebox: 'Defined deliverables and fee · Most engagements start at $15K',
+    body: [
+      'Following the assessment, the work moves into one or more of four productized services. Each engagement has a defined outcome, timeline, deliverables, and fee.',
+      'The website-transition engagement may lead to a separate ZINC implementation proposal, but strategy does not require the client to use ZINC.',
     ],
+    bulletsLabel: 'The four services',
+    bullets: services.map((s) => ({
+      label: s.short,
+      href: `/services/${s.slug}`,
+    })),
   },
   {
     num: '03',
-    title: 'Retainer',
+    title: 'Ongoing advisory',
     timebox: 'Ongoing · From $5K/month',
-    body: 'AI moves fast enough that the systems built in Stage 2 will be out of date within months without active maintenance. The retainer keeps the client current on tool changes, model upgrades, new capabilities, and emerging best practices.',
+    body: [
+      'AI tools, models, search behavior, and website operating practices keep changing. An advisory retainer gives leadership a senior decision partner who can evaluate what changed, separate signal from noise, and update the plan without chasing every release.',
+    ],
     bullets: [
-      'Tool and model upgrades evaluated and applied',
-      'New capabilities pressure-tested before adoption',
-      'Systems updated as the landscape shifts',
-      'Most consultants stop at Stage 2 — this is where long-term value compounds',
+      { label: 'Tool and model upgrades evaluated and applied' },
+      { label: 'New capabilities pressure-tested before adoption' },
+      { label: 'Website operating practices and search behavior reviewed' },
+      {
+        label:
+          'Most consultants stop at Stage 2. This is where long-term value compounds.',
+      },
     ],
   },
 ];
 
 const faqs = [
   {
-    q: 'Do I have to engage all three services?',
-    a: 'No. The Assessment identifies which services matter most for your business. Many engagements start with one. Some companies do all three over time.',
+    q: 'Do I have to engage all four services?',
+    a: 'No. The assessment identifies the decision or service that matters most. Many clients start with one and add another only when the work creates a clear reason to do so.',
   },
   {
-    q: 'How long does a service engagement take?',
-    a: 'Most services run between 6 and 10 weeks of active build, depending on team size and existing systems. Timelines are defined up front before you commit.',
+    q: 'How long does an engagement take?',
+    a: 'Most system-building engagements run six to ten weeks. An AI Website Transition Strategy may be shorter or longer depending on site size, integrations, stakeholders, and the depth of technical assessment required. The timeline is defined before you commit.',
   },
   {
-    q: 'Who does the work — Jim, or a team?',
-    a: 'Jim leads every engagement directly. When execution scope expands beyond consulting (a website rebuild, a brand refresh, technical integration), that work runs through ZINC with Jim still leading.',
+    q: 'Who does the work?',
+    a: 'I lead every engagement directly. When the scope moves from advisory into brand, design, development, website migration, integrations, or e-commerce, that execution can run through ZINC with me still involved.',
+  },
+  {
+    q: 'Do I have to use ZINC for implementation?',
+    a: 'No. The strategy and roadmap should be usable by your existing team or another qualified partner. ZINC is available when you want continuity from decision through delivery.',
   },
   {
     q: 'How is this different from hiring an AI consultant?',
-    a: 'Most AI consultants today have eighteen months of experience. Jim has spent twenty years building digital systems for actual businesses. AI is the next layer on a stack he has been building since the early 2000s.',
+    a: 'My work is grounded in more than 25 years of building brands, websites, commerce platforms, marketing systems, and integrations. AI is changing that stack, not replacing the need to understand it.',
   },
   {
     q: 'Do you sign NDAs and work with sensitive data?',
@@ -89,11 +116,11 @@ const faqs = [
   },
   {
     q: 'What do engagements cost?',
-    a: 'Implementation engagements start at $15K, fixed-fee and scoped up front — no open-ended consulting hours. Exact pricing depends on which services you engage and the size of your team.',
+    a: 'Most fixed-scope engagements start at $15K. Final pricing depends on the service, business requirements, stakeholders, and technical depth. Any ZINC execution is scoped separately so the advisory decision and implementation commitment remain clear.',
   },
   {
     q: 'What does the retainer cost?',
-    a: 'Advisory retainers start at $5K/month. Final pricing depends on scope and team size, and is defined after Stage 2 deliverables are scoped.',
+    a: 'Advisory retainers start at $5K/month. Final pricing depends on scope and team size, and is defined once the Stage 2 work is scoped.',
   },
 ];
 
@@ -115,15 +142,17 @@ export default function HowItWorksPage() {
           <div className="max-w-3xl">
             <Eyebrow>How it works</Eyebrow>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
-              Three stages. Each one stands on its own.
+              Three stages. A useful outcome at every stage.
             </h1>
-            <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] text-ink-2">
-              Designed to deliver value at each step without locking you into a
-              long-term commitment up front.
+            <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] text-ink-2 text-pretty">
+              Start with a focused assessment. Move into a fixed-scope strategy
+              or system engagement only when the opportunity is clear. Add
+              ongoing advisory if the business needs help keeping the work
+              current.
             </p>
             <div className="mt-8 flex gap-3">
               <Button href="/contact" size="lg" withArrow>
-                Get a Free Assessment
+                Request an AI Opportunity Assessment
               </Button>
             </div>
           </div>
@@ -156,21 +185,47 @@ export default function HowItWorksPage() {
                 ) : null}
               </div>
               <div className="lg:col-span-8">
-                <p className="text-[18px] leading-[1.6] text-ink-2">{s.body}</p>
-                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {s.bullets.map((b, bi) => (
-                    <li
-                      key={bi}
-                      className="flex items-start gap-3 border border-border rounded-md bg-bg p-4"
-                    >
-                      <Check
-                        className="size-4 mt-0.5 shrink-0 text-ink"
-                        strokeWidth={2}
-                        aria-hidden
-                      />
-                      <p className="text-[15px] leading-relaxed text-ink">
-                        {b}
-                      </p>
+                <div className="flex flex-col gap-4">
+                  {s.body.map((para, pi) => (
+                    <p key={pi} className="text-[18px] leading-[1.6] text-ink-2">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+                {s.bulletsLabel ? (
+                  <p className="eyebrow mt-8">{s.bulletsLabel}</p>
+                ) : null}
+                <ul
+                  className={`${s.bulletsLabel ? 'mt-4' : 'mt-8'} grid grid-cols-1 sm:grid-cols-2 gap-3`}
+                >
+                  {s.bullets.map((b) => (
+                    <li key={b.label}>
+                      {b.href ? (
+                        <Link
+                          href={b.href}
+                          className="group h-full flex items-start gap-3 border border-border rounded-md bg-bg p-4 hover:border-accent/40 transition-colors"
+                        >
+                          <ArrowRight
+                            className="size-4 mt-1 shrink-0 text-ink group-hover:translate-x-0.5 transition-transform"
+                            strokeWidth={2}
+                            aria-hidden
+                          />
+                          <span className="text-[15px] leading-relaxed text-ink font-medium transition-colors group-hover:text-accent">
+                            {b.label}
+                          </span>
+                        </Link>
+                      ) : (
+                        <div className="h-full flex items-start gap-3 border border-border rounded-md bg-bg p-4">
+                          <Check
+                            className="size-4 mt-1 shrink-0 text-ink"
+                            strokeWidth={2}
+                            aria-hidden
+                          />
+                          <p className="text-[15px] leading-relaxed text-ink">
+                            {b.label}
+                          </p>
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>

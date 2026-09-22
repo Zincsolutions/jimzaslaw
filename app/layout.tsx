@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     'AI Operating System',
     'AI brand assets',
     'enterprise AI',
+    'AI website transition',
+    'website migration strategy',
+    'AI-native website',
   ],
   openGraph: {
     type: 'website',

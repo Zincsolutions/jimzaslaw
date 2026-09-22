@@ -4,6 +4,7 @@ import { LogoStrip } from '@/components/sections/logo-strip';
 import { ProblemGrid } from '@/components/sections/problem-grid';
 import { Opportunity } from '@/components/sections/opportunity';
 import { ServicesOverview } from '@/components/sections/services-overview';
+import { WebsiteDecision } from '@/components/sections/website-decision';
 import { WhyJim } from '@/components/sections/why-jim';
 import { FreeAssessment } from '@/components/sections/free-assessment';
 import { WhatWeMightFind } from '@/components/sections/what-we-might-find';
@@ -25,6 +26,7 @@ export default function Home() {
       <ProblemGrid />
       <Opportunity />
       <ServicesOverview />
+      <WebsiteDecision />
       <WhyJim />
       <FreeAssessment />
       <WhatWeMightFind />

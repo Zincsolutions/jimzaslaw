@@ -27,8 +27,8 @@ export function Proof() {
             Backed by decades of real digital execution.
           </h2>
           <p className="mt-6 text-[18px] leading-relaxed text-ink-2">
-            Jim&apos;s consulting is backed by decades of real digital
-            execution through ZINC.
+            My consulting is backed by decades of real digital execution
+            through ZINC.
           </p>
         </div>
         <dl className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px bg-border border border-border rounded-lg overflow-hidden">
@@ -48,7 +48,7 @@ export function Proof() {
         </dl>
         <div className="mt-12 flex">
           <Button href="/contact" size="lg" withArrow>
-            Request Your Free Assessment
+            Request an AI Opportunity Assessment
           </Button>
         </div>
       </Container>

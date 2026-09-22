@@ -8,6 +8,7 @@ const points = [
   'You want practical workflows, not abstract AI strategy.',
   'Your marketing team needs more content, visuals, or campaign output.',
   'You want your business to show up when buyers ask AI tools for recommendations.',
+  'You are facing a website, CMS, or digital-platform decision in the next 6 to 18 months.',
   'You need a senior advisor who understands brand, websites, content, ecommerce, and operations.',
 ];
 

@@ -6,8 +6,9 @@ import { ArrowRight } from 'lucide-react';
 type Variant = 'primary' | 'secondary' | 'ghost' | 'primary-on-ink';
 type Size = 'md' | 'lg';
 
+// Long labels wrap on narrow screens instead of overflowing the gutter.
 const base =
-  'inline-flex items-center justify-center gap-2 font-medium rounded-pill transition-all duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap';
+  'inline-flex items-center justify-center gap-2 font-medium rounded-pill transition-all duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none max-w-full text-center leading-snug sm:whitespace-nowrap';
 
 const variants: Record<Variant, string> = {
   primary:
@@ -20,8 +21,8 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  md: 'h-10 px-5 text-[15px]',
-  lg: 'h-12 px-6 text-[16px]',
+  md: 'min-h-10 py-2 px-5 text-[15px]',
+  lg: 'min-h-12 py-2.5 px-6 text-[16px]',
 };
 
 type CommonProps = {
@@ -58,7 +59,7 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     <>
       {children}
       {withArrow ? (
-        <ArrowRight aria-hidden className="size-4 -mr-0.5" />
+        <ArrowRight aria-hidden className="size-4 -mr-0.5 shrink-0" />
       ) : null}
     </>
   );
