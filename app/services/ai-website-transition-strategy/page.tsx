@@ -13,18 +13,19 @@ const path = `/services/${slug}`;
 const contactHref = '/contact?interest=website';
 
 const title = 'AI Website Transition Strategy';
+const metaTitle = 'AI Website Migration & AI-Native Website Strategy';
 const description =
-  'Decide whether to improve, migrate, or redesign your website. Get a practical transition roadmap covering architecture, search, integrations, AI governance, risk, scope, and execution.';
+  'Plan your move to an AI-native website. Decide whether to improve, migrate, or redesign, with an AI migration roadmap for search, integrations, and risk.';
 const ogImage = `/og?title=${encodeURIComponent('Decide what your website should become before you start rebuilding it.')}&eyebrow=${encodeURIComponent('Service 04: AI Website Transition Strategy')}`;
 
 export const metadata: Metadata = {
-  title,
+  title: metaTitle,
   description,
   alternates: { canonical: path },
-  openGraph: { title, description, url: path, images: [ogImage] },
+  openGraph: { title: metaTitle, description, url: path, images: [ogImage] },
   twitter: {
     card: 'summary_large_image',
-    title,
+    title: metaTitle,
     description,
     images: [ogImage],
   },
@@ -51,7 +52,7 @@ const paths = [
   {
     num: '02',
     name: 'Migrate as-is',
-    body: 'Preserve the agreed design and content while moving the website to a more agent-ready foundation.',
+    body: 'Preserve the agreed design and content while moving the website to an AI-native foundation.',
     bestWhen:
       'The customer experience works but the underlying platform or publishing process is holding the team back.',
   },
@@ -137,7 +138,41 @@ const controls = [
   'Restore',
 ];
 
+const caseFacts = [
+  { label: 'Client', value: 'Private investment firm' },
+  { label: 'Path chosen', value: 'Migrate + improve' },
+  { label: 'First build to launch', value: 'About 4 weeks' },
+  { label: 'Updates in first 2 weeks live', value: '250+' },
+];
+
+const caseStory = [
+  {
+    heading: 'Starting point',
+    body: 'The firm’s website ran on a hosted visual CMS with an established look. The firm had a new content structure ready, along with a reference package that proposed a different design direction.',
+  },
+  {
+    heading: 'The decision',
+    body: 'Keep the established look and feel, adopt the new content structure, and move the site to an AI-native codebase. The existing brand expression was already doing its job, so the redesign was set aside.',
+  },
+  {
+    heading: 'How the site runs now',
+    body: 'Content changes start as plain-language requests to an AI agent that is limited to copy and content unless someone explicitly asks for more. Every change is recorded and reversible, and the site is governed by Dispatch.',
+  },
+  {
+    heading: 'Result',
+    body: 'The new site went live about four weeks after the first build. In its first two weeks live, the team published more than 250 updates.',
+  },
+];
+
 const faqs = [
+  {
+    q: 'What is an AI-native website?',
+    a: 'An AI-native website is built on a modern codebase that AI coding agents can work on directly. Team members request changes in plain language, the agent prepares them, and people review higher-risk work before it goes live. The design, content, and URLs can stay the same. The operating model is what changes.',
+  },
+  {
+    q: 'What does an AI website migration involve?',
+    a: 'Moving an existing site from its current CMS to an AI-native foundation. The work includes a full inventory of pages, URLs, redirects, forms, integrations, analytics, and structured data; a staging build that is tested while the current site stays live; a coordinated launch; and monitoring afterward. Whether it is worth doing is the question the strategy engagement answers first.',
+  },
   {
     q: 'Do we have to migrate?',
     a: 'No. The purpose of the engagement is to choose the right path. If your current platform still fits the business, I will recommend improving it rather than moving for the sake of moving.',
@@ -229,8 +264,8 @@ export default function AIWebsiteTransitionStrategyPage() {
                 Your website may still look fine while the way it is built,
                 updated, and governed is falling behind. I help leadership
                 teams decide whether to improve the current platform, migrate
-                the existing experience to an agent-ready foundation, or
-                redesign and migrate at the same time.
+                the existing experience to an AI-native website, or redesign
+                and migrate at the same time.
               </p>
               <p className="text-[16px] md:text-[17px] leading-[1.6] max-w-[58ch] text-pretty">
                 The goal is not to force a migration. It is to make the right
@@ -309,8 +344,55 @@ export default function AIWebsiteTransitionStrategyPage() {
         </Container>
       </section>
 
+      {/* AI-native definitions */}
+      <section id="ai-native" className="py-20 md:py-28 scroll-mt-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>AI-native websites</Eyebrow>
+            <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+              What an AI-native website is, and what an AI migration involves.
+            </h2>
+          </div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article className="flex flex-col gap-4 border border-border rounded-xl bg-bg p-7">
+              <h3 className="text-[22px] tracking-[-0.015em] leading-[1.2] font-semibold">
+                AI-native website
+              </h3>
+              <p className="text-[16px] leading-relaxed text-ink-2">
+                A website built on a modern codebase that AI coding agents can
+                work on directly. Your team asks for a change in plain
+                language, the agent prepares it, and people review it before
+                it goes live. The design, content, and URLs can stay exactly as
+                they are. What changes is how the site gets updated, reviewed,
+                and governed.
+              </p>
+            </article>
+            <article className="flex flex-col gap-4 border border-border rounded-xl bg-bg p-7">
+              <h3 className="text-[22px] tracking-[-0.015em] leading-[1.2] font-semibold">
+                AI website migration
+              </h3>
+              <p className="text-[16px] leading-relaxed text-ink-2">
+                The move from a traditional CMS to that kind of foundation. A
+                well-run migration should be invisible to visitors. The real
+                work is the inventory: every URL, redirect, form, integration,
+                tracking tag, and piece of structured data has to be carried
+                over, tested, and monitored after launch.
+              </p>
+            </article>
+          </div>
+          <p className="mt-10 text-[20px] md:text-[22px] tracking-[-0.015em] leading-[1.35] font-semibold max-w-3xl text-ink">
+            Neither is the right answer for every business. Plenty of websites
+            should stay on the platform they have, and the strategy engagement
+            is how you find out which kind yours is.
+          </p>
+        </Container>
+      </section>
+
       {/* Four paths */}
-      <section id="paths" className="py-20 md:py-28 scroll-mt-24">
+      <section
+        id="paths"
+        className="py-20 md:py-28 bg-bg-soft border-y border-border scroll-mt-24"
+      >
         <Container>
           <div className="max-w-3xl">
             <Eyebrow>Transition paths</Eyebrow>
@@ -350,7 +432,7 @@ export default function AIWebsiteTransitionStrategyPage() {
       </section>
 
       {/* What I evaluate */}
-      <section className="py-20 md:py-28 bg-bg-soft border-y border-border">
+      <section className="py-20 md:py-28">
         <Container>
           <div className="max-w-3xl">
             <Eyebrow>Scope</Eyebrow>
@@ -397,7 +479,7 @@ export default function AIWebsiteTransitionStrategyPage() {
       </section>
 
       {/* What you receive */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-bg-soft border-y border-border">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">
@@ -421,6 +503,53 @@ export default function AIWebsiteTransitionStrategyPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </Container>
+      </section>
+
+      {/* Anonymized client example */}
+      <section id="example" className="py-20 md:py-28 scroll-mt-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>Client example</Eyebrow>
+            <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+              Keep the brand. Change how the site runs.
+            </h2>
+            <p className="mt-4 text-[17px] leading-relaxed text-ink-2">
+              An anonymized example from a recent AI website migration.
+            </p>
+          </div>
+          <div className="mt-12 border border-border rounded-xl overflow-hidden">
+            <dl className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border border-b border-border">
+              {caseFacts.map((f) => (
+                <div
+                  key={f.label}
+                  className="bg-bg-soft p-5 md:p-6 flex flex-col gap-2"
+                >
+                  <dt className="font-mono text-[11px] md:text-[12px] uppercase tracking-[0.08em] text-ink-3">
+                    {f.label}
+                  </dt>
+                  <dd className="text-[18px] md:text-[22px] tracking-[-0.015em] font-semibold text-ink">
+                    {f.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border">
+              {caseStory.map((c) => (
+                <div
+                  key={c.heading}
+                  className="bg-bg p-7 md:p-8 flex flex-col gap-3"
+                >
+                  <h3 className="text-[18px] font-semibold tracking-[-0.01em]">
+                    {c.heading}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-ink-2">
+                    {c.body}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </section>

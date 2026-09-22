@@ -41,7 +41,7 @@ const overviews = {
   },
   'ai-website-transition-strategy': {
     subtitle: 'Decide what your website should become.',
-    body: 'Decide whether to improve your current website, migrate it to an agent-ready foundation, or redesign and migrate at the same time.',
+    body: 'Decide whether to improve your current website, migrate it to an AI-native website, or redesign and migrate at the same time.',
     bestFor: 'Best for leaders facing a major website, CMS, or digital-platform decision.',
     deliverables: [
       'Current-state assessment',

@@ -52,7 +52,7 @@ const problems = [
     icon: Globe,
     chip: 'violet' as const,
     title: 'Your website was built for the last operating model',
-    body: 'Your CMS may still work, but it was not designed for a team working with coding agents. You need to know whether to improve it, migrate it, or redesign it without putting your brand, search visibility, or integrations at unnecessary risk.',
+    body: 'Your CMS may still work, but it was not designed for a team working with coding agents. You need to know whether to improve it, migrate it to an AI-native website, or redesign it without putting your brand, search visibility, or integrations at unnecessary risk.',
     wide: true,
   },
 ];

@@ -17,7 +17,7 @@ const businessTypes = [
 const websiteHelpAreas = [
   'Website strategy or platform decision',
   'WordPress assessment or migration',
-  'AI-native website transition',
+  'AI-native website or AI migration',
   'Website redesign and migration',
   'Governance for AI-made website changes',
 ];

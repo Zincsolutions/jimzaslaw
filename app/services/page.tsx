@@ -56,7 +56,7 @@ const startHere = [
   },
   {
     problem:
-      'Your website platform, workflow, or operating model needs a major decision',
+      'You are weighing an AI-native website, a migration, or another major website decision',
     slug: 'ai-website-transition-strategy',
   },
 ] as const;

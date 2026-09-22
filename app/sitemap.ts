@@ -4,9 +4,10 @@ import { getAllPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const photo = `${site.url}/jim-zaslaw.jpg`;
   const staticPaths: MetadataRoute.Sitemap = [
-    { url: `${site.url}/`, lastModified: now, priority: 1 },
-    { url: `${site.url}/about`, lastModified: now, priority: 0.7 },
+    { url: `${site.url}/`, lastModified: now, priority: 1, images: [photo] },
+    { url: `${site.url}/about`, lastModified: now, priority: 0.7, images: [photo] },
     { url: `${site.url}/services`, lastModified: now, priority: 0.8 },
     { url: `${site.url}/how-it-works`, lastModified: now, priority: 0.8 },
     { url: `${site.url}/blog`, lastModified: now, priority: 0.7 },
