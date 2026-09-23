@@ -1,112 +1,31 @@
 import Link from 'next/link';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { SectionHeader } from '@/components/ui/section-header';
 import { services, pricing } from '@/lib/site';
-
-const overviews = {
-  'ai-operating-system': {
-    subtitle: 'Organize how your team uses AI.',
-    body: 'Help your team understand which AI tools to use, when to use them, and how to configure them into a shared system for prompts, workflows, standards, and collaboration.',
-    bestFor: 'Best for teams using AI inconsistently.',
-    deliverables: [
-      'Tool selection & guidelines',
-      'AI workspace setup',
-      'Prompt library',
-      'Workflow templates',
-      'Team onboarding',
-    ],
-  },
-  'ai-visibility-engine': {
-    subtitle: 'Get found when buyers ask AI for recommendations.',
-    body: 'Identify the questions your customers are asking ChatGPT, Claude, Perplexity, and Google AI Overviews. Then build content designed to make your business easier to understand, cite, and recommend.',
-    bestFor: 'Best for businesses that rely on inbound leads, authority, and search visibility.',
-    deliverables: [
-      'Question map',
-      'Content plan',
-      'Answer-ready pages',
-      'Publishing workflow',
-    ],
-  },
-  'ai-brand-asset-system': {
-    subtitle: 'Create on-brand visuals faster.',
-    body: 'Build AI-ready brand guidelines, master prompts, and asset workflows so your team can generate better visuals with less cleanup.',
-    bestFor: 'Best for teams that need more campaign, social, website, or sales visuals.',
-    deliverables: [
-      'Visual prompt system',
-      'AI image workflow',
-      'Asset library',
-      'Brand usage rules',
-    ],
-  },
-  'ai-website-transition-strategy': {
-    subtitle: 'Decide what your website should become.',
-    body: 'Decide whether to improve your current website, migrate it to an AI-native website, or redesign and migrate at the same time.',
-    bestFor: 'Best for leaders facing a major website, CMS, or digital-platform decision.',
-    deliverables: [
-      'Current-state assessment',
-      'Path comparison',
-      'Risk and governance plan',
-      'Phased roadmap',
-    ],
-    cta: 'Plan the right website transition',
-  },
-} as const;
 
 export function ServicesOverview() {
   return (
     <section id="services" className="py-24 md:py-32 border-t border-border">
       <Container>
-        <SectionHeader
-          eyebrow="Services"
-          title="Four focused ways to put AI to work."
-          lede="Start with a focused assessment. Then choose the system or decision your business needs most."
-        />
+        <SectionHeader eyebrow="Services" title="Four ways I help." />
         <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((s) => {
-            const o = overviews[s.slug];
-            return (
-              <article
-                key={s.slug}
-                className="group flex flex-col gap-5 border border-border rounded-xl bg-bg p-7 hover:border-accent/40 transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <span className={`chip chip-${s.chip}`}>{s.short}</span>
-                </div>
-                <h3 className="text-[24px] tracking-[-0.02em] leading-[1.15] font-semibold transition-colors group-hover:text-accent">
-                  {o.subtitle}
-                </h3>
-                <p className="text-[15px] leading-relaxed text-ink-2">
-                  {o.body}
-                </p>
-                <p className="text-[13px] font-mono uppercase tracking-[0.06em] text-ink-3">
-                  {o.bestFor}
-                </p>
-                <ul className="flex flex-col gap-2 pt-2 border-t border-border">
-                  {o.deliverables.map((d) => (
-                    <li
-                      key={d}
-                      className="flex items-start gap-2 text-[14px] text-ink-2"
-                    >
-                      <Check
-                        className="size-3.5 mt-1 shrink-0 text-ink"
-                        strokeWidth={2}
-                        aria-hidden
-                      />
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink hover:text-accent hover:gap-2 transition-all"
-                >
-                  {'cta' in o ? o.cta : `Explore ${s.short}`}
-                  <ArrowRight className="size-4" aria-hidden />
-                </Link>
-              </article>
-            );
-          })}
+          {services.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/services/${s.slug}`}
+              className="group flex flex-col gap-5 border border-border rounded-xl bg-bg p-7 hover:border-accent/40 transition-colors"
+            >
+              <span className={`chip chip-${s.chip} self-start`}>{s.short}</span>
+              <h3 className="text-[22px] md:text-[24px] tracking-[-0.02em] leading-[1.2] font-semibold transition-colors group-hover:text-accent">
+                {s.tagline}
+              </h3>
+              <span className="mt-auto inline-flex items-center gap-1.5 text-[14px] font-medium text-ink transition-all group-hover:text-accent group-hover:gap-2">
+                See how
+                <ArrowRight className="size-4" aria-hidden />
+              </span>
+            </Link>
+          ))}
         </div>
         <p className="mt-10 text-center font-mono text-[13px] uppercase tracking-[0.06em] text-ink-3">
           {pricing.implementation} · {pricing.retainer}

@@ -12,7 +12,7 @@ export function PageFaq({
   faqs,
   title = 'Frequently asked questions.',
   intro,
-  ctaLabel = 'Request an AI Opportunity Assessment',
+  ctaLabel = 'Get a free assessment',
   ctaHref = '/contact',
   className,
 }: {

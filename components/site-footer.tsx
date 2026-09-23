@@ -9,7 +9,7 @@ const cols = [
     links: [
       { label: 'Services', href: '/services' },
       { label: 'How It Works', href: '/how-it-works' },
-      { label: 'About Jim', href: '/about' },
+      { label: 'About', href: '/about' },
       { label: 'Field Notes', href: '/blog' },
     ],
   },
@@ -28,7 +28,7 @@ const cols = [
   {
     heading: 'Get a Free Assessment',
     links: [
-      { label: 'Request an assessment', href: '/contact' },
+      { label: 'Get a free assessment', href: '/contact' },
       { label: 'Email Jim', href: `mailto:${site.email}` },
     ],
   },
@@ -57,7 +57,7 @@ export function SiteFooter() {
               className="h-[22px] w-auto"
             />
             <p className="mt-4 text-[14px] leading-relaxed max-w-[28ch]">
-              {site.tagline} A practice of{' '}
+              {site.tagline} Execution by{' '}
               <a
                 href={site.zinc.url}
                 target="_blank"

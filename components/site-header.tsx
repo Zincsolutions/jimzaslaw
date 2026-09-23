@@ -110,7 +110,7 @@ export function SiteHeader() {
             How It Works
           </NavLink>
           <NavLink href="/about" dark={dark}>
-            About Jim
+            About
           </NavLink>
           <NavLink href="/blog" dark={dark}>
             Field Notes
@@ -124,7 +124,7 @@ export function SiteHeader() {
             withArrow
             variant={dark ? 'primary-on-ink' : 'primary'}
           >
-            Get a Free Assessment
+            Get a free assessment
           </Button>
         </div>
 
@@ -304,7 +304,7 @@ function ServicesMenuContent({ dark = false }: { dark?: boolean }) {
           </li>
           <li>
             <Link href="/contact" className={sideLink}>
-              Get a Free Assessment
+              Get a free assessment
             </Link>
           </li>
         </ul>
@@ -413,7 +413,7 @@ function MobileNav({
           How It Works
         </MobileLink>
         <MobileLink href="/about" onClose={onClose} dark={dark}>
-          About Jim
+          About
         </MobileLink>
         <MobileLink href="/blog" onClose={onClose} dark={dark}>
           Field Notes
@@ -427,7 +427,7 @@ function MobileNav({
           className="w-full"
           variant={dark ? 'primary-on-ink' : 'primary'}
         >
-          Get a Free Assessment
+          Get a free assessment
         </Button>
       </div>
     </div>

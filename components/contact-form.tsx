@@ -4,42 +4,18 @@ import { useEffect, useState, useTransition } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
 
-const businessTypes = [
-  'Small business',
-  'Mid-sized business',
-  'Founder-led company',
-  'Marketing team',
-  'Ecommerce business',
-  'Professional services firm',
-  'Other',
-];
+const roles = ['Owner / Founder', 'CEO / President', 'Other executive', 'Other'];
 
-const websiteHelpAreas = [
-  'Website strategy or platform decision',
-  'WordPress assessment or migration',
-  'AI-native website or AI migration',
-  'Website redesign and migration',
-  'Governance for AI-made website changes',
-];
+const websiteHelpAreas = ['Website decision or migration'];
 
 const helpAreaOptions = [
   'Team AI tools and workflows',
-  'Marketing or content production',
-  'Sales follow-up',
-  'Operations or automation',
-  'Brand visuals and asset creation',
-  'AI-driven search visibility',
+  'Marketing and content',
+  'Sales and operations',
+  'Brand visuals',
+  'Showing up in AI search',
   ...websiteHelpAreas,
   'Not sure yet',
-];
-
-const aiUsageLevels = [
-  'We are barely using AI',
-  'A few people are experimenting',
-  'Several team members use AI regularly',
-  'We use AI often, but without much structure',
-  'We have tools in place but need better workflows',
-  'Not sure',
 ];
 
 const companySizes = [
@@ -93,18 +69,11 @@ const websiteTimings = [
   'Not sure',
 ];
 
-const helpTypes = [
-  'A decision and roadmap',
-  'Strategy plus execution',
-  'A second opinion on an existing plan',
-  'Ongoing advisory',
-  'Not sure yet',
-];
 
 // ?interest=website preselects the website decision so links from the
 // AI Website Transition Strategy page land with the right fields open.
 const interestPrefill: Record<string, string> = {
-  website: 'Website strategy or platform decision',
+  website: 'Website decision or migration',
 };
 
 type Status =
@@ -275,11 +244,7 @@ export function ContactForm() {
           required
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <Field
-            label="Role / Title"
-            name="role"
-            autoComplete="organization-title"
-          />
+          <SelectField label="Your role" name="role" options={roles} />
           <Field
             label={websiteSelected ? 'Current website URL' : 'Website'}
             name="website"
@@ -300,41 +265,27 @@ export function ContactForm() {
           autoComplete="organization"
           required
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <SelectField
-            label="What best describes your business?"
-            name="businessType"
-            options={businessTypes}
-            required
-          />
-          <SelectField
-            label="Approximate company size"
-            name="companySize"
-            options={companySizes}
-          />
-        </div>
+        <SelectField
+          label="Company size"
+          name="companySize"
+          options={companySizes}
+        />
       </fieldset>
 
       {/* AI context */}
       <fieldset className="flex flex-col gap-5">
-        <legend className="eyebrow mb-2">AI and digital context</legend>
-        <SelectField
-          label="What is your current level of AI usage?"
-          name="aiUsageLevel"
-          options={aiUsageLevels}
-          required
-        />
+        <legend className="eyebrow mb-2">What you want help with</legend>
 
         <div id="help-areas" className="flex flex-col gap-3 scroll-mt-28">
           <span className="text-[13px] font-medium text-ink-2">
-            Where could AI or digital change help most?{' '}
+            What do you want help with?{' '}
             <span className="text-ink-3">
               (select all that apply)
               <span className="text-ink-3 ml-0.5">*</span>
             </span>
           </span>
           <PillGroup
-            label="Where AI or digital change could help most"
+            label="What do you want help with"
             options={helpAreaOptions}
             selected={helpAreas}
             onToggle={toggleHelpArea}
@@ -368,12 +319,6 @@ export function ContactForm() {
               options={websitePaths}
             />
           </div>
-          <TextAreaField
-            label="What is prompting the decision now?"
-            name="websiteTrigger"
-            rows={3}
-            placeholder="Example: Publishing is slow, plugin updates keep breaking things, and we want the team to be able to make changes with AI safely."
-          />
           <div className="flex flex-col gap-3">
             <span className="text-[13px] font-medium text-ink-2">
               Important integrations{' '}
@@ -396,24 +341,15 @@ export function ContactForm() {
 
       {/* What you'd like help with */}
       <fieldset className="flex flex-col gap-5">
-        <legend className="eyebrow mb-2">What you’re looking for</legend>
-        <SelectField
-          label="What kind of help are you looking for?"
-          name="helpType"
-          options={helpTypes}
-        />
+        <legend className="sr-only">Your first move</legend>
         <TextAreaField
-          label="Briefly describe what you would like help with"
+          label="What’s the one thing you’d fix first?"
           name="context"
-          rows={5}
+          rows={4}
           required
-          placeholder="Example: We are using ChatGPT and Canva a little, but we do not have a clear process. We need help figuring out which tools to use, how to organize prompts and workflows, and how AI could help our marketing team create more content."
+          placeholder="Example: Everyone uses ChatGPT differently and our marketing output is inconsistent."
         />
-        <SelectField
-          label="How soon are you looking to get started?"
-          name="timeline"
-          options={timelines}
-        />
+        <SelectField label="How soon?" name="timeline" options={timelines} />
       </fieldset>
 
       {status.state === 'error' ? (
@@ -434,7 +370,7 @@ export function ContactForm() {
         >
           {status.state === 'submitting'
             ? 'Sending…'
-            : 'Submit Assessment Request'}
+            : 'Get a free assessment'}
         </Button>
         <p className="text-[13px] text-ink-3">
           Replies typically come within one business day.

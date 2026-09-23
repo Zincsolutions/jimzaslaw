@@ -8,10 +8,6 @@ import { CTABand } from '@/components/sections/cta-band';
 import { PageFaq } from '@/components/sections/page-faq';
 import { servicesFaqs } from '@/lib/faqs';
 import { services, pricing } from '@/lib/site';
-import { MockupOS } from '@/components/mockups/mockup-os';
-import { MockupVisibility } from '@/components/mockups/mockup-visibility';
-import { MockupBrand } from '@/components/mockups/mockup-brand';
-import { MockupWebsite } from '@/components/mockups/mockup-website';
 
 const title = 'AI Consulting Services';
 const description =
@@ -25,7 +21,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/services',
-    images: [`/og?title=${encodeURIComponent('Four focused services for putting AI to work.')}&eyebrow=${encodeURIComponent('Services')}`],
+    images: [`/og?title=${encodeURIComponent('Four services. One goal: AI that moves the business.')}&eyebrow=${encodeURIComponent('Services')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -34,31 +30,13 @@ export const metadata: Metadata = {
   },
 };
 
-const mockups = {
-  'ai-operating-system': MockupOS,
-  'ai-visibility-engine': MockupVisibility,
-  'ai-brand-asset-system': MockupBrand,
-  'ai-website-transition-strategy': MockupWebsite,
-};
 
 const startHere = [
+  { problem: '“Everyone does AI their own way.”', slug: 'ai-operating-system' },
+  { problem: '“Buyers can’t find us in AI search.”', slug: 'ai-visibility-engine' },
+  { problem: '“Our AI visuals look off.”', slug: 'ai-brand-asset-system' },
   {
-    problem:
-      'Everyone uses AI differently and useful knowledge is scattered',
-    slug: 'ai-operating-system',
-  },
-  {
-    problem:
-      'Buyers ask AI systems for recommendations and your company is hard to find or understand',
-    slug: 'ai-visibility-engine',
-  },
-  {
-    problem: 'AI-generated visual work is inconsistent or off-brand',
-    slug: 'ai-brand-asset-system',
-  },
-  {
-    problem:
-      'You are weighing an AI-native website, a migration, or another major website decision',
+    problem: '“We have a big website decision coming.”',
     slug: 'ai-website-transition-strategy',
   },
 ] as const;
@@ -72,13 +50,10 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <p className="eyebrow">Services</p>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
-              Four focused services for putting AI to work.
+              Four services. One goal: AI that moves the business.
             </h1>
             <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
-              I help leadership teams turn AI from scattered activity into
-              clear systems and decisions. Start with an assessment, then
-              engage the service that addresses the most valuable problem
-              first.
+              Fixed scope. Fixed fee. Real systems, not slide decks.
             </p>
             <p className="mt-5 font-mono text-[13px] uppercase tracking-[0.06em] text-white/60">
               {pricing.implementation} · {pricing.retainer}
@@ -90,7 +65,7 @@ export default function ServicesPage() {
                 variant="primary-on-ink"
                 withArrow
               >
-                Request an AI Opportunity Assessment
+                Get a free assessment
               </Button>
               <Button
                 href="#compare"
@@ -110,14 +85,12 @@ export default function ServicesPage() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((p) => {
-              const Mockup = mockups[p.slug];
               return (
                 <Link
                   key={p.slug}
                   href={`/services/${p.slug}`}
                   className="group flex flex-col gap-6 border border-border rounded-xl bg-bg p-6 hover:border-accent/40 transition-colors"
                 >
-                  <Mockup />
                   <div className="flex items-center gap-2">
                     <span className={`chip chip-${p.chip}`}>
                       Service {p.number}
@@ -126,8 +99,12 @@ export default function ServicesPage() {
                   <h2 className="text-[24px] tracking-[-0.02em] leading-[1.15] font-semibold transition-colors group-hover:text-accent">
                     {p.short}
                   </h2>
-                  <p className="text-[15px] leading-relaxed text-ink-2">
+                  <p className="text-[17px] leading-snug text-ink">
                     {p.tagline}
+                  </p>
+                  <p className="text-[14px] leading-relaxed text-ink-2">
+                    <span className="font-medium text-ink">Best if:</span>{' '}
+                    {p.bestIf}
                   </p>
                   <div className="mt-auto pt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink">
                     Explore
@@ -152,12 +129,8 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <Eyebrow>Where to start</Eyebrow>
             <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
-              Which service should come first?
+              Not sure where to start?
             </h2>
-            <p className="mt-4 text-[18px] leading-[1.55] text-ink-2">
-              Most clients start with one. The assessment confirms the right
-              starting point before you commit.
-            </p>
           </div>
           <table className="mt-12 w-full border-collapse text-left">
             <thead>
@@ -166,7 +139,7 @@ export default function ServicesPage() {
                   scope="col"
                   className="pb-3 pr-6 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-3 font-normal"
                 >
-                  If this is the problem
+                  If this sounds like you
                 </th>
                 <th
                   scope="col"
@@ -201,6 +174,12 @@ export default function ServicesPage() {
               })}
             </tbody>
           </table>
+          <p className="mt-8 text-[17px] text-ink">
+            Still not sure?{' '}
+            <Link href="/contact" className="font-medium underline underline-offset-4 decoration-1 hover:text-accent">
+              That&apos;s what the free assessment is for.
+            </Link>
+          </p>
         </Container>
       </section>
 

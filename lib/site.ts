@@ -1,6 +1,6 @@
 export const site = {
   name: 'Jim Zaslaw Consulting',
-  tagline: 'Senior advice for the decisions where AI meets your real business.',
+  tagline: 'Senior AI guidance for founders and CEOs.',
   description:
     'AI and digital strategy for growing businesses. Jim Zaslaw helps leadership teams decide where AI belongs across workflows, content, brand, and the website.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://jimzaslaw.com',
@@ -19,8 +19,8 @@ export const site = {
 export const pricing = {
   implementationFrom: '$15K',
   retainerFrom: '$5K/month',
-  implementation: 'Implementation engagements start at $15K',
-  retainer: 'Advisory retainers from $5K/month',
+  implementation: 'Engagements from $15K',
+  retainer: 'Advisory from $5K/month',
 } as const;
 
 export type Service = {
@@ -32,10 +32,16 @@ export type Service = {
   number: '01' | '02' | '03' | '04';
   chip: 'orange' | 'sky' | 'blush' | 'violet';
   short: string;
+  /** Page headline. */
   title: string;
+  /** One-line promise for cards and menus. */
   tagline: string;
+  /** Page subhead. */
   objective: string;
-  scope: string[];
+  /** Who it's for, in the buyer's words. */
+  bestIf: string;
+  /** Extra line on the service's price strip (e.g. typical timeline). */
+  timeline?: string;
   deliverables: string[];
   outcome: string;
 };
@@ -46,107 +52,76 @@ export const services: Service[] = [
     number: '01',
     chip: 'orange',
     short: 'AI Operating System',
-    title: 'An operating system for how your team uses AI.',
-    tagline: 'Organize and structure how the team uses AI internally.',
+    title: 'Your team uses AI. Now make it a system.',
+    tagline: 'Get your whole team using AI the same, smart way.',
     objective:
-      'Organize the tools, prompts, workflows, standards, and shared knowledge your team needs to use AI consistently.',
-    scope: [
-      'Audit of current AI usage across team members and functions',
-      'Tool selection: which AI tools to use, when, and why',
-      'Tool setup, configuration, and permissions',
-      'Centralized AI workspace appropriate to your existing stack',
-      'Prompt libraries and workflow templates by function',
-      'Standards for collaboration and repeatable team use',
-      'Team training and onboarding',
-    ],
+      'One set of tools, workflows, and standards, so good work gets repeated instead of reinvented.',
+    bestIf: 'everyone uses AI, but nobody uses it the same way.',
+    timeline: 'Typically 6–10 weeks',
     deliverables: [
-      'Tool selection & usage guidelines',
-      'Centralized AI workspace, set up and configured',
-      'Structured prompt library, organized by function and use case',
-      'Defined workflows for marketing, sales, and operations',
-      'Standards and permissions for team use',
-      'Recorded training session for current team and future hires',
+      'The right tools, picked and set up',
+      'A shared AI workspace',
+      'A prompt library by team and task',
+      'Workflows for marketing, sales, and ops',
+      'Rules for who uses what',
+      'Training your team can rewatch',
     ],
-    outcome:
-      'The team moves from individual experimentation to a shared, scalable system. New hires onboard into AI workflows in days, not months. Institutional knowledge compounds instead of evaporating.',
+    outcome: 'Less guessing. More output. Knowledge that stays when people leave.',
   },
   {
     slug: 'ai-visibility-engine',
     number: '02',
     chip: 'sky',
     short: 'AI Visibility Engine',
-    title: 'Improve how your business shows up in AI-driven search.',
-    tagline: 'Show up when prospects ask AI tools questions in your category.',
+    title: 'Your buyers are asking AI who to hire. Give it a reason to name you.',
+    tagline: 'Show up when buyers ask AI who to call.',
     objective:
-      'Map the questions your buyers ask AI tools, then build content designed to make your business easier to understand, cite, and recommend.',
-    scope: [
-      'Identification of the 30–100 highest-value questions customers are asking AI tools in your category',
-      'Development of a structured content strategy aligned to those questions',
-      'Creation of AI-assisted content workflows the team can run on their own',
-      'Production of an initial published content set (blogs, landing pages, FAQs, structured data)',
-      'Organization of content for clarity and AI discoverability',
-    ],
+      'I find the questions your buyers ask ChatGPT, Claude, Perplexity, and Google. Then we build the content AI can find, trust, and cite.',
+    bestIf: 'your leads depend on being found and trusted.',
     deliverables: [
-      'Question map of high-value queries',
-      'Content templates and prompt frameworks',
-      '20–50+ published content assets',
-      'Ongoing content production system',
+      'A map of the questions that matter',
+      'Templates and a repeatable content system',
+      '20–50+ published, answer-ready pages',
+      'A process your team keeps running',
     ],
-    outcome:
-      'The business becomes clearer, more useful, and easier to surface in AI-driven search, with a content system the team can keep running. More inbound conversations start with prospects who already understand what you do.',
+    outcome: 'More buyers show up already knowing who you are.',
   },
   {
     slug: 'ai-brand-asset-system',
     number: '03',
     chip: 'blush',
     short: 'AI Brand Asset System',
-    title: 'Create on-brand visuals faster.',
-    tagline: 'Produce consistent visuals using AI tools, without cleanup.',
-    objective:
-      'Build AI-ready brand guidelines, visual prompt systems, and asset workflows so your team can produce better marketing visuals with less cleanup.',
-    scope: [
-      'Translation of brand identity into AI-compatible visual guidelines',
-      'Definition of which tools to use for which jobs (image, design, video)',
-      'Development of master prompts that produce consistent outputs across tools',
-      'Creation of an initial asset library',
-      'Workflows for ongoing creation by the in-house team',
-    ],
+    title: 'AI visuals that look like your brand. Every time.',
+    tagline: 'On-brand visuals, faster, with less cleanup.',
+    objective: 'Guidelines, master prompts, and workflows that cut the cleanup.',
+    bestIf: 'your AI images keep coming out off-brand.',
     deliverables: [
       'AI-ready brand visual guidelines',
-      'Master prompt library for image and asset generation',
-      'Organized asset library (50–200+ assets)',
-      'Documented creation workflows',
+      'Tested master prompts',
+      'An organized library of 50–200+ assets',
+      'Step-by-step creation workflows',
     ],
-    outcome:
-      'Marketing and content teams ship campaigns faster, reduce reliance on outside design support for routine work, and maintain a consistent visual identity across every channel.',
+    outcome: 'More campaign, social, and sales visuals. Less time fixing them.',
   },
   {
     slug: 'ai-website-transition-strategy',
     number: '04',
     chip: 'violet',
     short: 'AI Website Transition Strategy',
-    title: 'Decide what your website should become before you start rebuilding it.',
+    title: 'Fix it, move it, or rebuild it? Decide before you spend.',
     tagline:
-      'Improve what you have. Migrate what works. Redesign what no longer does.',
+      'Know whether to fix, migrate, or rebuild your site before you spend a dollar.',
     objective:
-      'Decide whether to improve your current website, migrate it to an AI-native website, or redesign and migrate at the same time.',
-    scope: [
-      'Current CMS, architecture, workflow, and ownership',
-      'Business and brand requirements',
-      'Content, URLs, search foundations, and redirects',
-      'Forms, analytics, CRM, commerce, and other integrations',
-      'AI-agent use cases and approval boundaries',
-      'Governance, monitoring, recovery, and handoff',
-    ],
+      'AI-native websites change how sites get built and run. I help you pick the right path without putting your brand, search traffic, or integrations at risk.',
+    bestIf: "you're weighing a migration, a rebuild, or an AI-native site.",
     deliverables: [
-      'Improve-in-place vs migration vs redesign recommendation',
-      'Target architecture and operating model',
-      'Risk register and migration safeguards',
-      'Phased implementation roadmap',
-      'Scope, responsibilities, budget range, and next decision',
+      'A clear recommendation: improve, migrate, or redesign',
+      'The tradeoffs of each path, in plain English',
+      'A plan to preserve your URLs, search, and integrations where possible',
+      'A phased roadmap you can hand to any team',
     ],
     outcome:
-      'Leadership can choose the right path before committing to a rebuild or migration, with a plan that protects what works and creates a controlled path to AI-powered website operations.',
+      'The right website decision, made before anyone writes code.',
   },
 ];
 
@@ -161,7 +136,7 @@ export const navLinks = {
   primary: [
     { label: 'Services', href: '/services', hasMenu: true },
     { label: 'How It Works', href: '/how-it-works' },
-    { label: 'About Jim', href: '/about' },
+    { label: 'About', href: '/about' },
     { label: 'Field Notes', href: '/blog' },
   ],
 };

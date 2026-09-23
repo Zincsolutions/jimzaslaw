@@ -12,7 +12,7 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'AI Consulting for Growing Businesses | Jim Zaslaw',
+    default: 'AI Consulting for Founders & CEOs | Jim Zaslaw',
     template: '%s | Jim Zaslaw',
   },
   description: site.description,
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: site.name,
-    title: 'AI Consulting for Growing Businesses | Jim Zaslaw',
+    title: 'AI Consulting for Founders & CEOs | Jim Zaslaw',
     description: site.description,
     url: site.url,
     images: ['/og'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Consulting for Growing Businesses | Jim Zaslaw',
+    title: 'AI Consulting for Founders & CEOs | Jim Zaslaw',
     description: site.description,
     images: ['/og'],
   },

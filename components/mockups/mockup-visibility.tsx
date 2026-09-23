@@ -12,9 +12,6 @@ export function MockupVisibility() {
           <Sparkles className="size-3" />
           Question map
         </span>
-        <span className="text-[11px] font-mono text-ink-3 ml-auto">
-          37 / 100
-        </span>
       </div>
 
       <div className="flex items-center gap-2 border border-border rounded-md bg-bg-soft px-3 py-2">
@@ -28,27 +25,27 @@ export function MockupVisibility() {
         {[
           {
             src: 'ChatGPT',
-            cite: 'Cited',
+            cite: 'Tracked',
             chip: 'orange' as const,
-            line: 'Recognized in 4 of 5 responses',
+            line: 'Buyer questions mapped',
           },
           {
             src: 'Claude',
-            cite: 'Cited',
+            cite: 'Tracked',
             chip: 'orange' as const,
-            line: 'Surfaces with comparison context',
+            line: 'Answer-ready pages published',
           },
           {
             src: 'Perplexity',
-            cite: 'Cited',
+            cite: 'Tracked',
             chip: 'orange' as const,
-            line: 'Linked source in answer panel',
+            line: 'Sources and citations checked',
           },
           {
             src: 'Google AI Overviews',
             cite: 'In progress',
             chip: 'amber' as const,
-            line: 'Schema upgrades shipped',
+            line: 'Structured data in progress',
           },
         ].map((row, i) => (
           <div
