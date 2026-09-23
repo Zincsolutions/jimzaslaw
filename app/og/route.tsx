@@ -8,7 +8,7 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   // Clamp lengths so crafted URLs can't blow up the layout.
   const title = (
-    searchParams.get('title') || 'Make the right AI decisions before you build the wrong thing.'
+    searchParams.get('title') || 'Stop experimenting with AI. Start scaling with it.'
   ).slice(0, 140);
   const eyebrow = (
     searchParams.get('eyebrow') || 'Jim Zaslaw Consulting'

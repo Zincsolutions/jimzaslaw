@@ -10,12 +10,15 @@ export function Hero() {
           <span className="chip chip-orange">
             AI and digital strategy
           </span>
-          <h1 className="mt-6 text-[44px] md:text-[72px] leading-[1.02] tracking-[-0.03em] font-semibold max-w-[24ch] text-balance">
-            Make the right AI decisions before you build the wrong thing.
+          <h1 className="mt-6 text-[44px] md:text-[72px] leading-[1.02] tracking-[-0.03em] font-semibold text-balance">
+            <span className="md:block">Stop experimenting with AI.</span>{' '}
+            <span className="md:block">Start scaling with it.</span>
           </h1>
           <p className="mt-6 text-[18px] md:text-[20px] leading-[1.55] text-ink-2 max-w-[56ch] text-balance">
-            You don&apos;t need another AI tool. You need a clear plan, and a
-            guide who&apos;s built the systems AI is changing.
+            I help growing businesses turn scattered AI use into a real
+            operating plan: the right tools, clear SOPs, and an{' '}
+            <span className="whitespace-nowrap">AI-native</span> website and
+            marketing engine built to grow with you.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row items-center gap-3">
             <Button href="/contact" size="lg" withArrow>
