@@ -9,7 +9,7 @@ const secondaryClasses =
 
 export function CTABand({
   title = 'Start with one free conversation.',
-  body = '60–90 minutes with me. You leave with two or three clear moves and a recommended first step. No pitch. No commitment.',
+  body = '60–90 minutes. You’ll leave knowing where AI can save you time, where it’s putting you at risk, and what to do first. No pitch. No commitment.',
   primaryLabel = 'Get a free assessment',
   primaryHref = '/contact',
   secondaryLabel = 'Or email me',

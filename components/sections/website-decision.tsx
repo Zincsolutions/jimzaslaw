@@ -1,6 +1,13 @@
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 
+// Curiosity sound bites: the questions a platform demo never answers.
+const questions = [
+  'What should an AI agent be allowed to change?',
+  'Who approves higher-risk work?',
+  'What’s the recovery plan if a change is wrong?',
+];
+
 export function WebsiteDecision() {
   return (
     <section id="website-decision" className="on-ink">
@@ -15,6 +22,16 @@ export function WebsiteDecision() {
             decide what to keep, what to move, and how to stay in control,
             before anyone writes code.
           </p>
+          <ul className="flex flex-col divide-y border-y">
+            {questions.map((q) => (
+              <li
+                key={q}
+                className="py-3.5 text-[17px] md:text-[18px] leading-snug !text-white"
+              >
+                {q}
+              </li>
+            ))}
+          </ul>
           <p className="text-[17px] md:text-[18px] leading-relaxed">
             When you&apos;re ready, ZINC handles the move: AI website
             migration, with control built in.

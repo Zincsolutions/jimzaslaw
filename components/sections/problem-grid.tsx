@@ -1,26 +1,33 @@
-import { LayoutGrid, Search, Globe } from 'lucide-react';
+import { LayoutGrid, Search, LineChart, Globe } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { SectionHeader } from '@/components/ui/section-header';
 import { cn } from '@/lib/cn';
 
+// Survival sound bites: what the reader is losing right now.
 const problems = [
   {
     icon: LayoutGrid,
     chip: 'amber' as const,
-    title: 'Scattered',
-    body: 'Everyone uses different tools, differently. Nothing compounds.',
+    title: 'Your know-how walks out the door',
+    body: 'Everyone uses AI their own way. Your best prompts leave when your people do.',
   },
   {
     icon: Search,
     chip: 'orange' as const,
-    title: 'Invisible',
-    body: 'Buyers ask ChatGPT who to hire. You’re not in the answer.',
+    title: 'Buyers can’t find you',
+    body: 'Buyers are shortlisting vendors inside ChatGPT. You’re not on the list.',
+  },
+  {
+    icon: LineChart,
+    chip: 'stone' as const,
+    title: 'Nothing hits the P&L',
+    body: 'Plenty of AI activity. Not one number on the P&L has moved.',
   },
   {
     icon: Globe,
     chip: 'violet' as const,
-    title: 'Outdated',
-    body: 'Your website was built for the old way of working. Now you face a big platform decision.',
+    title: 'Your website is built for yesterday',
+    body: 'Rebuild on the wrong foundation and your next site is outdated the day it launches.',
   },
 ];
 
@@ -32,7 +39,7 @@ export function ProblemGrid() {
           eyebrow="The problem"
           title="Your team is using AI. Your business isn’t."
         />
-        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border rounded-lg overflow-hidden">
+        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-lg overflow-hidden">
           {problems.map(({ icon: Icon, chip, title, body }) => (
             <div
               key={title}
