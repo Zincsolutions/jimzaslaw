@@ -5,6 +5,9 @@ import { ProblemGrid } from '@/components/sections/problem-grid';
 import { ServicesOverview } from '@/components/sections/services-overview';
 import { WebsiteDecision } from '@/components/sections/website-decision';
 import { WhyJim } from '@/components/sections/why-jim';
+import { Success } from '@/components/sections/success';
+import { Plan } from '@/components/sections/plan';
+import { FirstMoves } from '@/components/sections/first-moves';
 import { FeaturedPosts } from '@/components/sections/featured-posts';
 import { CTABand } from '@/components/sections/cta-band';
 import { PageFaq } from '@/components/sections/page-faq';
@@ -20,10 +23,13 @@ export default function Home() {
       <Hero />
       <LogoStrip />
       <ProblemGrid />
+      <Success />
       <WhyJim />
+      <Plan />
       <ServicesOverview />
       <WebsiteDecision />
       <FeaturedPosts />
+      <FirstMoves />
       <CTABand />
       <PageFaq
         id="home"

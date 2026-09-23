@@ -4,6 +4,7 @@ import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { PageFaq } from '@/components/sections/page-faq';
+import { planSteps } from '@/lib/site';
 import { howItWorksFaqs } from '@/lib/faqs';
 import Link from 'next/link';
 
@@ -28,24 +29,6 @@ export const metadata: Metadata = {
   },
 };
 
-const steps = [
-  {
-    name: 'Assess',
-    meta: 'Free · 60–90 minutes',
-    body: 'You, me, and one or two key leaders. We find where AI can help most, and what to do first.',
-    get: 'A short summary, two or three high-impact moves, and a recommended first step.',
-  },
-  {
-    name: 'Build',
-    meta: 'Fixed scope · From $15K',
-    body: 'We pick one service and do it right. Defined deliverables, timeline, and fee before we start.',
-  },
-  {
-    name: 'Stay sharp',
-    meta: 'Advisory · From $5K/month',
-    body: 'AI changes every month. I keep your plan current so you don’t have to chase every release.',
-  },
-];
 
 export default function HowItWorksPage() {
   return (
@@ -72,7 +55,7 @@ export default function HowItWorksPage() {
       <section className="py-20 md:py-28 border-t border-border bg-bg-soft">
         <Container>
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {steps.map((st, i) => (
+            {planSteps.map((st, i) => (
               <li
                 key={st.name}
                 className="flex flex-col gap-3 border border-border rounded-xl bg-bg p-7"
@@ -87,7 +70,7 @@ export default function HowItWorksPage() {
                   {st.meta}
                 </p>
                 <p className="text-[16px] leading-relaxed text-ink-2">{st.body}</p>
-                {st.get ? (
+                {'get' in st ? (
                   <p className="mt-auto pt-4 border-t border-border text-[15px] leading-relaxed text-ink">
                     <span className="font-medium">You get:</span> {st.get}
                   </p>

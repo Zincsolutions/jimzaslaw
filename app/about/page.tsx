@@ -62,8 +62,8 @@ export default function AboutPage() {
               I&apos;ve spent 25 years building what AI is now changing.
             </h1>
             <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
-              Now I help founders and CEOs make the right AI calls and put
-              them to work.
+              Now I help founders and CEOs make the right AI calls, and put
+              them to work before their competitors do.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Button
@@ -117,8 +117,9 @@ export default function AboutPage() {
                 systems. 300+ projects.
               </p>
               <p>
-                That taught me one thing: advice only counts if it works in the
-                real business.
+                That taught me one thing: a good recommendation can&apos;t live
+                in a slide deck. It has to work for your people, your brand, and
+                the systems you already run.
               </p>
               <h2>What I believe</h2>
               <p>

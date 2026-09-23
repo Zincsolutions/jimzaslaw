@@ -125,6 +125,26 @@ export const services: Service[] = [
   },
 ];
 
+/** The three-step plan (homepage and How It Works). */
+export const planSteps = [
+  {
+    name: 'Assess',
+    meta: 'Free · 60–90 minutes',
+    body: 'You, me, and one or two key leaders. We find where AI can help most, and what to do first.',
+    get: 'A short summary, two or three high-impact moves, and a recommended first step.',
+  },
+  {
+    name: 'Build',
+    meta: 'Fixed scope · From $15K',
+    body: 'We pick one service and do it right. Defined deliverables, timeline, and fee before we start.',
+  },
+  {
+    name: 'Stay sharp',
+    meta: 'Advisory · From $5K/month',
+    body: 'AI changes every month. I keep your plan current so you don’t have to chase every release.',
+  },
+] as const;
+
 export const dispatch = {
   name: 'Dispatch',
   url: 'https://dispatchvault.com',
