@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { ScrollReveal } from '@/components/scroll-reveal';
 import { site } from '@/lib/site';
 import './globals.css';
 
@@ -73,6 +74,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <ScrollReveal />
 
         {/* JSON-LD: Organization + Person — plain <script> so it's in the
             server-rendered HTML for crawlers that don't execute JS */}

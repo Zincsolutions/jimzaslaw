@@ -6,18 +6,19 @@ import { ArrowRight } from 'lucide-react';
 type Variant = 'primary' | 'secondary' | 'ghost' | 'primary-on-ink';
 type Size = 'md' | 'lg';
 
+// Buttons press to 0.97 (same feedback as wearezinc.com).
 // Long labels wrap on narrow screens instead of overflowing the gutter.
 const base =
   'inline-flex items-center justify-center gap-2 font-medium rounded-pill transition-all duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none max-w-full text-center leading-snug sm:whitespace-nowrap';
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-ink text-white hover:bg-accent hover:text-white active:translate-y-[1px]',
+    'bg-ink text-white hover:bg-accent hover:text-white active:scale-[0.97]',
   secondary:
-    'bg-bg text-ink border border-border-strong hover:text-accent hover:border-accent',
+    'bg-bg text-ink border border-border-strong hover:text-accent hover:border-accent active:scale-[0.97]',
   ghost: 'text-ink hover:text-accent',
   'primary-on-ink':
-    'bg-white text-ink hover:bg-accent hover:text-white active:translate-y-[1px]',
+    'bg-white text-ink hover:bg-accent hover:text-white active:scale-[0.97]',
 };
 
 const sizes: Record<Size, string> = {
