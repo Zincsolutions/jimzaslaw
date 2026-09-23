@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
+import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
 import { CTABand } from '@/components/sections/cta-band';
 import { PageFaq } from '@/components/sections/page-faq';
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/about',
-    images: [`/og?title=${encodeURIComponent('I advise from the perspective of someone who has built the work.')}&eyebrow=${encodeURIComponent('About Jim')}`],
+    images: [`/og?title=${encodeURIComponent('I’ve spent 25 years building what AI is now changing.')}&eyebrow=${encodeURIComponent('About Jim')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -27,6 +29,26 @@ export const metadata: Metadata = {
     description,
   },
 };
+
+const roles = [
+  {
+    role: 'Advises',
+    name: 'Me',
+    body: 'I work directly with you and your leadership team. Diagnosis, decisions, setup, and a plan you can run.',
+  },
+  {
+    role: 'Builds',
+    name: site.zinc.name,
+    href: site.zinc.url,
+    body: 'When the work needs a full team (design, development, migration, integrations), ZINC builds it. I stay involved.',
+  },
+  {
+    role: 'Keeps you in control',
+    name: dispatch.name,
+    href: dispatch.url,
+    body: 'ZINC’s governance platform. When your website runs on AI agents, Dispatch keeps you in control.',
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -37,13 +59,11 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <p className="eyebrow">About Jim</p>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
-              I advise from the perspective of someone who has built the work.
+              I&apos;ve spent 25 years building what AI is now changing.
             </h1>
             <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
-              For more than 25 years, I have helped businesses make decisions
-              about brand, websites, e-commerce, marketing, and technology.
-              Today, I apply that experience to the decisions AI is forcing
-              every leadership team to make.
+              Now I help founders and CEOs make the right AI calls and put
+              them to work.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Button
@@ -52,7 +72,7 @@ export default function AboutPage() {
                 variant="primary-on-ink"
                 withArrow
               >
-                Request an AI Opportunity Assessment
+                Get a free assessment
               </Button>
               <Button
                 href="/services"
@@ -60,7 +80,7 @@ export default function AboutPage() {
                 variant="ghost"
                 className="!text-white !border !border-white/30 hover:!border-white hover:!bg-white/10"
               >
-                Explore the four services
+                See the four services
               </Button>
             </div>
           </div>
@@ -88,77 +108,75 @@ export default function AboutPage() {
             <div className="lg:col-span-7 prose-jz [&>p+p]:mt-4">
               <h2>My background</h2>
               <p>
-                I am the CEO of ZINC, a strategy, creative, and technology
-                agency I have led for more than 25 years. Across hundreds of
-                projects, we have helped businesses build and evolve the
-                systems they actually run on: brands, websites, e-commerce
-                platforms, marketing engines, content operations, and
-                technology integrations.
-              </p>
-              <p>
-                That work taught me that a good recommendation cannot live in a
-                slide deck. It has to account for the people who will use it,
-                the brand it represents, the systems it touches, the risk of
-                getting it wrong, and the realities of implementation.
-              </p>
-              <h2>What I believe about AI</h2>
-              <p>
-                AI is not a separate department. It is a new operating layer
-                across the business.
-              </p>
-              <p>
-                The companies that get lasting value from it will not be the
-                ones that adopt the most tools. They will be the ones that make
-                better decisions about where AI belongs, what context it needs,
-                what people must approve, and how the work connects to business
-                outcomes.
-              </p>
-              <p>
-                That is especially true for websites. The question is no longer
-                only how the site looks or which CMS it uses. Leaders also need
-                to decide how agents will work on it, how the company keeps
-                control, and whether an AI-native foundation is the right next
-                step.
-              </p>
-              <h2>The relationship to ZINC and Dispatch</h2>
-              <p>
-                Jim Zaslaw Consulting is my advisory practice.{' '}
+                I&apos;m the CEO of{' '}
                 <a href={site.zinc.url} target="_blank" rel="noopener noreferrer">
                   ZINC
-                </a>{' '}
-                is the agency I lead.
+                </a>
+                , a strategy, creative, and technology agency I&apos;ve led for
+                more than 25 years. Brands, websites, commerce, marketing
+                systems. 300+ projects.
               </p>
               <p>
-                Some engagements end with a decision, roadmap, and leadership
-                alignment. Others reveal a need for brand, design, development,
-                migration, integration, e-commerce, or ongoing support. When
-                execution is needed, ZINC can take the work forward without a
-                handoff to a team that was not part of the strategy.
+                That taught me one thing: advice only counts if it works in the
+                real business.
+              </p>
+              <h2>What I believe</h2>
+              <p>
+                AI isn&apos;t a department. It&apos;s a new layer across the
+                whole business.
               </p>
               <p>
-                For companies moving toward AI-powered websites,{' '}
-                <a href={dispatch.url} target="_blank" rel="noopener noreferrer">
-                  Dispatch
-                </a>{' '}
-                can provide the management layer around agent work: requests,
-                previews, approvals, attribution, monitoring, and restore
-                capability.
-              </p>
-              <p>
-                The roles stay clear: I advise, ZINC executes, and Dispatch
-                governs AI website operations where it fits.
+                The winners won&apos;t have the most tools. They&apos;ll make
+                the best decisions about where AI belongs.
               </p>
             </div>
           </div>
         </Container>
       </section>
-      <CTABand
-        title="Start with the decision that matters most."
-        body="The first step is a 60–90 minute working session. Free. No commitment."
-        primaryLabel="Request an AI Opportunity Assessment"
-        secondaryLabel="Email Jim"
-        secondaryHref="mailto:jim@jimzaslaw.com"
-      />
+
+      {/* Jim, ZINC, Dispatch */}
+      <section className="py-20 md:py-28 bg-bg-soft border-y border-border">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>Jim, ZINC, and Dispatch</Eyebrow>
+            <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+              How it fits together.
+            </h2>
+          </div>
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {roles.map((r) => (
+              <li
+                key={r.name}
+                className="flex flex-col gap-2 border border-border rounded-xl bg-bg p-6 md:p-7"
+              >
+                <p className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink-3">
+                  {r.role}
+                </p>
+                {r.href ? (
+                  <a
+                    href={r.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 self-start text-[20px] font-semibold tracking-[-0.015em] hover:text-accent transition-colors"
+                  >
+                    {r.name}
+                    <ArrowUpRight className="size-4" aria-hidden />
+                  </a>
+                ) : (
+                  <p className="text-[20px] font-semibold tracking-[-0.015em] text-ink">
+                    {r.name}
+                  </p>
+                )}
+                <p className="text-[16px] leading-relaxed text-ink-2">{r.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-10 text-[clamp(22px,3vw,28px)] tracking-[-0.02em] leading-[1.25] font-semibold text-ink">
+            I advise. ZINC builds. {dispatch.name} keeps you in control.
+          </p>
+        </Container>
+      </section>
+      <CTABand />
       <PageFaq
         id="about"
         faqs={aboutFaqs}

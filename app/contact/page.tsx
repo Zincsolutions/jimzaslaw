@@ -7,7 +7,7 @@ import { PageFaq } from '@/components/sections/page-faq';
 import { contactFaqs } from '@/lib/faqs';
 import { site } from '@/lib/site';
 
-const title = 'Request an AI and Digital Opportunity Assessment';
+const title = 'Get a Free AI Assessment';
 const description =
   'Tell Jim Zaslaw about the AI, workflow, or website decision you are facing. He will review it and follow up to schedule a free, focused working session.';
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/contact',
-    images: [`/og?title=${encodeURIComponent('Request an AI and Digital Opportunity Assessment.')}&eyebrow=${encodeURIComponent('Contact')}`],
+    images: [`/og?title=${encodeURIComponent('Let’s find your first move.')}&eyebrow=${encodeURIComponent('Contact')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -37,19 +37,12 @@ export default function ContactPage() {
             <div className="lg:col-span-7">
               <Eyebrow>Free assessment</Eyebrow>
               <h1 className="mt-4 text-[clamp(36px,5vw,56px)] tracking-[-0.025em] leading-[1.05] font-semibold text-balance">
-                Request an AI and Digital Opportunity Assessment.
+                Let&apos;s find your first move.
               </h1>
               <p className="mt-6 text-[18px] md:text-[19px] leading-[1.6] text-ink-2 max-w-xl">
-                Tell me about the business decision, workflow, or website issue
-                you are trying to solve. I will review the information and follow
-                up to schedule a focused working session.
+                Tell me what you&apos;re trying to fix. I&apos;ll reply within
+                one business day to set up a free 60–90 minute session.
               </p>
-              <p className="mt-4 text-[16px] md:text-[17px] leading-[1.6] text-ink-2 max-w-xl">
-                This is a practical assessment, not a generic AI demonstration.
-                We will identify where AI can create value, where the business
-                needs more control, and which decision should come first.
-              </p>
-
               <div className="mt-10">
                 <ContactForm />
               </div>
@@ -91,10 +84,10 @@ export default function ContactPage() {
                       What you get
                     </p>
                     <ul className="mt-1 flex flex-col gap-1 text-ink-2">
-                      <li>· A 60–90 minute working session</li>
+                      <li>· 60–90 minutes with me</li>
                       <li>· A short written summary</li>
-                      <li>· Two or three high-impact recommendations</li>
-                      <li>· A suggested first engagement or decision path</li>
+                      <li>· Two or three high-impact moves</li>
+                      <li>· A recommended first step</li>
                     </ul>
                   </div>
                   <div>

@@ -43,16 +43,15 @@ export function MockupOS() {
         <div className="flex-1 p-4 flex flex-col gap-2.5 overflow-hidden">
           <div className="flex items-center justify-between">
             <p className="text-[11px] font-mono uppercase tracking-[0.08em] text-ink-3">
-              42 prompts
+              Prompt library
             </p>
-            <span className="chip chip-orange">v3.2</span>
           </div>
           {[
-            { t: 'Weekly LinkedIn post — POV format', tag: 'Claude' },
-            { t: 'Webinar follow-up email sequence', tag: 'GPT-5' },
-            { t: 'Customer call → CRM summary', tag: 'Claude' },
-            { t: 'Persona-aligned ad headlines (×8)', tag: 'GPT-5' },
-            { t: 'RFP first-pass draft', tag: 'Claude' },
+            { t: 'Weekly LinkedIn post', tag: 'Marketing' },
+            { t: 'Webinar follow-up email', tag: 'Marketing' },
+            { t: 'Sales call summary', tag: 'Sales' },
+            { t: 'Ad headline variations', tag: 'Content' },
+            { t: 'Proposal first draft', tag: 'Sales' },
           ].map((p, i) => (
             <div
               key={i}

@@ -154,7 +154,7 @@ export default async function ServicePage({ params }: Props) {
                   variant="primary-on-ink"
                   withArrow
                 >
-                  Get a Free Assessment
+                  Get a free assessment
                 </Button>
                 <Button
                   href="/how-it-works"
@@ -166,8 +166,8 @@ export default async function ServicePage({ params }: Props) {
                 </Button>
               </div>
               <p className="font-mono text-[13px] uppercase tracking-[0.06em] text-white/60">
-                Fixed-scope, fixed-fee · Engagements start at{' '}
-                {pricing.implementationFrom}
+                Fixed scope · From {pricing.implementationFrom}
+                {p.timeline ? ` · ${p.timeline}` : ''}
               </p>
             </div>
             <div className="lg:col-span-6">
@@ -179,39 +179,13 @@ export default async function ServicePage({ params }: Props) {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28 bg-bg-soft border-y border-border">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-5">
-              <Eyebrow>Scope</Eyebrow>
-              <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
-                What&apos;s covered.
-              </h2>
-            </div>
-            <ul className="lg:col-span-7 flex flex-col divide-y divide-border border-y border-border">
-              {p.scope.map((s, i) => (
-                <li key={i} className="py-4 flex items-start gap-3">
-                  <span
-                    className="font-mono text-[12px] uppercase tracking-[0.06em] text-ink-3 w-8 shrink-0 mt-1"
-                    aria-hidden
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <p className="text-[16px] leading-relaxed text-ink">{s}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </section>
-
       <section className="py-20 md:py-28">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
               <Eyebrow>Deliverables</Eyebrow>
               <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
-                What you take away.
+                What you get.
               </h2>
             </div>
             <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -238,7 +212,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="max-w-3xl">
             <Eyebrow>Outcome</Eyebrow>
             <p className="mt-4 text-[clamp(22px,3vw,28px)] leading-[1.35] tracking-[-0.015em] text-ink">
-              &ldquo;{p.outcome}&rdquo;
+              {p.outcome}
             </p>
           </div>
         </Container>
