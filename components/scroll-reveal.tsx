@@ -70,15 +70,30 @@ function markDarkBlocks(main: HTMLElement): IntersectionObserver | null {
     el.style.setProperty('--dark-to', to);
     // Decide the starting state before the class lands, so nothing flashes.
     const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight * 0.55 && r.bottom > 0) el.classList.add('is-dark');
+    const vh = window.innerHeight;
+    if ((r.top < vh * 0.55 && r.bottom > 0) || (r.top >= 0 && r.bottom <= vh + 4)) {
+      el.classList.add('is-dark');
+    }
     el.classList.add('dark-fade');
     marked.push(el);
   });
   if (!marked.length) return null;
-  // Dark while the block reaches into the top 55% of the viewport.
+  // Dark while the block reaches into the top 55% of the viewport, or once
+  // it is fully on screen. The second case matters for short blocks at the
+  // end of the page (the footer on a tall monitor), which can never scroll
+  // up far enough to reach the 55% line.
+  const thresholds = Array.from({ length: 51 }, (_, i) => i / 50);
   const io = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.target.classList.toggle('is-dark', e.isIntersecting)),
-    { rootMargin: '0px 0px -45% 0px' },
+    (entries) =>
+      entries.forEach((e) => {
+        const r = e.boundingClientRect;
+        const vh = window.innerHeight;
+        const reachesLine = r.top < vh * 0.55 && r.bottom > 0;
+        // Allow a few pixels for subpixel layout at the very bottom.
+        const fullyVisible = e.intersectionRatio >= 0.98 || (r.top >= 0 && r.bottom <= vh + 4);
+        e.target.classList.toggle('is-dark', reachesLine || fullyVisible);
+      }),
+    { threshold: thresholds },
   );
   marked.forEach((el) => io.observe(el));
   return io;
