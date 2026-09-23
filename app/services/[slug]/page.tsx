@@ -179,6 +179,32 @@ export default async function ServicePage({ params }: Props) {
         </Container>
       </section>
 
+      {/* Stakes (survival) and questions (curiosity) */}
+      <section className="py-20 md:py-28 bg-bg-soft border-b border-border">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            {[
+              { eyebrow: 'What’s at stake', heading: 'What it’s costing you now.', items: p.stakes },
+              { eyebrow: 'What we’ll find out', heading: 'Questions worth answering.', items: p.questions },
+            ].map((col) => (
+              <div key={col.eyebrow}>
+                <Eyebrow>{col.eyebrow}</Eyebrow>
+                <h2 className="mt-3 text-[clamp(24px,3.5vw,32px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+                  {col.heading}
+                </h2>
+                <ul className="mt-6 flex flex-col divide-y divide-border border-y border-border">
+                  {col.items.map((it) => (
+                    <li key={it} className="py-4 text-[17px] leading-snug text-ink">
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="py-20 md:py-28">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -207,13 +233,37 @@ export default async function ServicePage({ params }: Props) {
         </Container>
       </section>
 
+      {/* Success picture, then the guide */}
       <section className="py-20 md:py-28 bg-bg-soft border-y border-border">
         <Container>
-          <div className="max-w-3xl">
-            <Eyebrow>Outcome</Eyebrow>
-            <p className="mt-4 text-[clamp(22px,3vw,28px)] leading-[1.35] tracking-[-0.015em] text-ink">
-              {p.outcome}
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <Eyebrow>After</Eyebrow>
+              <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+                {p.outcome}
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <ul className="flex flex-col divide-y divide-border border-y border-border">
+                {p.wins.map((w) => (
+                  <li key={w} className="py-4 flex items-start gap-4">
+                    <span
+                      className="shrink-0 w-7 h-7 rounded-full chip-orange inline-flex items-center justify-center mt-0.5"
+                      aria-hidden
+                    >
+                      <Check className="size-4" strokeWidth={2} />
+                    </span>
+                    <p className="text-[17px] leading-relaxed text-ink">{w}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 text-[16px] leading-relaxed text-ink-2">
+                You work with me directly, start to finish. I&apos;ve spent 25+
+                years building the brands, websites, and marketing systems AI is
+                changing now. When the build gets big, my team at ZINC takes it
+                on.
+              </p>
+            </div>
           </div>
         </Container>
       </section>

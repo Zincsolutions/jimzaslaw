@@ -44,6 +44,12 @@ export type Service = {
   timeline?: string;
   deliverables: string[];
   outcome: string;
+  /** Survival sound bites: what the reader is losing today. */
+  stakes: string[];
+  /** Curiosity sound bites: the questions the engagement answers. */
+  questions: string[];
+  /** The success picture, as the reader's wins. */
+  wins: string[];
 };
 
 export const services: Service[] = [
@@ -67,6 +73,21 @@ export const services: Service[] = [
       'Training your team can rewatch',
     ],
     outcome: 'Less guessing. More output. Knowledge that stays when people leave.',
+    stakes: [
+      'Your best prompts live in personal chat histories.',
+      'Teams pay for overlapping tools that don’t talk to each other.',
+      'When someone leaves, what they figured out leaves with them.',
+    ],
+    questions: [
+      'Which AI tools are worth paying for, and which just add cost?',
+      'Where is your team quietly redoing the same work?',
+      'What would a new hire need to be productive with AI in week one?',
+    ],
+    wins: [
+      'Everyone works from the same tools, prompts, and standards.',
+      'Good work gets repeated instead of reinvented.',
+      'New hires learn your AI workflows in days, not months.',
+    ],
   },
   {
     slug: 'ai-visibility-engine',
@@ -76,7 +97,7 @@ export const services: Service[] = [
     title: 'Your buyers are asking AI who to hire. Give it a reason to name you.',
     tagline: 'Show up when buyers ask AI who to call.',
     objective:
-      'I find the questions your buyers ask ChatGPT, Claude, Perplexity, and Google. Then we build the content AI can find, trust, and cite.',
+      'Find the questions your buyers ask ChatGPT, Claude, Perplexity, and Google. Then publish the content AI can find, trust, and cite.',
     bestIf: 'your leads depend on being found and trusted.',
     deliverables: [
       'A map of the questions that matter',
@@ -85,6 +106,21 @@ export const services: Service[] = [
       'A process your team keeps running',
     ],
     outcome: 'More buyers show up already knowing who you are.',
+    stakes: [
+      'Buyers ask ChatGPT, Claude, and Perplexity for recommendations before they ever call.',
+      'If AI can’t find clear answers about you, it recommends someone else.',
+      'Your competitors may already be the answer.',
+    ],
+    questions: [
+      'Which questions are your buyers asking AI right now?',
+      'Who is AI recommending instead of you, and why?',
+      'What would it take for AI to understand what you actually do?',
+    ],
+    wins: [
+      'Buyers get clear, accurate answers about you, wherever they ask.',
+      'Your expertise is easy for AI to find and explain.',
+      'Your team keeps publishing without starting from scratch.',
+    ],
   },
   {
     slug: 'ai-brand-asset-system',
@@ -102,6 +138,21 @@ export const services: Service[] = [
       'Step-by-step creation workflows',
     ],
     outcome: 'More campaign, social, and sales visuals. Less time fixing them.',
+    stakes: [
+      'Every AI image starts from a blank prompt, so every one looks different.',
+      'Cleanup eats the time AI was supposed to save.',
+      'Off-brand visuals quietly wear down the brand you built.',
+    ],
+    questions: [
+      'Why do your AI images look fine alone, but wrong together?',
+      'Which visual jobs should AI handle, and which shouldn’t it?',
+      'What would your team make if the cleanup disappeared?',
+    ],
+    wins: [
+      'Visuals that look like you, from anyone on the team.',
+      'Less time fixing, more time shipping campaigns.',
+      'Less reliance on outside design for routine work.',
+    ],
   },
   {
     slug: 'ai-website-transition-strategy',
@@ -112,7 +163,7 @@ export const services: Service[] = [
     tagline:
       'Know whether to fix, migrate, or rebuild your site before you spend a dollar.',
     objective:
-      'AI-native websites change how sites get built and run. I help you pick the right path without putting your brand, search traffic, or integrations at risk.',
+      'AI-native websites change how sites get built and run. Pick the right path without putting your brand, search traffic, or integrations at risk.',
     bestIf: "you're weighing a migration, a rebuild, or an AI-native site.",
     deliverables: [
       'A clear recommendation: improve, migrate, or redesign',
@@ -122,6 +173,17 @@ export const services: Service[] = [
     ],
     outcome:
       'The right website decision, made before anyone writes code.',
+    stakes: [
+      'A migration done wrong can cost search traffic you spent years earning.',
+      'Forms, CRM, and analytics can break quietly, and leads disappear with them.',
+      'AI agents changing your site with nobody approving the work.',
+    ],
+    questions: [
+      'How will AI agents work on your site?',
+      'Who approves changes, and what happens if one is wrong?',
+      'Is your current platform still the right answer?',
+    ],
+    wins: [],
   },
 ];
 

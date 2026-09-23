@@ -139,7 +139,29 @@ export default function AIWebsiteTransitionStrategyPage() {
         </Container>
       </section>
 
-      {/* Why now */}
+      {/* Stakes (survival) */}
+      <section className="py-20 md:py-28">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>What&apos;s at stake</Eyebrow>
+            <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+              A website move is easy to get wrong, and expensive to undo.
+            </h2>
+          </div>
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {service.stakes.map((st) => (
+              <li
+                key={st}
+                className="border border-border rounded-xl bg-bg p-6 md:p-7 text-[17px] leading-snug text-ink"
+              >
+                {st}
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* Why now (curiosity) */}
       <section className="py-20 md:py-28 bg-bg-soft border-y border-border">
         <Container>
           <div className="max-w-3xl">
@@ -188,7 +210,7 @@ export default function AIWebsiteTransitionStrategyPage() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {[
-              { eyebrow: 'Scope', heading: 'What I look at.', items: lookAt },
+              { eyebrow: 'Scope', heading: 'What we look at.', items: lookAt },
               {
                 eyebrow: 'Deliverables',
                 heading: 'What you get.',

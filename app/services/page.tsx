@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/services',
-    images: [`/og?title=${encodeURIComponent('Four services. One goal: AI that moves the business.')}&eyebrow=${encodeURIComponent('Services')}`],
+    images: [`/og?title=${encodeURIComponent('Stop experimenting with AI. Start running on it.')}&eyebrow=${encodeURIComponent('Services')}`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -50,10 +50,11 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <p className="eyebrow">Services</p>
             <h1 className="mt-4 text-[clamp(40px,6vw,64px)] tracking-[-0.03em] leading-[1.05] font-semibold">
-              Four services. One goal: AI that moves the business.
+              Stop experimenting with AI. Start running on it.
             </h1>
             <p className="mt-6 text-[18px] md:text-[20px] leading-[1.6] max-w-[60ch] text-pretty">
-              Fixed scope. Fixed fee. Real systems, not slide decks.
+              Four fixed-scope services, each built to move one part of your
+              business. Real systems your team uses, not slide decks.
             </p>
             <p className="mt-5 font-mono text-[13px] uppercase tracking-[0.06em] text-white/60">
               {pricing.implementation} · {pricing.retainer}
