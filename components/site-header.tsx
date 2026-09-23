@@ -377,7 +377,7 @@ function MobileNav({
       aria-modal="true"
       aria-label="Mobile menu"
       className={cn(
-        'md:hidden fixed inset-0 z-[60] flex flex-col',
+        'mobile-menu md:hidden fixed inset-0 z-[60] flex flex-col',
         dark ? 'bg-[var(--dark-bg)] text-white' : 'bg-bg',
       )}
     >
