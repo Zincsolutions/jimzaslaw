@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Eyebrow } from '@/components/ui/eyebrow';
 import { Button } from '@/components/ui/button';
@@ -8,6 +9,8 @@ import { CTABand } from '@/components/sections/cta-band';
 import { PageFaq } from '@/components/sections/page-faq';
 import { aboutFaqs } from '@/lib/faqs';
 import { site, dispatch } from '@/lib/site';
+import { projects } from '@/lib/projects';
+import { ProjectBrand } from '@/components/project-brand';
 
 const title = 'About Jim Zaslaw: AI Consultant & CEO of ZINC';
 const description =
@@ -175,6 +178,56 @@ export default function AboutPage() {
           <p className="mt-10 text-[clamp(22px,3vw,28px)] tracking-[-0.02em] leading-[1.25] font-semibold text-ink">
             I advise. ZINC builds. {dispatch.name} keeps you in control.
           </p>
+        </Container>
+      </section>
+
+      {/* Jim's own AI-powered products */}
+      <section className="py-20 md:py-28">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <Eyebrow>AI projects</Eyebrow>
+              <h2 className="mt-3 text-[clamp(26px,4vw,38px)] tracking-[-0.02em] leading-[1.1] font-semibold">
+                I build with AI, not just advise on it.
+              </h2>
+              <p className="mt-5 text-[17px] leading-relaxed text-ink-2">
+                Alongside my consulting and ZINC, I’m developing AI-powered
+                products of my own: DiscoverArt, Predictant, and GarageWire.
+                They’re where I build and test new technologies in real
+                conditions, so the tools and workflows I bring to clients have
+                already been proven to help a business scale.
+              </p>
+            </div>
+            <div className="lg:col-span-5 lg:text-right">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-1.5 text-[15px] font-medium text-ink hover:text-accent transition-colors"
+              >
+                See my AI projects
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
+            </div>
+          </div>
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/projects#${p.slug}`}
+                  className="group flex flex-col gap-4 border border-border rounded-xl bg-bg p-4 hover:border-accent/40 transition-colors"
+                >
+                  <ProjectBrand project={p} size="sm" />
+                  <div className="px-1 pb-1">
+                    <p className="text-[18px] font-semibold tracking-[-0.01em] text-ink transition-colors group-hover:text-accent">
+                      {p.name}
+                    </p>
+                    <p className="mt-1 text-[14px] leading-snug text-ink-2">
+                      {p.tagline}
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
       <CTABand />
