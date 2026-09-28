@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
@@ -23,15 +22,7 @@ export function CTABand({
   secondaryHref?: string;
 } = {}) {
   return (
-    <section className="on-ink relative overflow-hidden">
-      <Image
-        src="/logos/jim-mark.svg"
-        alt=""
-        width={420}
-        height={420}
-        aria-hidden
-        className="absolute -right-16 -bottom-24 w-[320px] md:w-[420px] opacity-[0.07] pointer-events-none"
-      />
+    <section className="on-ink">
       <Container className="relative py-20 md:py-28">
         <div className="flex flex-col gap-6 max-w-3xl">
           <h2 className="text-[clamp(32px,5vw,52px)] tracking-[-0.025em] leading-[1.05] font-semibold">
