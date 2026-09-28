@@ -437,3 +437,46 @@ export const blogFaqs: Faq[] = [
     a: 'Subscribe to the RSS feed at jimzaslaw.com/feed.xml, or visit the Field Notes page at jimzaslaw.com/blog, where articles can be filtered by topic. You can also follow Jim Zaslaw on LinkedIn.',
   },
 ];
+
+export const projectsFaqs: Faq[] = [
+  {
+    q: 'What AI projects is Jim Zaslaw working on?',
+    a: 'I’m developing three AI-powered products alongside my consulting practice and ZINC: DiscoverArt, a taste-graph discovery engine for art; Predictant, AI-powered prediction tools for e-commerce and Shopify merchants; and GarageWire, fitment intelligence for modified vehicles. Each one is where I build and test AI before bringing what works to clients.',
+  },
+  {
+    q: 'What is DiscoverArt?',
+    a: 'DiscoverArt is a taste-graph discovery engine for art. You react to a handful of works, a visual taste engine learns what moves you, and the site opens a personalized gallery drawn from the world’s great museum collections, including artists you may never have heard of. It is live at discoverart.com.',
+  },
+  {
+    q: 'Does DiscoverArt use AI-generated art?',
+    a: 'No. The AI learns your taste; it does not make the art. Every work on DiscoverArt is a real object in a real museum, with images shared through museums’ open-access programs, and nothing on the site is AI-generated.',
+  },
+  {
+    q: 'What is Predictant?',
+    a: 'Predictant offers AI-powered prediction solutions for e-commerce: price optimization, promotion forecasting, competitor monitoring, margin calculation, a real-time dashboard, and a ChatGPT framework for customer interactions. It helps entrepreneurs and merchants make pricing and promotion decisions with data instead of guesswork. It is at predictant.com.',
+  },
+  {
+    q: 'Does Predictant work with Shopify?',
+    a: 'Yes. Predictant’s Shopify Sync connects its prediction tools to a Shopify store, so pricing, promotion, and margin insights work with the store a merchant already runs.',
+  },
+  {
+    q: 'What is agentic e-commerce?',
+    a: 'Agentic e-commerce is shopping where AI agents do more of the work: researching products, comparing options, and increasingly completing purchases on a shopper’s behalf. For merchants, it raises the importance of clean product data, competitive pricing, and clear information an AI agent can read and trust. Predictant is focused on helping merchants prepare for that shift.',
+  },
+  {
+    q: 'What is GarageWire?',
+    a: 'GarageWire is fitment intelligence for modified vehicles. Owners park their ride in the garage and get straight answers about what fits, what rubs, and what needs work, backed by real builds running the parts they want. The promise is simple: know it fits before you buy. It is live at garagewire.com.',
+  },
+  {
+    q: 'Why does an AI consultant build his own products?',
+    a: 'Because the fastest way to know what works is to use it. My projects are where I test new AI tools, models, and workflows on real users and real data before recommending them. The advice clients get has been put to work, not just read about, and the lessons carry straight into my services and ZINC’s execution.',
+  },
+  {
+    q: 'Are Jim Zaslaw’s projects built as AI-native websites?',
+    a: 'Yes. Each project is an AI-native codebase, built and maintained with AI coding agents. That is the same operating model I help clients evaluate in an AI Website Transition Strategy, so I can speak to what it takes in practice: the speed, the review process, and where people still need to be in the loop.',
+  },
+  {
+    q: 'Can Jim Zaslaw help my business build something similar?',
+    a: 'Yes. The usual first step is a free AI and Digital Opportunity Assessment to find where AI can create the most value in your business. If the answer involves a new AI-powered product, website, or workflow, ZINC, the agency I lead, can build it with me involved from strategy through launch.',
+  },
+];
