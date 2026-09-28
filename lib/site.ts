@@ -226,7 +226,7 @@ export const navLinks = {
 export const clientLogos = [
   { name: 'Sequel', src: '/clients/sequel.webp' },
   { name: 'Navigator', src: '/clients/navigator.webp' },
-  { name: 'TB', src: '/clients/tb.webp' },
+  { name: 'Thoma Bravo', src: '/clients/tb.webp' },
   { name: 'G99', src: '/clients/g99.webp' },
   { name: 'BFF', src: '/clients/bff.webp' },
   { name: 'Kroil Oil', src: '/clients/kroil-oil.webp' },

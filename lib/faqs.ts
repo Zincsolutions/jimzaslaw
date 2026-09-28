@@ -332,7 +332,7 @@ export const aboutFaqs: Faq[] = [
   },
   {
     q: 'What companies has Jim Zaslaw worked with?',
-    a: 'Through ZINC, I have worked with companies such as Mac Tools, Kroil Oil, Batory Foods, Airlift, Navigator, and Sequel, across more than 300 launched projects. My consulting clients are typically owner-led and mid-market businesses whose leaders want practical AI decisions grounded in how brands, websites, and marketing systems actually get built.',
+    a: 'Through ZINC, I have worked with companies such as Thoma Bravo, Mac Tools, Kroil Oil, Batory Foods, Airlift, Navigator, and Sequel, across more than 300 launched projects. My consulting clients are typically owner-led and mid-market businesses whose leaders want practical AI decisions grounded in how brands, websites, and marketing systems actually get built.',
   },
   {
     q: 'What makes Jim Zaslaw different from other AI consultants?',
