@@ -10,9 +10,9 @@ import { projects } from '@/lib/projects';
 import { projectsFaqs } from '@/lib/faqs';
 import { site } from '@/lib/site';
 
-const title = 'AI Projects: DiscoverArt, Predictant, GarageWire';
+const title = 'AI Projects: DiscoverArt, Predictant, GarageWire, Dispatch';
 const description =
-  'The AI-powered products Jim Zaslaw is building: DiscoverArt, Predictant, and GarageWire. Where new AI tools get tested before they reach clients.';
+  'The AI-powered products Jim Zaslaw is building: DiscoverArt, Predictant, GarageWire, and Dispatch. Where new AI tools get tested before they reach clients.';
 
 export const metadata: Metadata = {
   title,

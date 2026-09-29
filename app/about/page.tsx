@@ -192,7 +192,8 @@ export default function AboutPage() {
               </h2>
               <p className="mt-5 text-[17px] leading-relaxed text-ink-2">
                 Alongside my consulting and ZINC, I’m developing AI-powered
-                products of my own: DiscoverArt, Predictant, and GarageWire.
+                products of my own: DiscoverArt, Predictant, GarageWire, and
+                Dispatch.
                 They’re where I build and test new technologies in real
                 conditions, so the tools and workflows I bring to clients have
                 already been proven to help a business scale.
@@ -208,7 +209,7 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-          <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((p) => (
               <li key={p.slug}>
                 <Link

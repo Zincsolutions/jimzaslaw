@@ -61,6 +61,16 @@ export function ProjectBrand({
           </span>
         </div>
       ) : null}
+      {project.slug === 'dispatch' ? (
+        <Image
+          src="/projects/dispatch-logo.svg"
+          alt=""
+          width={201}
+          height={42}
+          unoptimized
+          className={lg ? 'w-56 md:w-64' : 'w-36'}
+        />
+      ) : null}
       <span
         className="absolute inset-x-0 bottom-0 h-1"
         style={{ backgroundColor: project.brand.accent }}
