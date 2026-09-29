@@ -441,7 +441,7 @@ export const blogFaqs: Faq[] = [
 export const projectsFaqs: Faq[] = [
   {
     q: 'What AI projects is Jim Zaslaw working on?',
-    a: 'I’m developing three AI-powered products alongside my consulting practice and ZINC: DiscoverArt, a taste-graph discovery engine for art; Predictant, AI-powered prediction tools for e-commerce and Shopify merchants; and GarageWire, fitment intelligence for modified vehicles. Each one is where I build and test AI before bringing what works to clients.',
+    a: 'I’m developing four AI-powered products alongside my consulting practice and ZINC: DiscoverArt, a taste-graph discovery engine for art; Predictant, AI-powered prediction tools for e-commerce and Shopify merchants; GarageWire, fitment intelligence for modified vehicles; and Dispatch, the management layer for AI-powered websites. Each one is where I build and test AI before bringing what works to clients.',
   },
   {
     q: 'What is DiscoverArt?',
@@ -453,11 +453,7 @@ export const projectsFaqs: Faq[] = [
   },
   {
     q: 'What is Predictant?',
-    a: 'Predictant offers AI-powered prediction solutions for e-commerce: price optimization, promotion forecasting, competitor monitoring, margin calculation, a real-time dashboard, and a ChatGPT framework for customer interactions. It helps entrepreneurs and merchants make pricing and promotion decisions with data instead of guesswork. It is at predictant.com.',
-  },
-  {
-    q: 'Does Predictant work with Shopify?',
-    a: 'Yes. Predictant’s Shopify Sync connects its prediction tools to a Shopify store, so pricing, promotion, and margin insights work with the store a merchant already runs.',
+    a: 'Predictant offers AI-powered prediction solutions for e-commerce: price optimization, promotion forecasting, competitor monitoring, margin calculation, a real-time dashboard, and a ChatGPT framework for customer interactions, with Shopify Sync connecting it all to a Shopify store. It helps merchants make pricing and promotion decisions with data instead of guesswork. It is at predictant.com.',
   },
   {
     q: 'What is agentic e-commerce?',
@@ -466,6 +462,10 @@ export const projectsFaqs: Faq[] = [
   {
     q: 'What is GarageWire?',
     a: 'GarageWire is fitment intelligence for modified vehicles. Owners park their ride in the garage and get straight answers about what fits, what rubs, and what needs work, backed by real builds running the parts they want. The promise is simple: know it fits before you buy. It is live at garagewire.com.',
+  },
+  {
+    q: 'How does Dispatch keep an AI-built website under control?',
+    a: 'Dispatch sits above the coding agent, repository, and host. Every agent-made change is previewed, routed for approval by role and risk tier, attributed to whoever or whatever made it, and reversible with a one-click restore. It also monitors the site, scores it, and drafts fixes for the team to review. It is live at dispatchvault.com.',
   },
   {
     q: 'Why does an AI consultant build his own products?',

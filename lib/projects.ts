@@ -2,7 +2,7 @@
 // Copy stays within each product's public positioning.
 
 export type Project = {
-  slug: 'discoverart' | 'predictant' | 'garagewire';
+  slug: 'discoverart' | 'predictant' | 'garagewire' | 'dispatch';
   name: string;
   url: string;
   domain: string;
@@ -56,5 +56,19 @@ export const projects: Project[] = [
     forClients:
       'Turning scattered community knowledge into structured, trustworthy answers, the same foundation AI search rewards.',
     brand: { bg: '#15181c', accent: '#e8541d' },
+  },
+  {
+    slug: 'dispatch',
+    name: 'Dispatch',
+    url: 'https://dispatchvault.com',
+    domain: 'dispatchvault.com',
+    category: 'AI website governance',
+    tagline: 'Let AI scale your website, without losing control.',
+    summary:
+      'Dispatch is the management layer for AI-powered websites. Teams keep the coding agent they already use, such as Claude Code, Codex, or Gemini, on the repo and host they already run, and every change is previewed, approved, attributed, and reversible. Dispatch also watches the site, scores it, and drafts fixes before anyone has to ask. This website is governed by Dispatch.',
+    aiAtWork: 'AI agents build and update the site; Dispatch adds approvals, risk tiers, attribution, and one-click restore.',
+    forClients:
+      'The governance model behind the AI-native websites I help clients plan, so moving faster never means losing control.',
+    brand: { bg: '#1a1919', accent: '#e4f222' },
   },
 ];
