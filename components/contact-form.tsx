@@ -147,7 +147,9 @@ export function ContactForm() {
     }
 
     try {
-      const res = await fetch('/', {
+      // Post to the static __forms.html file: on the Next.js runtime, Netlify's
+      // form handler only intercepts POSTs to static files, not page routes.
+      const res = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString(),
