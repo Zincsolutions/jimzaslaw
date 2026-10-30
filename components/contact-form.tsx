@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
 
@@ -88,6 +88,7 @@ export function ContactForm() {
   const [helpAreasError, setHelpAreasError] = useState<string | null>(null);
   const [integrations, setIntegrations] = useState<string[]>([]);
   const [, startTransition] = useTransition();
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
   const websiteSelected = helpAreas.some((a) => websiteHelpAreas.includes(a));
 
@@ -98,6 +99,15 @@ export function ContactForm() {
     const area = interest ? interestPrefill[interest] : undefined;
     if (area) setHelpAreas((prev) => (prev.includes(area) ? prev : [...prev, area]));
   }, []);
+
+  // The success card is much shorter than the form, so the browser would keep
+  // the old scroll offset and land on the FAQs. Jump to the top instead so the
+  // confirmation is in view, and move focus to it for screen readers.
+  useEffect(() => {
+    if (status.state !== 'success') return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    successHeadingRef.current?.focus({ preventScroll: true });
+  }, [status.state]);
 
   const toggleHelpArea = (area: string) => {
     setHelpAreas((prev) =>
@@ -181,7 +191,11 @@ export function ContactForm() {
         aria-live="polite"
         className="border border-border rounded-xl bg-bg-soft p-8"
       >
-        <h3 className="text-[22px] font-semibold tracking-[-0.015em]">
+        <h3
+          ref={successHeadingRef}
+          tabIndex={-1}
+          className="text-[22px] font-semibold tracking-[-0.015em] text-accent outline-none"
+        >
           Thank you. Your request has been received.
         </h3>
         <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
